@@ -16,7 +16,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
-//        launchingAnimation()
+        
+        
+        //下一版本最好增加3Dtouch
+        
+        
         return true
     }
 
@@ -41,70 +45,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillTerminate(application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
-    
-//    func launchingAnimation(){
-////        let viewSize = .window.bounds().size();
-//        let launchingAnimationView = UIView.init(frame: window!.bounds)
-//        let label = GlitchLabel.init(frame: CGRect.init(x: 10, y: window!.bounds.size.height/2-50/2.0, width: window!.bounds.size.width-10*2.0, height: 50.0))
-//        label.text = "Hello World"
-////        label.font = UIFont.init(name: "System Black", size: 50.0)
-//        label.font = UIFont.systemFontOfSize(50.0)
-////        label.backgroundColor = UIColor.blackColor()
-////        label.textColor = UIColor.whiteColor()
-//        launchingAnimationView.backgroundColor = UIColor.blackColor()
-//        launchingAnimationView.addSubview(label)
-//        
-//        UIView.animateWithDuration(3.0, delay: 0.0, options: UIViewAnimationOptions.BeginFromCurrentState, animations: {
-//            launchingAnimationView.alpha = 0.0
-//            launchingAnimationView.layer.transform = CATransform3DScale(CATransform3DIdentity, 1.2, 1.2, 1.0)
-//            }) { (finished) in
-//                launchingAnimationView.removeFromSuperview()
-//        }
-    
-//    }
-    
-    //- (void)addLoadingAnimation {
-    //    CGSize viewSize = self.window.bounds.size;
-    //    NSString *viewOrientation = @"Portrait";  //横屏请设置成 @"Landscape"
-    //    NSString *launchImage = nil;
-    //    NSArray* imagesDict = [[[NSBundle mainBundle] infoDictionary] valueForKey:@"UILaunchImages"];
-    //    for (NSDictionary* dict in imagesDict)
-    //    {
-    //        CGSize imageSize = CGSizeFromString(dict[@"UILaunchImageSize"]);
-    //
-    //        if (CGSizeEqualToSize(imageSize, viewSize) && [viewOrientation isEqualToString:dict[@"UILaunchImageOrientation"]])
-    //        {
-    //            launchImage = dict[@"UILaunchImageName"];
-    //        }
-    //    }
-    //    launchView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:launchImage]];
-    //    launchView.backgroundColor = [UIColor redColor];
-    //    launchView.frame = self.window.bounds;
-    //    launchView.contentMode = UIViewContentModeScaleAspectFill;
-    //    [self.window addSubview:launchView];
-    //
-    //    //    UIActivityIndicatorView *acView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhite];
-    //    //    [launchView addSubview:acView];
-    //    //    [acView startAnimating];
-    //    //    acView.hidesWhenStopped = YES;
-    //    //    acView.center = launchView.center;
-    //
-    //    [UIView animateWithDuration:0.7f
-    //        delay:0.0f
-    //        options:UIViewAnimationOptionBeginFromCurrentState
-    //        animations:^{
-    //
-    //        launchView.alpha = 0.0f;
-    //        launchView.layer.transform = CATransform3DScale(CATransform3DIdentity, 1.2, 1.2, 1);
-    //
-    //        }
-    //        completion:^(BOOL finished) {
-    //        
-    //        [launchView removeFromSuperview];
-    //        
-    //        }];
-    //}
-
 
 }
 

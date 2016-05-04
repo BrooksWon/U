@@ -94,7 +94,7 @@ extension RootViewController: PathMenuDelegate {
         switch idx {
         case 0:
             //评分
-            UIApplication.sharedApplication().openURL(NSURL.init(string: "http://www.baidu.com")!)
+            UIApplication.sharedApplication().openURL(NSURL.init(string: "https://itunes.apple.com/us/app/u./id1110613814?l=zh&ls=1&mt=8")!)
             break
         case 1:
             //关于
