@@ -12,6 +12,7 @@ class RootViewController: UIViewController {
     
     @IBOutlet var glitchLabel: GlitchLabel!
     @IBOutlet var voiceLabel: UILabel!
+    @IBOutlet weak var navBar: UIView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,6 +20,7 @@ class RootViewController: UIViewController {
 //        glitchLabel.blendMode = .Multiply
         glitchLabel.text = "Hello, Uer!"
 //        view.backgroundColor = UIColor.whiteColor()
+       
         
         sleep(1);
         
@@ -30,20 +32,18 @@ class RootViewController: UIViewController {
             self.glitchLabel.removeFromSuperview()
             // path
             self.view.addSubview(self.addPathMenu())
-            UIApplication.sharedApplication().statusBarHidden = false
             self.voiceLabel.hidden = false
+            self.navBar.hidden = false
             self.voiceLabel.text = "愿在以后的日子里，你能被世界温柔以待。\n \n by 暖小团"
             
         }
         
-        
-        
-        
-        
-        
     }
     
 
+    override func preferredStatusBarStyle() -> UIStatusBarStyle {
+        return UIStatusBarStyle.LightContent
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -53,9 +53,9 @@ class RootViewController: UIViewController {
         
         let starMenuItem1 = PathMenuItem.init(image: UIImage(named: "plusBg")!, highlightedImage: UIImage(named: "plusBg")!, contentImage: UIImage(named: "comment")!)
         
-        let starMenuItem2 = PathMenuItem.init(image: UIImage(named: "plusBg")!, highlightedImage: UIImage(named: "plusBg")!, contentImage: UIImage(named: "info")!)
+        let starMenuItem2 = PathMenuItem.init(image: UIImage(named: "plusBg")!, highlightedImage: UIImage(named: "plusBg")!, contentImage: UIImage(named: "ktv")!)
         
-        let starMenuItem3 = PathMenuItem.init(image: UIImage(named: "plusBg")!, highlightedImage: UIImage(named: "plusBg")!, contentImage: UIImage(named: "ktv")!)
+        let starMenuItem3 = PathMenuItem.init(image: UIImage(named: "plusBg")!, highlightedImage: UIImage(named: "plusBg")!, contentImage: UIImage(named: "info")!)
         
         
         starMenuItem2.endPoint = CGPointMake(300, view.frame.size.height - 230.0)
@@ -93,12 +93,12 @@ extension RootViewController: PathMenuDelegate {
             UIApplication.sharedApplication().openURL(NSURL.init(string: "https://itunes.apple.com/us/app/u./id1110613814?l=zh&ls=1&mt=8")!)
             break
         case 1:
-            //关于
-            self.showViewController(MeViewController.init(), sender: nil)
-            break
-        case 2:
             // 我的Voice
             self.showViewController(MyVoiceViewController.init(), sender: nil)
+            break
+        case 2:
+             //关于
+            self.showViewController(MeViewController.init(), sender: nil)
         default:
             break;
         }

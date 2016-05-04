@@ -11,17 +11,23 @@ import UIKit
 class MeViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var versionLabel: UILabel!
     
     @IBAction func backBtnAction(sender: AnyObject) {
         self.navigationController?.popViewControllerAnimated(true)
     }
 
-    let items = ["Ray Wenderlich", "NSHipster", "iOS Developer Tips", "Jameson Quave", "Natasha The Robot", "Coding Explorer", "That Thing In Swift", "Andrew Bancroft", "iAchieved.it", "Airspeed Velocity", "Ray Wenderlich", "NSHipster", "iOS Developer Tips", "Jameson Quave", "Natasha The Robot", "Coding Explorer", "That Thing In Swift", "Andrew Bancroft", "iAchieved.it", "Airspeed Velocity"]
+    let items = ["邮箱地址： open.self.now@gmail.com"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        let version = NSBundle.mainBundle().objectForInfoDictionaryKey("CFBundleShortVersionString") as! String
+        versionLabel.text = (NSString(format: "当前版本 %@", version)) as String
+    }
+    
+    override func preferredStatusBarStyle() -> UIStatusBarStyle {
+        return UIStatusBarStyle.LightContent
     }
 }
 
@@ -39,6 +45,7 @@ extension MeViewController: UITableViewDataSource {
         var cell = tableView.dequeueReusableCellWithIdentifier(cellID)
         if (nil == cell) {
             cell = UITableViewCell.init(style: UITableViewCellStyle.Default, reuseIdentifier: cellID)
+            cell?.accessoryType = UITableViewCellAccessoryType.DisclosureIndicator
         }
         
         cell!.textLabel?.text = items[indexPath.row]
