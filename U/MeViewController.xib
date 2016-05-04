@@ -20,15 +20,14 @@
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TkW-lg-Rn4">
                             <rect key="frame" x="0.0" y="0.0" width="600" height="20"/>
-                            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="20" id="TKJ-Me-j6u"/>
                             </constraints>
                         </view>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="关于U." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KuD-aN-AE8">
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="关于 U." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KuD-aN-AE8">
                             <rect key="frame" x="0.0" y="20" width="600" height="44"/>
                             <fontDescription key="fontDescription" type="system" weight="black" pointSize="20"/>
-                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ggb-Ge-Aqt">
@@ -38,13 +37,17 @@
                                 <constraint firstAttribute="height" constant="1" id="QqV-LU-t7c"/>
                             </constraints>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                            <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3TO-ZN-Ve9">
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3TO-ZN-Ve9">
                             <rect key="frame" x="10" y="22" width="40" height="40"/>
-                            <color key="backgroundColor" red="0.31372549020000001" green="0.70588235290000001" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                            <state key="normal" title="X">
+                            <color key="backgroundColor" red="0.10585353523492813" green="0.10581768304109573" blue="0.10994400829076767" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="40" id="DqW-D2-p7J"/>
+                                <constraint firstAttribute="width" constant="40" id="cWb-Ib-VNW"/>
+                            </constraints>
+                            <state key="normal" image="back">
                                 <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
                             <connections>
@@ -52,17 +55,19 @@
                             </connections>
                         </button>
                     </subviews>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <color key="backgroundColor" red="0.10585353523492813" green="0.10581768304109573" blue="0.10994400829076767" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstAttribute="trailing" secondItem="TkW-lg-Rn4" secondAttribute="trailing" id="6NL-0I-lnQ"/>
                         <constraint firstItem="TkW-lg-Rn4" firstAttribute="leading" secondItem="iuK-nQ-h2e" secondAttribute="leading" id="CL1-6Y-Zre"/>
                         <constraint firstAttribute="height" constant="64" id="DBO-4Y-cq5"/>
+                        <constraint firstItem="3TO-ZN-Ve9" firstAttribute="leading" secondItem="iuK-nQ-h2e" secondAttribute="leading" constant="10" id="HBL-bX-aZ0"/>
                         <constraint firstAttribute="bottom" secondItem="KuD-aN-AE8" secondAttribute="bottom" id="Iub-cC-6PB"/>
                         <constraint firstAttribute="trailing" secondItem="KuD-aN-AE8" secondAttribute="trailing" id="JPc-Ma-Caz"/>
                         <constraint firstItem="KuD-aN-AE8" firstAttribute="top" secondItem="TkW-lg-Rn4" secondAttribute="bottom" id="L9R-jw-OnQ"/>
                         <constraint firstItem="TkW-lg-Rn4" firstAttribute="top" secondItem="iuK-nQ-h2e" secondAttribute="top" id="PEy-1V-isc"/>
                         <constraint firstItem="KuD-aN-AE8" firstAttribute="leading" secondItem="iuK-nQ-h2e" secondAttribute="leading" id="Rqn-9A-Ps2"/>
                         <constraint firstAttribute="trailing" secondItem="Ggb-Ge-Aqt" secondAttribute="trailing" id="UYI-nF-TDU"/>
+                        <constraint firstItem="3TO-ZN-Ve9" firstAttribute="top" secondItem="TkW-lg-Rn4" secondAttribute="bottom" constant="2" id="ZVY-9e-V2E"/>
                         <constraint firstItem="Ggb-Ge-Aqt" firstAttribute="leading" secondItem="iuK-nQ-h2e" secondAttribute="leading" id="w3H-H9-VKh"/>
                         <constraint firstAttribute="bottom" secondItem="Ggb-Ge-Aqt" secondAttribute="bottom" id="yyd-JX-LyO"/>
                     </constraints>
@@ -88,4 +93,7 @@
             </constraints>
         </view>
     </objects>
+    <resources>
+        <image name="back" width="32" height="32"/>
+    </resources>
 </document>

@@ -45,6 +45,40 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillTerminate(application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
+    
+    
+//    - (void)customizeAppearance {
+//    // 设置导航条背景 和顶部文字样式
+//    //    UIImage *navBg = [[UIImage imageNamed:@"navigationbar_background"] resizableImageWithCapInsets:UIEdgeInsetsZero resizingMode:UIImageResizingModeTile];
+//    UIImage *navBg = [self imageFromColor:[UIColor whiteColor] height:64];
+//    [[UINavigationBar appearance] setBackgroundImage:navBg forBarMetrics:UIBarMetricsDefault];
+//    //    [[UINavigationBar appearance] setTitleTextAttributes:
+//    //     [NSDictionary dictionaryWithObjectsAndKeys:
+//    //      [UIColor blackColor],NSForegroundColorAttributeName,
+//    //      [UIFont systemFontOfSize:18],NSFontAttributeName, nil]
+//    //     ];
+//    
+//    //    UIImage *tabbarBg = [[UIImage imageNamed:@"tabbar_background"] resizableImageWithCapInsets:UIEdgeInsetsZero resizingMode:UIImageResizingModeTile];
+//    UIImage *tabbarBg = [self imageFromColor:[UIColor whiteColor] height:49];
+//    [[UITabBar appearance] setBackgroundImage:tabbarBg];
+//    
+//    //    [[UINavigationBar appearance] setBarTintColor:[UIColor whiteColor]];
+//    //    [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
+//    //    [[UINavigationBar appearance] setTitleVerticalPositionAdjustment:2 forBarMetrics:UIBarMetricsDefault];
+//    }
+//    
+//    //通过颜色来生成一个纯色图片
+//    - (UIImage *)imageFromColor:(UIColor *)color height:(CGFloat)height{
+//    
+//    CGRect rect = CGRectMake(0, 0, self.window.frame.size.width,height);
+//    UIGraphicsBeginImageContext(rect.size);
+//    CGContextRef context = UIGraphicsGetCurrentContext();
+//    CGContextSetFillColorWithColor(context, [color CGColor]);
+//    CGContextFillRect(context, rect);
+//    UIImage *img = UIGraphicsGetImageFromCurrentImageContext();
+//    UIGraphicsEndImageContext();
+//    return img;
+//    }
 
 }
 

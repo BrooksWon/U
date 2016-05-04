@@ -28,12 +28,11 @@ class RootViewController: UIViewController {
             
         }) { (finished) in
             self.glitchLabel.removeFromSuperview()
-            self.view.backgroundColor = UIColor.whiteColor()
             // path
             self.view.addSubview(self.addPathMenu())
             UIApplication.sharedApplication().statusBarHidden = false
             self.voiceLabel.hidden = false
-            self.voiceLabel.text = "愿我在以后的日子里，你能被世界温柔以待。\n \n by 暖小团"
+            self.voiceLabel.text = "愿在以后的日子里，你能被世界温柔以待。\n \n by 暖小团"
             
         }
         
@@ -51,25 +50,22 @@ class RootViewController: UIViewController {
     }
     
     func addPathMenu() -> PathMenu {
-        let menuItemImage = UIImage.init(named: "bg-menuitem-highlighted")
-        let menuItemHighlitedImage = UIImage.init(named: "bg-menuitem-highlighted")
-        let starImage = UIImage.init(named: "icon-star")
         
-        let starMenuItem1 = PathMenuItem.init(image: menuItemImage!, highlightedImage: menuItemHighlitedImage, contentImage: starImage)
+        let starMenuItem1 = PathMenuItem.init(image: UIImage(named: "plusBg")!, highlightedImage: UIImage(named: "plusBg")!, contentImage: UIImage(named: "comment")!)
         
-        let starMenuItem2 = PathMenuItem.init(image: menuItemImage!, highlightedImage: menuItemHighlitedImage, contentImage: starImage)
+        let starMenuItem2 = PathMenuItem.init(image: UIImage(named: "plusBg")!, highlightedImage: UIImage(named: "plusBg")!, contentImage: UIImage(named: "info")!)
         
-        let starMenuItem3 = PathMenuItem.init(image: menuItemImage!, highlightedImage: menuItemHighlitedImage, contentImage: starImage)
+        let starMenuItem3 = PathMenuItem.init(image: UIImage(named: "plusBg")!, highlightedImage: UIImage(named: "plusBg")!, contentImage: UIImage(named: "ktv")!)
         
         
         starMenuItem2.endPoint = CGPointMake(300, view.frame.size.height - 230.0)
         
         let items = [starMenuItem1, starMenuItem2, starMenuItem3]
         
-        let startItem = PathMenuItem.init(image: UIImage(named: "bg-addbutton")!,
-                                          highlightedImage: UIImage(named: "bg-addbutton-highlighted"),
-                                          contentImage: UIImage(named: "icon-plus"),
-                                          highlightedContentImage: UIImage(named: "icon-plus-highlighted"))
+        let startItem = PathMenuItem.init(image: UIImage(named: "plusBg")!,
+                                          highlightedImage: UIImage(named: "plusBg"),
+                                          contentImage: UIImage(named: "plus"),
+                                          highlightedContentImage: UIImage(named: "plus"))
         
         
         let menu = PathMenu.init(frame: view.bounds, startItem: startItem, items: items)

@@ -13,9 +13,9 @@ class MainNavigationController: UINavigationController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationBar.hidden = true
-        let statusView = UIView.init(frame: CGRectMake(0, 0, self.view.bounds.size.width, 20))
-        statusView.backgroundColor = UIColor.blackColor()
-        view.addSubview(statusView)
+//        let statusView = UIView.init(frame: CGRectMake(0, 0, self.view.bounds.size.width, 20))
+//        statusView.backgroundColor = UIColor.blackColor()
+//        view.addSubview(statusView)
         
     }
 
