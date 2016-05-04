@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="eHm-WM-7Jn">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <scenes>
+        <!--Root View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="RootViewController" customModule="U" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hello，Uer！" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ykq-qK-JQS" customClass="GlitchLabel" customModule="U" customModuleProvider="target">
+                                <rect key="frame" x="140" y="270" width="318.5" height="60"/>
+                                <fontDescription key="fontDescription" type="system" weight="black" pointSize="50"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </label>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="愿我在以后的日子里，你能被世界温柔以待。\n by Uer" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oCY-sa-WY0">
+                                <rect key="frame" x="35" y="162" width="530" height="276"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="276" id="Lnb-Wn-mID"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="oCY-sa-WY0" secondAttribute="trailing" constant="15" id="Pf0-2M-5uP"/>
+                            <constraint firstItem="oCY-sa-WY0" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="15" id="W4G-Sa-O35"/>
+                            <constraint firstItem="oCY-sa-WY0" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="ZuZ-ic-1XC"/>
+                            <constraint firstItem="ykq-qK-JQS" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="mDb-BY-cMy"/>
+                            <constraint firstItem="ykq-qK-JQS" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="o12-dm-pfH"/>
+                            <constraint firstItem="ykq-qK-JQS" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="146.5" id="x4u-J9-6Tt"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="ykq-qK-JQS" secondAttribute="trailing" constant="147.5" id="xJK-wr-QfH"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="x4u-J9-6Tt"/>
+                                <exclude reference="xJK-wr-QfH"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <navigationItem key="navigationItem" id="xKU-7h-PEF"/>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
+                    <connections>
+                        <outlet property="glitchLabel" destination="ykq-qK-JQS" id="ey3-D0-DNr"/>
+                        <outlet property="voiceLabel" destination="oCY-sa-WY0" id="bDZ-mW-RJo"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="718" y="-424"/>
+        </scene>
+        <!--Main Navigation Controller-->
+        <scene sceneID="P8R-Gm-u6d">
+            <objects>
+                <navigationController navigationBarHidden="YES" id="eHm-WM-7Jn" customClass="MainNavigationController" customModule="U" customModuleProvider="target" sceneMemberID="viewController">
+                    <nil key="simulatedTopBarMetrics"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="QFG-o7-UKQ">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="B8p-dd-CKX"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vZU-8d-dMP" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-272" y="-424"/>
+        </scene>
+    </scenes>
+</document>
