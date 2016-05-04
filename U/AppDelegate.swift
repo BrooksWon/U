@@ -17,10 +17,39 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
         
+        //定制光标
         UITextField.appearance().tintColor = UIColor.init(red: 27/255.0, green: 27/255.0, blue: 28/255.0, alpha: 1.0)
         UITextView.appearance().tintColor = UIColor.init(red: 27/255.0, green: 27/255.0, blue: 28/255.0, alpha: 1.0)
         //下一版本最好增加3Dtouch
         
+        // UM push
+        UMessage.startWithAppkey("572a0d0fe0f55a9dc1001e9d", launchOptions: launchOptions)
+        
+        //register remoteNotification types
+        let action1 = UIMutableUserNotificationAction.init()
+        action1.identifier = "action1_identifier"
+        action1.title = "action1_identifier"
+        action1.activationMode = UIUserNotificationActivationMode.Foreground//当点击的时候启动程序
+        
+        let action2 = UIMutableUserNotificationAction.init()
+        action2.identifier = "action1_identifier"
+        action2.title = "action1_identifier"
+        action2.activationMode = UIUserNotificationActivationMode.Background//当点击的时候不启动程序，在后台处理
+        action2.authenticationRequired = true//需要解锁才能处理，如果action.activationMode = UIUserNotificationActivationModeForeground;则这个属性被忽略；
+        action2.destructive = true
+        
+        let categorys = UIMutableUserNotificationCategory.init()
+        categorys.identifier = "category1"//这组动作的唯一标示
+        categorys.setActions([action1,action2], forContext: UIUserNotificationActionContext.Default)
+        
+        let userSettings :UIUserNotificationSettings = UIUserNotificationSettings(forTypes: [UIUserNotificationType.Badge,UIUserNotificationType.Alert,UIUserNotificationType.Sound], categories: NSSet(object: categorys) as? Set<UIUserNotificationCategory>)
+        
+        UMessage.registerRemoteNotificationAndUserNotificationSettings(userSettings)
+        UMessage.setLogEnabled(true)
+        
+        MobClick.setLogEnabled(true)
+        MobClick.setAppVersion(NSBundle.mainBundle().objectForInfoDictionaryKey("CFBundleShortVersionString") as! String)
+        MobClick.startWithAppkey("572a0d0fe0f55a9dc1001e9d")
         
         return true
     }
@@ -47,39 +76,42 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
     
+    func application(application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: NSData) {
+        UMessage.registerDeviceToken(deviceToken)
+    }
     
-//    - (void)customizeAppearance {
-//    // 设置导航条背景 和顶部文字样式
-//    //    UIImage *navBg = [[UIImage imageNamed:@"navigationbar_background"] resizableImageWithCapInsets:UIEdgeInsetsZero resizingMode:UIImageResizingModeTile];
-//    UIImage *navBg = [self imageFromColor:[UIColor whiteColor] height:64];
-//    [[UINavigationBar appearance] setBackgroundImage:navBg forBarMetrics:UIBarMetricsDefault];
-//    //    [[UINavigationBar appearance] setTitleTextAttributes:
-//    //     [NSDictionary dictionaryWithObjectsAndKeys:
-//    //      [UIColor blackColor],NSForegroundColorAttributeName,
-//    //      [UIFont systemFontOfSize:18],NSFontAttributeName, nil]
-//    //     ];
-//    
-//    //    UIImage *tabbarBg = [[UIImage imageNamed:@"tabbar_background"] resizableImageWithCapInsets:UIEdgeInsetsZero resizingMode:UIImageResizingModeTile];
-//    UIImage *tabbarBg = [self imageFromColor:[UIColor whiteColor] height:49];
-//    [[UITabBar appearance] setBackgroundImage:tabbarBg];
-//    
-//    //    [[UINavigationBar appearance] setBarTintColor:[UIColor whiteColor]];
-//    //    [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
-//    //    [[UINavigationBar appearance] setTitleVerticalPositionAdjustment:2 forBarMetrics:UIBarMetricsDefault];
-//    }
-//    
-//    //通过颜色来生成一个纯色图片
-//    - (UIImage *)imageFromColor:(UIColor *)color height:(CGFloat)height{
-//    
-//    CGRect rect = CGRectMake(0, 0, self.window.frame.size.width,height);
-//    UIGraphicsBeginImageContext(rect.size);
-//    CGContextRef context = UIGraphicsGetCurrentContext();
-//    CGContextSetFillColorWithColor(context, [color CGColor]);
-//    CGContextFillRect(context, rect);
-//    UIImage *img = UIGraphicsGetImageFromCurrentImageContext();
-//    UIGraphicsEndImageContext();
-//    return img;
-//    }
+    func application(application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: NSError) {
+        //如果注册不成功，打印错误信息，可以在网上找到对应的解决方案
+        //如果注册成功，可以删掉这个方法
+        NSLog("application:didFailToRegisterForRemoteNotificationsWithError: %@", error);
+    }
+    
+    func application(application: UIApplication, didReceiveRemoteNotification userInfo: [NSObject : AnyObject]) {
+        //关闭友盟自带的弹出框
+        UMessage.setAutoAlert(true)
+        
+        UMessage.didReceiveRemoteNotification(userInfo)
+        
+        let pushMsgDic = NSDictionary.init(dictionary: userInfo)
+        let apsDic = NSDictionary.init(dictionary: pushMsgDic.objectForKey("aps") as! NSObject as! [NSDictionary : AnyObject])
+        
+        
+        NSUserDefaults.standardUserDefaults().setObject(apsDic.objectForKey("alert"), forKey: "PUSH_MSG_KEY")
+        NSUserDefaults.standardUserDefaults().synchronize()
 
+        //    self.userInfo = userInfo;
+        //    //定制自定的的弹出框
+        //    if([UIApplication sharedApplication].applicationState == UIApplicationStateActive)
+        //    {
+        //        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"标题"
+        //                                                            message:@"Test On ApplicationStateActive"
+        //                                                           delegate:self
+        //                                                  cancelButtonTitle:@"确定"
+        //                                                  otherButtonTitles:nil];
+        //
+        //        [alertView show];
+        //
+        //    }
+    }
 }
 

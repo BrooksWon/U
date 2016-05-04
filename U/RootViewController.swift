@@ -35,6 +35,9 @@ class RootViewController: UIViewController {
             self.voiceLabel.hidden = false
             self.navBar.hidden = false
             self.voiceLabel.text = "愿在以后的日子里，你能被世界温柔以待。\n \n by 暖小团"
+            if ((NSUserDefaults.standardUserDefaults().objectForKey("PUSH_MSG_KEY")) != nil){
+                self.voiceLabel.text = (NSUserDefaults.standardUserDefaults().objectForKey("PUSH_MSG_KEY")) as! NSString as String
+            }
             
         }
         

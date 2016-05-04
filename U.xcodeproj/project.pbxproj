@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		983DEA461CDA487C00D247C1 /* libUMessage_Sdk_1.2.6.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 983DEA441CDA487C00D247C1 /* libUMessage_Sdk_1.2.6.a */; };
+		983DEA471CDA487C00D247C1 /* libUMessage_Sdk_1.2.6.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 983DEA441CDA487C00D247C1 /* libUMessage_Sdk_1.2.6.a */; };
+		983DEA481CDA487C00D247C1 /* libUMessage_Sdk_1.2.6.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 983DEA441CDA487C00D247C1 /* libUMessage_Sdk_1.2.6.a */; };
+		983DEA511CDA56EE00D247C1 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 983DEA501CDA56EE00D247C1 /* libz.tbd */; };
+		983DEA561CDA57B400D247C1 /* libMobClickLibrary.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 983DEA531CDA57B400D247C1 /* libMobClickLibrary.a */; };
 		989397C11CD9BE4E00079DCF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 989397C01CD9BE4E00079DCF /* AppDelegate.swift */; };
 		989397C31CD9BE4E00079DCF /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 989397C21CD9BE4E00079DCF /* RootViewController.swift */; };
 		989397C61CD9BE4E00079DCF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 989397C41CD9BE4E00079DCF /* Main.storyboard */; };
@@ -58,6 +63,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		983DEA3B1CDA47B300D247C1 /* U-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "U-Bridging-Header.h"; sourceTree = "<group>"; };
+		983DEA441CDA487C00D247C1 /* libUMessage_Sdk_1.2.6.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libUMessage_Sdk_1.2.6.a; sourceTree = "<group>"; };
+		983DEA451CDA487C00D247C1 /* UMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMessage.h; sourceTree = "<group>"; };
+		983DEA501CDA56EE00D247C1 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		983DEA531CDA57B400D247C1 /* libMobClickLibrary.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libMobClickLibrary.a; sourceTree = "<group>"; };
+		983DEA541CDA57B400D247C1 /* MobClick.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MobClick.h; sourceTree = "<group>"; };
+		983DEA551CDA57B400D247C1 /* MobClickSocialAnalytics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MobClickSocialAnalytics.h; sourceTree = "<group>"; };
 		989397BD1CD9BE4E00079DCF /* U.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = U.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		989397C01CD9BE4E00079DCF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		989397C21CD9BE4E00079DCF /* RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
@@ -88,6 +100,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				983DEA561CDA57B400D247C1 /* libMobClickLibrary.a in Frameworks */,
+				983DEA511CDA56EE00D247C1 /* libz.tbd in Frameworks */,
+				983DEA461CDA487C00D247C1 /* libUMessage_Sdk_1.2.6.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -95,6 +110,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				983DEA471CDA487C00D247C1 /* libUMessage_Sdk_1.2.6.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -102,15 +118,36 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				983DEA481CDA487C00D247C1 /* libUMessage_Sdk_1.2.6.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		983DEA431CDA487C00D247C1 /* UMessage_Sdk_1.2.6 */ = {
+			isa = PBXGroup;
+			children = (
+				983DEA441CDA487C00D247C1 /* libUMessage_Sdk_1.2.6.a */,
+				983DEA451CDA487C00D247C1 /* UMessage.h */,
+			);
+			path = UMessage_Sdk_1.2.6;
+			sourceTree = "<group>";
+		};
+		983DEA521CDA57B400D247C1 /* UMAnalytics_Sdk_3.6.6 */ = {
+			isa = PBXGroup;
+			children = (
+				983DEA531CDA57B400D247C1 /* libMobClickLibrary.a */,
+				983DEA541CDA57B400D247C1 /* MobClick.h */,
+				983DEA551CDA57B400D247C1 /* MobClickSocialAnalytics.h */,
+			);
+			path = UMAnalytics_Sdk_3.6.6;
+			sourceTree = "<group>";
+		};
 		989397B41CD9BE4E00079DCF = {
 			isa = PBXGroup;
 			children = (
+				983DEA501CDA56EE00D247C1 /* libz.tbd */,
 				989397BF1CD9BE4E00079DCF /* U */,
 				989397D41CD9BE4E00079DCF /* UTests */,
 				989397DF1CD9BE4E00079DCF /* UUITests */,
@@ -143,6 +180,7 @@
 				989397C71CD9BE4E00079DCF /* Assets.xcassets */,
 				989397C91CD9BE4E00079DCF /* LaunchScreen.storyboard */,
 				989397CC1CD9BE4E00079DCF /* Info.plist */,
+				983DEA3B1CDA47B300D247C1 /* U-Bridging-Header.h */,
 			);
 			path = U;
 			sourceTree = "<group>";
@@ -168,6 +206,8 @@
 		989397EE1CD9BE9C00079DCF /* Third */ = {
 			isa = PBXGroup;
 			children = (
+				983DEA521CDA57B400D247C1 /* UMAnalytics_Sdk_3.6.6 */,
+				983DEA431CDA487C00D247C1 /* UMessage_Sdk_1.2.6 */,
 				989397F91CD9E57600079DCF /* PathMenu */,
 				989397EF1CD9BE9C00079DCF /* GlitchLabel */,
 			);
@@ -493,11 +533,23 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEFINES_MODULE = YES;
 				INFOPLIST_FILE = U/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.BrooknWon.U;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/U/Third/UMessage_Sdk_1.2.6",
+					"$(PROJECT_DIR)/U/Third/UMAnalytics_Sdk_3.6.6",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.BrooksWon.U;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "76356c81-2e06-4f39-8754-cee3904dfded";
+				SWIFT_OBJC_BRIDGING_HEADER = "U/U-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -506,11 +558,21 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				DEFINES_MODULE = YES;
 				INFOPLIST_FILE = U/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.BrooknWon.U;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/U/Third/UMessage_Sdk_1.2.6",
+					"$(PROJECT_DIR)/U/Third/UMAnalytics_Sdk_3.6.6",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.BrooksWon.U;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "76356c81-2e06-4f39-8754-cee3904dfded";
+				SWIFT_OBJC_BRIDGING_HEADER = "U/U-Bridging-Header.h";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
@@ -519,10 +581,18 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = UTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/U/Third/UMessage_Sdk_1.2.6",
+					"$(PROJECT_DIR)/U/Third/UMAnalytics_Sdk_3.6.6",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "---.UTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "U/UTests-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/U.app/U";
 			};
 			name = Debug;
@@ -531,10 +601,17 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = UTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/U/Third/UMessage_Sdk_1.2.6",
+					"$(PROJECT_DIR)/U/Third/UMAnalytics_Sdk_3.6.6",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "---.UTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "U/UTests-Bridging-Header.h";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/U.app/U";
 			};
 			name = Release;
@@ -542,10 +619,18 @@
 		989397EC1CD9BE4E00079DCF /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = UUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/U/Third/UMessage_Sdk_1.2.6",
+					"$(PROJECT_DIR)/U/Third/UMAnalytics_Sdk_3.6.6",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "---.UUITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "U/UUITests-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TEST_TARGET_NAME = U;
 			};
 			name = Debug;
@@ -553,10 +638,17 @@
 		989397ED1CD9BE4E00079DCF /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = UUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/U/Third/UMessage_Sdk_1.2.6",
+					"$(PROJECT_DIR)/U/Third/UMAnalytics_Sdk_3.6.6",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "---.UUITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "U/UUITests-Bridging-Header.h";
 				TEST_TARGET_NAME = U;
 			};
 			name = Release;
