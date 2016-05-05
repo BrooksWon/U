@@ -4,3 +4,5 @@
 
 #import "UMessage.h"
 #import "MobClick.h"
+
+#import "ATAppUpdater.h"
