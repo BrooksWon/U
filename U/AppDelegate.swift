@@ -117,24 +117,28 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         let pushMsgDic = NSDictionary.init(dictionary: userInfo)
         let apsDic = NSDictionary.init(dictionary: pushMsgDic.objectForKey("aps") as! NSObject as! [NSDictionary : AnyObject])
+        let msg = apsDic.objectForKey("alert")
         
         
-        NSUserDefaults.standardUserDefaults().setObject(apsDic.objectForKey("alert"), forKey: "PUSH_MSG_KEY")
+        NSUserDefaults.standardUserDefaults().setObject(msg, forKey: "PUSH_MSG_KEY")
         NSUserDefaults.standardUserDefaults().synchronize()
 
-        //    self.userInfo = userInfo;
-        //    //定制自定的的弹出框
-        //    if([UIApplication sharedApplication].applicationState == UIApplicationStateActive)
-        //    {
-        //        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"标题"
-        //                                                            message:@"Test On ApplicationStateActive"
-        //                                                           delegate:self
-        //                                                  cancelButtonTitle:@"确定"
-        //                                                  otherButtonTitles:nil];
-        //
-        //        [alertView show];
-        //
-        //    }
+        if msg != nil && !(msg?.isEqual(""))! {
+            showPushMsg(msg as! NSString)
+        }
+    }
+    
+    func showPushMsg(msg: NSString) {
+        let appearance = SCLAlertView.SCLAppearance(
+            kTitleFont: UIFont(name: "HelveticaNeue", size: 1)!,
+            kTextFont: UIFont(name: "HelveticaNeue", size: 14)!,
+            kButtonFont: UIFont(name: "HelveticaNeue-Bold", size: 14)!,
+            showCloseButton: true
+        )
+        
+        let alert = SCLAlertView(appearance: appearance)
+        
+        alert.showNotice(kNoticeTitle, subTitle: msg as String)
     }
 }
 

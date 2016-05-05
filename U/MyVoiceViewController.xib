@@ -6,7 +6,9 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MyVoiceViewController" customModule="U" customModuleProvider="target">
             <connections>
+                <outlet property="nameTextField" destination="GQx-oi-Lcd" id="1sV-72-jaN"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+                <outlet property="voiceTextView" destination="3z9-SD-gnI" id="4qU-hx-F62"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>

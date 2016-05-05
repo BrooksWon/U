@@ -16,17 +16,25 @@ let kWarningTitle = "警告"
 let kInfoTitle = "提示"
 let kSubtitle = "再呐喊一次 ？"
 
+let kVoice = "你的呐喊..."
+let kName = "你是谁..."
+
+
+
 class MyVoiceViewController: UIViewController {
+    
+    @IBOutlet weak var voiceTextView: UITextView!
+    @IBOutlet weak var nameTextField: UITextField!
 
     @IBAction func backBtnAction(sender: AnyObject) {
         self.navigationController?.popViewControllerAnimated(true)
     }
     
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(SCLAlertView.tapped(_:)))
+        tapGesture.numberOfTapsRequired = 1
+        self.view.addGestureRecognizer(tapGesture)
         
     }
 
@@ -35,13 +43,24 @@ class MyVoiceViewController: UIViewController {
     }
 
     @IBAction func commitBtnAction(sender: AnyObject) {
-//        showSuccess(sender)
-        showError(sender)
+        
+        if (voiceTextView.text.compare(kVoice) == NSComparisonResult.OrderedSame) || (nameTextField.text!.compare(kVoice) == NSComparisonResult.OrderedSame) || voiceTextView.text.isEmpty || nameTextField.text!.isEmpty {
+            return
+        }
+        
+        showSuccess(sender)
+//        showError(sender)
     }
     
 
     @IBAction func showSuccess(sender: AnyObject) {
-        let alert = SCLAlertView()
+        let appearance = SCLAlertView.SCLAppearance(
+            showCloseButton: false
+        )
+        let alert = SCLAlertView(appearance: appearance)
+        alert.addButton("好") {
+            self.navigationController?.popViewControllerAnimated(true)
+        }
         alert.addButton("再来一次") {
             print("Second button tapped")
         }
@@ -129,6 +148,11 @@ class MyVoiceViewController: UIViewController {
         }
         
         alert.showInfo("Login", subTitle: "", duration: 10)
+    }
+    
+    
+    func tapped(gestureRecognizer: UITapGestureRecognizer) {
+        self.view.endEditing(true)
     }
 
 }

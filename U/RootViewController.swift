@@ -34,7 +34,7 @@ class RootViewController: UIViewController {
             self.view.addSubview(self.addPathMenu())
             self.voiceLabel.hidden = false
             self.navBar.hidden = false
-            self.voiceLabel.text = "愿在以后的日子里，你能被世界温柔以待。\n \n by 暖小团"
+            self.voiceLabel.text = "在以后的日子里，愿你被世界温柔以待。\n \n                                                   by 倪小暖"
             if ((NSUserDefaults.standardUserDefaults().objectForKey("PUSH_MSG_KEY")) != nil){
                 self.voiceLabel.text = (NSUserDefaults.standardUserDefaults().objectForKey("PUSH_MSG_KEY")) as! NSString as String
             }
