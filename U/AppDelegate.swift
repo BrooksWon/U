@@ -47,11 +47,31 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UMessage.registerRemoteNotificationAndUserNotificationSettings(userSettings)
         UMessage.setLogEnabled(true)
         
+        //UM 统计
         MobClick.setLogEnabled(true)
         MobClick.setAppVersion(NSBundle.mainBundle().objectForInfoDictionaryKey("CFBundleShortVersionString") as! String)
         MobClick.startWithAppkey("572a0d0fe0f55a9dc1001e9d")
         
+        //3Dtouch
+        if #available(iOS 9.0, *) {
+            let shortitem = UIApplicationShortcutItem.init(type: "呐喊", localizedTitle: "呐喊", localizedSubtitle: nil, icon: UIApplicationShortcutIcon.init(templateImageName: "nahan"), userInfo: nil)
+            
+            let shortItems = NSArray.init(object: shortitem)
+            
+            
+            UIApplication.sharedApplication().shortcutItems = shortItems as? [UIApplicationShortcutItem]
+        } else {
+            // Fallback on earlier versions
+        }
+        
         return true
+    }
+    
+    @available(iOS 9.0, *)
+    func application(application: UIApplication, performActionForShortcutItem shortcutItem: UIApplicationShortcutItem, completionHandler: (Bool) -> Void) {
+        let rootNav = window?.rootViewController as! UINavigationController
+        
+        rootNav.showViewController(MyVoiceViewController.init(), sender: nil)
     }
 
     func applicationWillResignActive(application: UIApplication) {
