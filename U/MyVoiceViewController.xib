@@ -147,6 +147,9 @@
                             <color key="value" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
+                    <connections>
+                        <action selector="commitBtnAction:" destination="-1" eventType="touchUpInside" id="Eh4-4R-st6"/>
+                    </connections>
                 </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="每天会抽出一个用户的呐喊，让天涯海角的人听到你的心声！" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wpg-bS-tuX">
                     <rect key="frame" x="138" y="564" width="324" height="21"/>

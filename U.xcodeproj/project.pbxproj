@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		98260B8F1CDADCCF00661A92 /* ATAppUpdater.m in Sources */ = {isa = PBXBuildFile; fileRef = 98260B8E1CDADCCF00661A92 /* ATAppUpdater.m */; };
+		98260CB41CDB1B8D00661A92 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 98260CB11CDB1B8D00661A92 /* Info.plist */; };
+		98260CB51CDB1B8D00661A92 /* SCLAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98260CB21CDB1B8D00661A92 /* SCLAlertView.swift */; };
+		98260CB61CDB1B8D00661A92 /* SCLExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98260CB31CDB1B8D00661A92 /* SCLExtensions.swift */; };
 		983DEA461CDA487C00D247C1 /* libUMessage_Sdk_1.2.6.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 983DEA441CDA487C00D247C1 /* libUMessage_Sdk_1.2.6.a */; };
 		983DEA471CDA487C00D247C1 /* libUMessage_Sdk_1.2.6.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 983DEA441CDA487C00D247C1 /* libUMessage_Sdk_1.2.6.a */; };
 		983DEA481CDA487C00D247C1 /* libUMessage_Sdk_1.2.6.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 983DEA441CDA487C00D247C1 /* libUMessage_Sdk_1.2.6.a */; };
@@ -66,6 +69,9 @@
 /* Begin PBXFileReference section */
 		98260B8D1CDADCCF00661A92 /* ATAppUpdater.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATAppUpdater.h; sourceTree = "<group>"; };
 		98260B8E1CDADCCF00661A92 /* ATAppUpdater.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ATAppUpdater.m; sourceTree = "<group>"; };
+		98260CB11CDB1B8D00661A92 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		98260CB21CDB1B8D00661A92 /* SCLAlertView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SCLAlertView.swift; sourceTree = "<group>"; };
+		98260CB31CDB1B8D00661A92 /* SCLExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SCLExtensions.swift; sourceTree = "<group>"; };
 		983DEA3B1CDA47B300D247C1 /* U-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "U-Bridging-Header.h"; sourceTree = "<group>"; };
 		983DEA441CDA487C00D247C1 /* libUMessage_Sdk_1.2.6.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libUMessage_Sdk_1.2.6.a; sourceTree = "<group>"; };
 		983DEA451CDA487C00D247C1 /* UMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMessage.h; sourceTree = "<group>"; };
@@ -135,6 +141,16 @@
 				98260B8E1CDADCCF00661A92 /* ATAppUpdater.m */,
 			);
 			path = ATAppUpdater;
+			sourceTree = "<group>";
+		};
+		98260CB01CDB1B8D00661A92 /* SCLAlertView */ = {
+			isa = PBXGroup;
+			children = (
+				98260CB11CDB1B8D00661A92 /* Info.plist */,
+				98260CB21CDB1B8D00661A92 /* SCLAlertView.swift */,
+				98260CB31CDB1B8D00661A92 /* SCLExtensions.swift */,
+			);
+			path = SCLAlertView;
 			sourceTree = "<group>";
 		};
 		983DEA431CDA487C00D247C1 /* UMessage_Sdk_1.2.6 */ = {
@@ -218,6 +234,7 @@
 		989397EE1CD9BE9C00079DCF /* Third */ = {
 			isa = PBXGroup;
 			children = (
+				98260CB01CDB1B8D00661A92 /* SCLAlertView */,
 				98260B8C1CDADCCF00661A92 /* ATAppUpdater */,
 				983DEA521CDA57B400D247C1 /* UMAnalytics_Sdk_3.6.6 */,
 				983DEA431CDA487C00D247C1 /* UMessage_Sdk_1.2.6 */,
@@ -352,6 +369,7 @@
 			files = (
 				989397CB1CD9BE4E00079DCF /* LaunchScreen.storyboard in Resources */,
 				989398101CD9EEB100079DCF /* MyVoiceViewController.xib in Resources */,
+				98260CB41CDB1B8D00661A92 /* Info.plist in Resources */,
 				9893981E1CDA04AB00079DCF /* MeViewController.xib in Resources */,
 				989397C81CD9BE4E00079DCF /* Assets.xcassets in Resources */,
 				989397C61CD9BE4E00079DCF /* Main.storyboard in Resources */,
@@ -383,8 +401,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				98260CB61CDB1B8D00661A92 /* SCLExtensions.swift in Sources */,
 				989397FF1CD9E57600079DCF /* PathMenuItem.swift in Sources */,
 				98260B8F1CDADCCF00661A92 /* ATAppUpdater.m in Sources */,
+				98260CB51CDB1B8D00661A92 /* SCLAlertView.swift in Sources */,
 				989397C31CD9BE4E00079DCF /* RootViewController.swift in Sources */,
 				9893981B1CDA04AB00079DCF /* MeViewController.swift in Sources */,
 				9893980D1CD9EEB100079DCF /* MyVoiceViewController.swift in Sources */,
