@@ -55,6 +55,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         MobClick.setAppVersion(NSBundle.mainBundle().objectForInfoDictionaryKey("CFBundleShortVersionString") as! String)
         MobClick.startWithAppkey("572a0d0fe0f55a9dc1001e9d")
         
+        // UM 反馈
+        UMFeedback.setLogEnabled(true);
+        UMFeedback.checkWithAppkey("572a0d0fe0f55a9dc1001e9d");
+        
         //3Dtouch
         if #available(iOS 9.0, *) {
             let shortitem = UIApplicationShortcutItem.init(type: "呐喊", localizedTitle: "呐喊", localizedSubtitle: nil, icon: UIApplicationShortcutIcon.init(templateImageName: "nahan"), userInfo: nil)

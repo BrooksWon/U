@@ -17,7 +17,7 @@ let kInfoTitle = "提示"
 let kSubtitle = "再呐喊一次 ？"
 
 let kVoice = "你的呐喊..."
-let kName = "你是谁..."
+let kName = "你是谁"
 
 
 
@@ -44,12 +44,20 @@ class MyVoiceViewController: UIViewController {
 
     @IBAction func commitBtnAction(sender: AnyObject) {
         
-        if (voiceTextView.text.compare(kVoice) == NSComparisonResult.OrderedSame) || (nameTextField.text!.compare(kVoice) == NSComparisonResult.OrderedSame) || voiceTextView.text.isEmpty || nameTextField.text!.isEmpty {
+        if (voiceTextView.text.compare(kVoice) == NSComparisonResult.OrderedSame) || (nameTextField.text!.compare(kName) == NSComparisonResult.OrderedSame) || voiceTextView.text.isEmpty || nameTextField.text!.isEmpty {
             return
         }
         
         showSuccess(sender)
-//        showError(sender)
+        
+        // 利用UM反馈作为数据提交的api
+        let stringContent:String = NSString.init(format: "%@ by%@", voiceTextView.text, nameTextField.text!) as String
+        let pDic:Dictionary<String,String> = ["content":stringContent];
+        UMFeedback.sharedInstance().post(pDic) { (error) in
+            if (error != nil) {
+                NSLog("error ====== %@", error)
+            }
+        }
     }
     
 
