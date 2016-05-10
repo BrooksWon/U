@@ -58,6 +58,12 @@ class MyVoiceViewController: UIViewController {
                 NSLog("error ====== %@", error)
             }
         }
+        
+        // 毛玻璃
+        let visualEffectView = UIVisualEffectView(effect: UIBlurEffect(style: .ExtraLight)) as UIVisualEffectView
+        visualEffectView.frame = view.bounds
+        visualEffectView.tag = 10086
+        view.addSubview(visualEffectView)
     }
     
 
@@ -68,9 +74,11 @@ class MyVoiceViewController: UIViewController {
         let alert = SCLAlertView(appearance: appearance)
         alert.addButton("好") {
             self.navigationController?.popViewControllerAnimated(true)
+            self.view.viewWithTag(10086)?.removeFromSuperview()
         }
         alert.addButton("再来一次") {
             print("Second button tapped")
+            self.view.viewWithTag(10086)?.removeFromSuperview()
         }
         alert.showSuccess(kSuccessTitle, subTitle: "")
     }
