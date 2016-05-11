@@ -35,8 +35,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         action1.activationMode = UIUserNotificationActivationMode.Foreground//当点击的时候启动程序
         
         let action2 = UIMutableUserNotificationAction.init()
-        action2.identifier = "action1_identifier"
-        action2.title = "action1_identifier"
+        action2.identifier = "action2_identifier"
+        action2.title = "action2_identifier"
         action2.activationMode = UIUserNotificationActivationMode.Background//当点击的时候不启动程序，在后台处理
         action2.authenticationRequired = true//需要解锁才能处理，如果action.activationMode = UIUserNotificationActivationModeForeground;则这个属性被忽略；
         action2.destructive = true
@@ -71,6 +71,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             // Fallback on earlier versions
         }
         
+        if (launchOptions != nil) {
+            if let notification = launchOptions![UIApplicationLaunchOptionsRemoteNotificationKey] as? [NSObject : AnyObject] {
+                let msg:String = (notification as NSObject).valueForKeyPath("aps.alert") as! String
+                NSUserDefaults.standardUserDefaults().setObject(msg, forKey: "PUSH_MSG_KEY")
+                NSUserDefaults.standardUserDefaults().synchronize()
+            }
+        }
+        
         return true
     }
     
@@ -79,28 +87,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let rootNav = window?.rootViewController as! UINavigationController
         
         rootNav.showViewController(MyVoiceViewController.init(), sender: nil)
-    }
-
-    func applicationWillResignActive(application: UIApplication) {
-        // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
-        // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
-    }
-
-    func applicationDidEnterBackground(application: UIApplication) {
-        // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
-        // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
-    }
-
-    func applicationWillEnterForeground(application: UIApplication) {
-        // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
-    }
-
-    func applicationDidBecomeActive(application: UIApplication) {
-        // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
-    }
-
-    func applicationWillTerminate(application: UIApplication) {
-        // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
     
     func application(application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: NSData) {
@@ -115,34 +101,38 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(application: UIApplication, didReceiveRemoteNotification userInfo: [NSObject : AnyObject]) {
         //关闭友盟自带的弹出框
-        UMessage.setAutoAlert(true)
+        UMessage.setAutoAlert(false)
         
         UMessage.didReceiveRemoteNotification(userInfo)
         
-        let pushMsgDic = NSDictionary.init(dictionary: userInfo)
-        let apsDic = NSDictionary.init(dictionary: pushMsgDic.objectForKey("aps") as! NSObject as! [NSDictionary : AnyObject])
-        let msg = apsDic.objectForKey("alert")
+        showPushMsg(userInfo)
+    }
+    
+    func showPushMsg(userInfo: NSObject) {
+        
+        let msg:String = (userInfo as NSObject).valueForKeyPath("aps.alert") as! String
         
         
         NSUserDefaults.standardUserDefaults().setObject(msg, forKey: "PUSH_MSG_KEY")
         NSUserDefaults.standardUserDefaults().synchronize()
-
-        if msg != nil && !(msg?.isEqual(""))! {
-            showPushMsg(msg as! NSString)
+        
+        if !(msg.isEqual("")) {
+            let appearance = SCLAlertView.SCLAppearance(
+                kTitleFont: UIFont(name: "HelveticaNeue", size: 1)!,
+                kTextFont: UIFont(name: "HelveticaNeue", size: 14)!,
+                kButtonFont: UIFont(name: "HelveticaNeue-Bold", size: 14)!,
+                showCloseButton: false
+            )
+            
+            let alert = SCLAlertView(appearance: appearance)
+            alert.addButton("好") {
+                if ((NSUserDefaults.standardUserDefaults().objectForKey("PUSH_MSG_KEY")) != nil){
+                    let vc = (self.window?.rootViewController as! UINavigationController).viewControllers.last as! RootViewController
+                    vc.voiceLabel.text = (NSUserDefaults.standardUserDefaults().objectForKey("PUSH_MSG_KEY")) as! NSString as String
+                }
+            }
+            alert.showNotice(kNoticeTitle, subTitle: msg as String)
         }
-    }
-    
-    func showPushMsg(msg: NSString) {
-        let appearance = SCLAlertView.SCLAppearance(
-            kTitleFont: UIFont(name: "HelveticaNeue", size: 1)!,
-            kTextFont: UIFont(name: "HelveticaNeue", size: 14)!,
-            kButtonFont: UIFont(name: "HelveticaNeue-Bold", size: 14)!,
-            showCloseButton: true
-        )
-        
-        let alert = SCLAlertView(appearance: appearance)
-        
-        alert.showNotice(kNoticeTitle, subTitle: msg as String)
     }
 }
 
