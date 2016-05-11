@@ -43,7 +43,7 @@ class MyVoiceViewController: UIViewController {
     }
 
     @IBAction func commitBtnAction(sender: AnyObject) {
-        
+        self.view.endEditing(true)
         if (voiceTextView.text.compare(kVoice) == NSComparisonResult.OrderedSame) || (nameTextField.text!.compare(kName) == NSComparisonResult.OrderedSame) || voiceTextView.text.isEmpty || nameTextField.text!.isEmpty {
             return
         }
