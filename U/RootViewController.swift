@@ -42,7 +42,6 @@ class RootViewController: UIViewController {
         }
         
     }
-    
 
     override func preferredStatusBarStyle() -> UIStatusBarStyle {
         return UIStatusBarStyle.LightContent
@@ -60,10 +59,21 @@ class RootViewController: UIViewController {
         
         let starMenuItem3 = PathMenuItem.init(image: UIImage(named: "plusBg")!, highlightedImage: UIImage(named: "plusBg")!, contentImage: UIImage(named: "info")!)
         
+        let starMenuItem4 = PathMenuItem.init(image: UIImage(named: "plusBg")!, highlightedImage: UIImage(named: "plusBg")!, contentImage: UIImage(named: "share")!)
         
-        starMenuItem2.endPoint = CGPointMake(300, view.frame.size.height - 230.0)
+        var items = [starMenuItem1, starMenuItem2, starMenuItem3]
+        var count = 3.0
+//        if WXApi.isWXAppInstalled() && WXApi.isWXAppSupportApi() {
+            items = [starMenuItem1, starMenuItem2, starMenuItem4, starMenuItem3]
+            count = 4.0
+//        }
         
-        let items = [starMenuItem1, starMenuItem2, starMenuItem3]
+        
+        
+        
+//        starMenuItem2.endPoint = CGPointMake(300, view.frame.size.height - 230.0)
+        
+//        let items = [starMenuItem1, starMenuItem2, starMenuItem3]
         
         let startItem = PathMenuItem.init(image: UIImage(named: "plusBg")!,
                                           highlightedImage: UIImage(named: "plusBg"),
@@ -74,8 +84,8 @@ class RootViewController: UIViewController {
         let menu = PathMenu.init(frame: view.bounds, startItem: startItem, items: items)
         menu.delegate = self
         menu.startPoint     = CGPointMake(UIScreen.mainScreen().bounds.width/2, view.frame.size.height - 30.0)
-        menu.menuWholeAngle = CGFloat(M_PI) - CGFloat(M_PI/3)
-        menu.rotateAngle    = -CGFloat(M_PI_2) + CGFloat(M_PI/3) * 1/2
+        menu.menuWholeAngle = CGFloat(M_PI) - CGFloat(M_PI/count)
+        menu.rotateAngle    = -CGFloat(M_PI_2) + CGFloat(M_PI/count) * 1/2
         menu.timeOffset     = 0.0
         menu.farRadius      = 110.0
         menu.nearRadius     = 90.0
@@ -100,8 +110,12 @@ extension RootViewController: PathMenuDelegate {
             self.showViewController(MyVoiceViewController.init(), sender: nil)
             break
         case 2:
-             //关于
+            //分享
+            showNotice()
+        case 3:
+            //关于
             self.showViewController(MeViewController.init(), sender: nil)
+            break
         default:
             break;
         }
@@ -121,6 +135,55 @@ extension RootViewController: PathMenuDelegate {
     
     func pathMenuDidFinishAnimationClose(menu: PathMenu) {
         print("Menu was closed!")
+    }
+    
+    func share2WeChat(sceneType:Int32) -> Bool {
+        let ext = WXWebpageObject()
+        ext.webpageUrl = "https://itunes.apple.com/us/app/u./id1110613814?l=zh&ls=1&mt=8"
+        
+        let message = WXMediaMessage()
+        if sceneType == 0 {
+             message.title = "悦己未必悅人，为自己发声！"
+        }else {
+            message.title = self.voiceLabel.text
+        }
+        
+        message.description = self.voiceLabel.text
+        message.mediaObject = ext
+        message.setThumbImage(UIImage.init(named: "Icon1024x1024"))
+        
+        let req = SendMessageToWXReq.init()
+        req.message = message
+        req.scene = sceneType;
+        
+        /*
+         
+         /*! @brief 请求发送场景
+         *
+         */
+         enum WXScene {
+         WXSceneSession  = 0,        /**< 聊天界面    */
+         WXSceneTimeline = 1,        /**< 朋友圈      */
+         WXSceneFavorite = 2,        /**< 收藏       */
+         };
+         
+         */
+        
+        return WXApi.sendReq(req)
+    }
+    
+    func showNotice() {
+        let appearance = SCLAlertView.SCLAppearance(
+            showCloseButton: false
+        )
+        let alert = SCLAlertView(appearance: appearance)
+        alert.addButton("朋友圈") {
+            self.share2WeChat(1)
+        }
+        alert.addButton("微信好友") {
+             self.share2WeChat(0)
+        }
+        alert.showNotice("分享到", subTitle: "")
     }
 }
 

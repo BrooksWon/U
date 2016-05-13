@@ -79,6 +79,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
         }
         
+        
+        // 微信分享
+        //        AppID：wx98068958d71ea230
+        //        AppSecret：389e147635b84244d866039f248982c2
+        WXApi.registerApp("wx98068958d71ea230")
+        
         return true
     }
     
@@ -133,6 +139,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
             alert.showNotice(kNoticeTitle, subTitle: msg as String)
         }
+    }
+    
+    func application(application: UIApplication, handleOpenURL url: NSURL) -> Bool {
+        return WXApi.handleOpenURL(url, delegate: self)
+    }
+    func application(app: UIApplication, openURL url: NSURL, options: [String : AnyObject]) -> Bool {
+        return WXApi.handleOpenURL(url, delegate: self)
+    }
+}
+
+extension AppDelegate: WXApiDelegate {
+    func onReq(req: BaseReq!) {
+        //
+    }
+    
+    func onResp(resp: BaseResp!) {
+        NSLog("resp ====== %@", resp)
     }
 }
 

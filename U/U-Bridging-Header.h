@@ -7,3 +7,5 @@
 #import "UMFeedback.h"
 
 #import "ATAppUpdater.h"
+
+#import "WXApi.h"

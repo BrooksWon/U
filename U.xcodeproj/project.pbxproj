@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		980355041CE599D100F56C61 /* libWeChatSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 980354FF1CE599D100F56C61 /* libWeChatSDK.a */; };
+		980355051CE599D100F56C61 /* README.txt in Resources */ = {isa = PBXBuildFile; fileRef = 980355001CE599D100F56C61 /* README.txt */; };
+		980355071CE59A0E00F56C61 /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 980355061CE59A0E00F56C61 /* libc++.tbd */; };
+		980355091CE59A1900F56C61 /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 980355081CE59A1900F56C61 /* libsqlite3.0.tbd */; };
+		9803550B1CE59DD700F56C61 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9803550A1CE59DD700F56C61 /* SystemConfiguration.framework */; };
+		9803550D1CE59E4600F56C61 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9803550C1CE59E4600F56C61 /* CoreTelephony.framework */; };
 		98260B8F1CDADCCF00661A92 /* ATAppUpdater.m in Sources */ = {isa = PBXBuildFile; fileRef = 98260B8E1CDADCCF00661A92 /* ATAppUpdater.m */; };
 		98260CB41CDB1B8D00661A92 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 98260CB11CDB1B8D00661A92 /* Info.plist */; };
 		98260CB51CDB1B8D00661A92 /* SCLAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98260CB21CDB1B8D00661A92 /* SCLAlertView.swift */; };
@@ -92,6 +98,15 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		980354FF1CE599D100F56C61 /* libWeChatSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libWeChatSDK.a; sourceTree = "<group>"; };
+		980355001CE599D100F56C61 /* README.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.txt; sourceTree = "<group>"; };
+		980355011CE599D100F56C61 /* WechatAuthSDK.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WechatAuthSDK.h; sourceTree = "<group>"; };
+		980355021CE599D100F56C61 /* WXApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXApi.h; sourceTree = "<group>"; };
+		980355031CE599D100F56C61 /* WXApiObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXApiObject.h; sourceTree = "<group>"; };
+		980355061CE59A0E00F56C61 /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
+		980355081CE59A1900F56C61 /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
+		9803550A1CE59DD700F56C61 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		9803550C1CE59E4600F56C61 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
 		98260B8D1CDADCCF00661A92 /* ATAppUpdater.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATAppUpdater.h; sourceTree = "<group>"; };
 		98260B8E1CDADCCF00661A92 /* ATAppUpdater.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ATAppUpdater.m; sourceTree = "<group>"; };
 		98260CB11CDB1B8D00661A92 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -171,8 +186,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9803550D1CE59E4600F56C61 /* CoreTelephony.framework in Frameworks */,
+				9803550B1CE59DD700F56C61 /* SystemConfiguration.framework in Frameworks */,
+				980355091CE59A1900F56C61 /* libsqlite3.0.tbd in Frameworks */,
+				980355071CE59A0E00F56C61 /* libc++.tbd in Frameworks */,
 				985889461CE089430005E0D1 /* libUMFeedback.a in Frameworks */,
 				983DEA561CDA57B400D247C1 /* libMobClickLibrary.a in Frameworks */,
+				980355041CE599D100F56C61 /* libWeChatSDK.a in Frameworks */,
 				985889571CE089430005E0D1 /* libUMOpus.a in Frameworks */,
 				983DEA511CDA56EE00D247C1 /* libz.tbd in Frameworks */,
 				983DEA461CDA487C00D247C1 /* libUMessage_Sdk_1.2.6.a in Frameworks */,
@@ -198,6 +218,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		980354FE1CE599D100F56C61 /* OpenSDK1.7 */ = {
+			isa = PBXGroup;
+			children = (
+				980354FF1CE599D100F56C61 /* libWeChatSDK.a */,
+				980355001CE599D100F56C61 /* README.txt */,
+				980355011CE599D100F56C61 /* WechatAuthSDK.h */,
+				980355021CE599D100F56C61 /* WXApi.h */,
+				980355031CE599D100F56C61 /* WXApiObject.h */,
+			);
+			path = OpenSDK1.7;
+			sourceTree = "<group>";
+		};
 		98260B8C1CDADCCF00661A92 /* ATAppUpdater */ = {
 			isa = PBXGroup;
 			children = (
@@ -306,6 +338,10 @@
 		989397B41CD9BE4E00079DCF = {
 			isa = PBXGroup;
 			children = (
+				9803550C1CE59E4600F56C61 /* CoreTelephony.framework */,
+				9803550A1CE59DD700F56C61 /* SystemConfiguration.framework */,
+				980355081CE59A1900F56C61 /* libsqlite3.0.tbd */,
+				980355061CE59A0E00F56C61 /* libc++.tbd */,
 				983DEA501CDA56EE00D247C1 /* libz.tbd */,
 				989397BF1CD9BE4E00079DCF /* U */,
 				989397D41CD9BE4E00079DCF /* UTests */,
@@ -365,6 +401,7 @@
 		989397EE1CD9BE9C00079DCF /* Third */ = {
 			isa = PBXGroup;
 			children = (
+				980354FE1CE599D100F56C61 /* OpenSDK1.7 */,
 				9858891B1CE089430005E0D1 /* UMengFeedback_SDK */,
 				98260CB01CDB1B8D00661A92 /* SCLAlertView */,
 				98260B8C1CDADCCF00661A92 /* ATAppUpdater */,
@@ -506,6 +543,7 @@
 				9858894D1CE089430005E0D1 /* ToolViewInputVoice@2x.png in Resources */,
 				985889481CE089430005E0D1 /* cancel@2x.png in Resources */,
 				985889501CE089430005E0D1 /* umeng_fb_audio_dialog_cancel@2x.png in Resources */,
+				980355051CE599D100F56C61 /* README.txt in Resources */,
 				985889451CE089430005E0D1 /* UMFeedbackLocalizable.strings in Resources */,
 				9858894B1CE089430005E0D1 /* ToolViewInputText@2x.png in Resources */,
 				989398101CD9EEB100079DCF /* MyVoiceViewController.xib in Resources */,
@@ -746,6 +784,7 @@
 					"$(PROJECT_DIR)/U/Third/UMAnalytics_Sdk_3.6.6",
 					"$(PROJECT_DIR)/U/Third/UMengFeedback_SDK",
 					"$(PROJECT_DIR)/U/Third/UMengFeedback_SDK/UMOpus",
+					"$(PROJECT_DIR)/U/Third/OpenSDK1.7",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.BrooksWon.U;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -773,6 +812,7 @@
 					"$(PROJECT_DIR)/U/Third/UMAnalytics_Sdk_3.6.6",
 					"$(PROJECT_DIR)/U/Third/UMengFeedback_SDK",
 					"$(PROJECT_DIR)/U/Third/UMengFeedback_SDK/UMOpus",
+					"$(PROJECT_DIR)/U/Third/OpenSDK1.7",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.BrooksWon.U;
 				PRODUCT_NAME = "$(TARGET_NAME)";
