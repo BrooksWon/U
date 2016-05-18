@@ -61,11 +61,13 @@ class RootViewController: UIViewController {
         
         let starMenuItem4 = PathMenuItem.init(image: UIImage(named: "plusBg")!, highlightedImage: UIImage(named: "plusBg")!, contentImage: UIImage(named: "share")!)
         
-        var items = [starMenuItem1, starMenuItem2, starMenuItem3]
-        var count = 3.0
+        let starMenuItem5 = PathMenuItem.init(image: UIImage(named: "plusBg")!, highlightedImage: UIImage(named: "plusBg")!, contentImage: UIImage(named: "jvbao")!)
+        
+        var items = [starMenuItem1, starMenuItem2, starMenuItem3,starMenuItem5]
+        var count = 4.0
 //        if WXApi.isWXAppInstalled() && WXApi.isWXAppSupportApi() {
-            items = [starMenuItem1, starMenuItem2, starMenuItem4, starMenuItem3]
-            count = 4.0
+            items = [starMenuItem1, starMenuItem2, starMenuItem4, starMenuItem3, starMenuItem5]
+            count = 5.0
 //        }
         
         
@@ -112,9 +114,14 @@ extension RootViewController: PathMenuDelegate {
         case 2:
             //分享
             showNotice()
+            break;
         case 3:
             //关于
             self.showViewController(MeViewController.init(), sender: nil)
+            break
+        case 4:
+            //举报
+            showJvBao()
             break
         default:
             break;
@@ -184,6 +191,20 @@ extension RootViewController: PathMenuDelegate {
              self.share2WeChat(0)
         }
         alert.showNotice("分享到", subTitle: "")
+    }
+    
+    func showJvBao() {
+        let appearance = SCLAlertView.SCLAppearance(
+            showCloseButton: false
+        )
+        let alert = SCLAlertView(appearance: appearance)
+        alert.addButton("点错了") {
+            //
+        }
+        alert.addButton("举报") {
+            SCLAlertView().showSuccess("举报成功", subTitle: "")
+        }
+        alert.showWarning("举报该内容和用户", subTitle: "")
     }
 }
 
