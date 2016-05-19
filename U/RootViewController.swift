@@ -45,7 +45,8 @@ class RootViewController: UIViewController {
                 let uer = (content.componentsSeparatedByString("by") as NSArray).lastObject as! NSString
 
                 self.voiceLabel.text = voice as String
-                self.byUerLabel.text = uer as String
+                self.byUerLabel.text = NSString.init(format: "by %@", uer) as String
+                
             }
             
         }

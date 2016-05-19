@@ -140,7 +140,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                     let uer = (content.componentsSeparatedByString("by") as NSArray).lastObject as! NSString
                     
                     vc.voiceLabel.text = voice as String
-                    vc.byUerLabel.text = uer as String
+                    vc.byUerLabel.text = NSString.init(format: "by %@", uer) as String
                 }
             }
             alert.showNotice(kNoticeTitle, subTitle: msg as String)
