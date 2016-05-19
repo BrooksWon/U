@@ -21,7 +21,6 @@ class RootViewController: UIViewController {
 //        glitchLabel.blendMode = .Multiply
         glitchLabel.text = "Hello, Uer!"
 //        view.backgroundColor = UIColor.whiteColor()
-       
         
         sleep(1);
         
@@ -36,7 +35,7 @@ class RootViewController: UIViewController {
             self.voiceLabel.hidden = false
             self.byUerLabel.hidden = false
             self.navBar.hidden = false
-            self.voiceLabel.text = "在以后的日子里，愿你被世界温柔以待。\n \n \n\n \n \n\n \n \n 在以后的日子里，愿你被世界温柔以待。"
+            self.voiceLabel.text = "在以后的日子里，愿你被世界温柔以待。"
             self.byUerLabel.text = "by 倪小暖"
             
             if ((NSUserDefaults.standardUserDefaults().objectForKey("PUSH_MSG_KEY")) != nil){

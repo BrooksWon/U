@@ -32,6 +32,7 @@ class MyVoiceViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(SCLAlertView.tapped(_:)))
         tapGesture.numberOfTapsRequired = 1
         self.view.addGestureRecognizer(tapGesture)
