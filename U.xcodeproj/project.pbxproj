@@ -47,6 +47,7 @@
 		9858895B1CE089430005E0D1 /* UMPostTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9858893F1CE089430005E0D1 /* UMPostTableViewCell.m */; };
 		9858895C1CE089430005E0D1 /* UMRadialView.m in Sources */ = {isa = PBXBuildFile; fileRef = 985889411CE089430005E0D1 /* UMRadialView.m */; };
 		9858895D1CE089430005E0D1 /* UMTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 985889431CE089430005E0D1 /* UMTextView.m */; };
+		986489211CED87A0006E5CDC /* DZMTextViewPlaceholder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 986489201CED87A0006E5CDC /* DZMTextViewPlaceholder.swift */; };
 		989397C11CD9BE4E00079DCF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 989397C01CD9BE4E00079DCF /* AppDelegate.swift */; };
 		989397C31CD9BE4E00079DCF /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 989397C21CD9BE4E00079DCF /* RootViewController.swift */; };
 		989397C61CD9BE4E00079DCF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 989397C41CD9BE4E00079DCF /* Main.storyboard */; };
@@ -156,6 +157,7 @@
 		985889421CE089430005E0D1 /* UMTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMTextView.h; sourceTree = "<group>"; };
 		985889431CE089430005E0D1 /* UMTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UMTextView.m; sourceTree = "<group>"; };
 		985889441CE089430005E0D1 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/UMFeedbackLocalizable.strings"; sourceTree = "<group>"; };
+		986489201CED87A0006E5CDC /* DZMTextViewPlaceholder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DZMTextViewPlaceholder.swift; sourceTree = "<group>"; };
 		989397BD1CD9BE4E00079DCF /* U.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = U.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		989397C01CD9BE4E00079DCF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		989397C21CD9BE4E00079DCF /* RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
@@ -335,6 +337,14 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		9864891D1CED7FAC006E5CDC /* PlaceholderTextView */ = {
+			isa = PBXGroup;
+			children = (
+				986489201CED87A0006E5CDC /* DZMTextViewPlaceholder.swift */,
+			);
+			path = PlaceholderTextView;
+			sourceTree = "<group>";
+		};
 		989397B41CD9BE4E00079DCF = {
 			isa = PBXGroup;
 			children = (
@@ -401,6 +411,7 @@
 		989397EE1CD9BE9C00079DCF /* Third */ = {
 			isa = PBXGroup;
 			children = (
+				9864891D1CED7FAC006E5CDC /* PlaceholderTextView */,
 				980354FE1CE599D100F56C61 /* OpenSDK1.7 */,
 				9858891B1CE089430005E0D1 /* UMengFeedback_SDK */,
 				98260CB01CDB1B8D00661A92 /* SCLAlertView */,
@@ -600,6 +611,7 @@
 				9893980D1CD9EEB100079DCF /* MyVoiceViewController.swift in Sources */,
 				985889561CE089430005E0D1 /* UMFeedbackViewController.m in Sources */,
 				989397FC1CD9E57600079DCF /* PathMenu.swift in Sources */,
+				986489211CED87A0006E5CDC /* DZMTextViewPlaceholder.swift in Sources */,
 				9858895B1CE089430005E0D1 /* UMPostTableViewCell.m in Sources */,
 				989397C11CD9BE4E00079DCF /* AppDelegate.swift in Sources */,
 				989397F61CD9D9D400079DCF /* MainNavigationController.swift in Sources */,

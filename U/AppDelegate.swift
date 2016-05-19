@@ -134,7 +134,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             alert.addButton("好") {
                 if ((NSUserDefaults.standardUserDefaults().objectForKey("PUSH_MSG_KEY")) != nil){
                     let vc = (self.window?.rootViewController as! UINavigationController).viewControllers.last as! RootViewController
-                    vc.voiceLabel.text = (NSUserDefaults.standardUserDefaults().objectForKey("PUSH_MSG_KEY")) as! NSString as String
+                    
+                    let content = (NSUserDefaults.standardUserDefaults().objectForKey("PUSH_MSG_KEY")) as! NSString as String
+                    let voice = (content.componentsSeparatedByString("by") as NSArray).firstObject as! NSString
+                    let uer = (content.componentsSeparatedByString("by") as NSArray).lastObject as! NSString
+                    
+                    vc.voiceLabel.text = voice as String
+                    vc.byUerLabel.text = uer as String
                 }
             }
             alert.showNotice(kNoticeTitle, subTitle: msg as String)

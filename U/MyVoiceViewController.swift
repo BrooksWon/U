@@ -23,7 +23,7 @@ let kName = "你是谁"
 
 class MyVoiceViewController: UIViewController {
     
-    @IBOutlet weak var voiceTextView: UITextView!
+    @IBOutlet weak var voiceTextView: DZMTextViewPlaceholder!
     @IBOutlet weak var nameTextField: UITextField!
 
     @IBAction func backBtnAction(sender: AnyObject) {
@@ -36,11 +36,14 @@ class MyVoiceViewController: UIViewController {
         tapGesture.numberOfTapsRequired = 1
         self.view.addGestureRecognizer(tapGesture)
         
+        self.voiceTextView.placeholder = "你的呐喊..."
+        self.voiceTextView.placeholderColor = UIColor.whiteColor()
     }
-
+    
     override func preferredStatusBarStyle() -> UIStatusBarStyle {
         return UIStatusBarStyle.LightContent
     }
+
 
     @IBAction func commitBtnAction(sender: AnyObject) {
         self.view.endEditing(true)

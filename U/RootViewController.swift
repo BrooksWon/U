@@ -12,6 +12,7 @@ class RootViewController: UIViewController {
     
     @IBOutlet var glitchLabel: GlitchLabel!
     @IBOutlet var voiceLabel: UILabel!
+    @IBOutlet var byUerLabel: UILabel!
     @IBOutlet weak var navBar: UIView!
 
     override func viewDidLoad() {
@@ -33,10 +34,18 @@ class RootViewController: UIViewController {
             // path
             self.view.addSubview(self.addPathMenu())
             self.voiceLabel.hidden = false
+            self.byUerLabel.hidden = false
             self.navBar.hidden = false
-            self.voiceLabel.text = "在以后的日子里，愿你被世界温柔以待。\n \n                                                   by 倪小暖"
+            self.voiceLabel.text = "在以后的日子里，愿你被世界温柔以待。\n \n \n\n \n \n\n \n \n 在以后的日子里，愿你被世界温柔以待。"
+            self.byUerLabel.text = "by 倪小暖"
+            
             if ((NSUserDefaults.standardUserDefaults().objectForKey("PUSH_MSG_KEY")) != nil){
-                self.voiceLabel.text = (NSUserDefaults.standardUserDefaults().objectForKey("PUSH_MSG_KEY")) as! NSString as String
+                let content = (NSUserDefaults.standardUserDefaults().objectForKey("PUSH_MSG_KEY")) as! NSString as String
+                let voice = (content.componentsSeparatedByString("by") as NSArray).firstObject as! NSString
+                let uer = (content.componentsSeparatedByString("by") as NSArray).lastObject as! NSString
+
+                self.voiceLabel.text = voice as String
+                self.byUerLabel.text = uer as String
             }
             
         }
@@ -181,7 +190,7 @@ extension RootViewController: PathMenuDelegate {
     
     func showNotice() {
         let appearance = SCLAlertView.SCLAppearance(
-            showCloseButton: false
+            showCloseButton: true
         )
         let alert = SCLAlertView(appearance: appearance)
         alert.addButton("朋友圈") {
