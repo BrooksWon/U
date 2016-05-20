@@ -132,16 +132,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             
             let alert = SCLAlertView(appearance: appearance)
             alert.addButton("好") {
-                if ((NSUserDefaults.standardUserDefaults().objectForKey("PUSH_MSG_KEY")) != nil){
-                    let vc = (self.window?.rootViewController as! UINavigationController).viewControllers.last as! RootViewController
-                    
-                    let content = (NSUserDefaults.standardUserDefaults().objectForKey("PUSH_MSG_KEY")) as! NSString as String
-                    let voice = (content.componentsSeparatedByString("by") as NSArray).firstObject as! NSString
-                    let uer = (content.componentsSeparatedByString("by") as NSArray).lastObject as! NSString
-                    
-                    vc.voiceLabel.text = voice as String
-                    vc.byUerLabel.text = NSString.init(format: "by %@", uer) as String
-                }
+//                if ((NSUserDefaults.standardUserDefaults().objectForKey("PUSH_MSG_KEY")) != nil){
+//                    let vc = (self.window?.rootViewController as! UINavigationController).viewControllers.last as! RootViewController
+//                    
+//                    let content = (NSUserDefaults.standardUserDefaults().objectForKey("PUSH_MSG_KEY")) as! NSString as String
+//                    let voice = (content.componentsSeparatedByString("by") as NSArray).firstObject as! NSString
+//                    let uer = (content.componentsSeparatedByString("by") as NSArray).lastObject as! NSString
+//                    
+//                    vc.voiceLabel.text = voice as String
+//                    vc.byUerLabel.text = NSString.init(format: "by %@", uer) as String
+//                }
+                
+                let vc = (self.window?.rootViewController as! UINavigationController).viewControllers.last as! RootViewController
+                vc.changeVoiceText()
             }
             alert.showNotice(kNoticeTitle, subTitle: msg as String)
         }

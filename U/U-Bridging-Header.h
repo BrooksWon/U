@@ -12,3 +12,6 @@
 
 #import "LLSwitch.h"
 
+#import "LTMorphingLabel.h"
+
+

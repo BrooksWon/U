@@ -14,6 +14,8 @@ class RootViewController: UIViewController {
     @IBOutlet var voiceLabel: UILabel!
     @IBOutlet var byUerLabel: UILabel!
     @IBOutlet weak var navBar: UIView!
+    
+//    var voiceEffectLabel: LTMorphingLabel!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,6 +23,12 @@ class RootViewController: UIViewController {
 //        glitchLabel.blendMode = .Multiply
         glitchLabel.text = "Hello, Uer!"
 //        view.backgroundColor = UIColor.whiteColor()
+        
+//        let seg = sender
+//        if let effect = LTMorphingEffect(rawValue: 1) {
+//            self.voiceLabel.morphingEffect = effect
+//            self.voiceLabel.numberOfLines = 0
+//        }
         
         sleep(1);
         
@@ -35,21 +43,24 @@ class RootViewController: UIViewController {
             self.voiceLabel.hidden = false
             self.byUerLabel.hidden = false
             self.navBar.hidden = false
+            
+            self.changeVoiceText()
+        }
+    }
+
+    
+    func changeVoiceText() {
+        if ((NSUserDefaults.standardUserDefaults().objectForKey("PUSH_MSG_KEY")) != nil){
+            let content = (NSUserDefaults.standardUserDefaults().objectForKey("PUSH_MSG_KEY")) as! NSString as String
+            let voice = (content.componentsSeparatedByString("by") as NSArray).firstObject as! NSString
+            let uer = (content.componentsSeparatedByString("by") as NSArray).lastObject as! NSString
+            
+            self.voiceLabel.text = voice as String
+            self.byUerLabel.text = NSString.init(format: "by %@", uer) as String
+        }else {
             self.voiceLabel.text = "在以后的日子里，愿你被世界温柔以待。"
             self.byUerLabel.text = "by 倪小暖"
-            
-            if ((NSUserDefaults.standardUserDefaults().objectForKey("PUSH_MSG_KEY")) != nil){
-                let content = (NSUserDefaults.standardUserDefaults().objectForKey("PUSH_MSG_KEY")) as! NSString as String
-                let voice = (content.componentsSeparatedByString("by") as NSArray).firstObject as! NSString
-                let uer = (content.componentsSeparatedByString("by") as NSArray).lastObject as! NSString
-
-                self.voiceLabel.text = voice as String
-                self.byUerLabel.text = NSString.init(format: "by %@", uer) as String
-                
-            }
-            
         }
-        
     }
 
     override func preferredStatusBarStyle() -> UIStatusBarStyle {
@@ -62,29 +73,14 @@ class RootViewController: UIViewController {
     
     func addPathMenu() -> PathMenu {
         
-        let starMenuItem1 = PathMenuItem.init(image: UIImage(named: "plusBg")!, highlightedImage: UIImage(named: "plusBg")!, contentImage: UIImage(named: "comment")!)
         
+        let starMenuItem1 = PathMenuItem.init(image: UIImage(named: "plusBg")!, highlightedImage: UIImage(named: "plusBg")!, contentImage: UIImage(named: "info")!)
         let starMenuItem2 = PathMenuItem.init(image: UIImage(named: "plusBg")!, highlightedImage: UIImage(named: "plusBg")!, contentImage: UIImage(named: "ktv")!)
+        let starMenuItem3 = PathMenuItem.init(image: UIImage(named: "plusBg")!, highlightedImage: UIImage(named: "plusBg")!, contentImage: UIImage(named: "jvbao")!)
         
-        let starMenuItem3 = PathMenuItem.init(image: UIImage(named: "plusBg")!, highlightedImage: UIImage(named: "plusBg")!, contentImage: UIImage(named: "info")!)
+        let items = [starMenuItem1, starMenuItem2, starMenuItem3]
+        let count = 3.0
         
-        let starMenuItem4 = PathMenuItem.init(image: UIImage(named: "plusBg")!, highlightedImage: UIImage(named: "plusBg")!, contentImage: UIImage(named: "share")!)
-        
-        let starMenuItem5 = PathMenuItem.init(image: UIImage(named: "plusBg")!, highlightedImage: UIImage(named: "plusBg")!, contentImage: UIImage(named: "jvbao")!)
-        
-        var items = [starMenuItem1, starMenuItem2, starMenuItem3,starMenuItem5]
-        var count = 4.0
-//        if WXApi.isWXAppInstalled() && WXApi.isWXAppSupportApi() {
-            items = [starMenuItem1, starMenuItem2, starMenuItem4, starMenuItem3, starMenuItem5]
-            count = 5.0
-//        }
-        
-        
-        
-        
-//        starMenuItem2.endPoint = CGPointMake(300, view.frame.size.height - 230.0)
-        
-//        let items = [starMenuItem1, starMenuItem2, starMenuItem3]
         
         let startItem = PathMenuItem.init(image: UIImage(named: "plusBg")!,
                                           highlightedImage: UIImage(named: "plusBg"),
@@ -113,25 +109,19 @@ extension RootViewController: PathMenuDelegate {
         print("Select the index : \(idx)")
         switch idx {
         case 0:
-            //评分
-            UIApplication.sharedApplication().openURL(NSURL.init(string: "https://itunes.apple.com/us/app/u./id1110613814?l=zh&ls=1&mt=8")!)
+            //更多
+            let vc = MeViewController.init()
+            vc.voiceText = self.voiceLabel.text;
+            self.showViewController(vc, sender: nil)
             break
         case 1:
             // 我的Voice
             self.showViewController(MyVoiceViewController.init(), sender: nil)
             break
         case 2:
-            //分享
-            showNotice()
-            break;
-        case 3:
-            //关于
-            self.showViewController(MeViewController.init(), sender: nil)
-            break
-        case 4:
             //举报
             showJvBao()
-            break
+            break;
         default:
             break;
         }
@@ -153,65 +143,16 @@ extension RootViewController: PathMenuDelegate {
         print("Menu was closed!")
     }
     
-    func share2WeChat(sceneType:Int32) -> Bool {
-        let ext = WXWebpageObject()
-        ext.webpageUrl = "https://itunes.apple.com/us/app/u./id1110613814?l=zh&ls=1&mt=8"
-        
-        let message = WXMediaMessage()
-        if sceneType == 0 {
-             message.title = "悦己未必悅人，为自己发声！"
-        }else {
-            message.title = self.voiceLabel.text
-        }
-        
-        message.description = self.voiceLabel.text
-        message.mediaObject = ext
-        message.setThumbImage(UIImage.init(named: "Icon1024x1024"))
-        
-        let req = SendMessageToWXReq.init()
-        req.message = message
-        req.scene = sceneType;
-        
-        /*
-         
-         /*! @brief 请求发送场景
-         *
-         */
-         enum WXScene {
-         WXSceneSession  = 0,        /**< 聊天界面    */
-         WXSceneTimeline = 1,        /**< 朋友圈      */
-         WXSceneFavorite = 2,        /**< 收藏       */
-         };
-         
-         */
-        
-        return WXApi.sendReq(req)
-    }
-    
-    func showNotice() {
-        let appearance = SCLAlertView.SCLAppearance(
-            showCloseButton: true
-        )
-        let alert = SCLAlertView(appearance: appearance)
-        alert.addButton("朋友圈") {
-            self.share2WeChat(1)
-        }
-        alert.addButton("微信好友") {
-             self.share2WeChat(0)
-        }
-        alert.showNotice("分享到", subTitle: "")
-    }
-    
     func showJvBao() {
         let appearance = SCLAlertView.SCLAppearance(
             showCloseButton: false
         )
         let alert = SCLAlertView(appearance: appearance)
-        alert.addButton("点错了") {
-            //
-        }
         alert.addButton("举报") {
             SCLAlertView().showSuccess("举报成功", subTitle: "")
+        }
+        alert.addButton("点错了") {
+            //
         }
         alert.showWarning("举报该内容和用户", subTitle: "")
     }

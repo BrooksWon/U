@@ -22,6 +22,22 @@
 		983DEA481CDA487C00D247C1 /* libUMessage_Sdk_1.2.6.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 983DEA441CDA487C00D247C1 /* libUMessage_Sdk_1.2.6.a */; };
 		983DEA511CDA56EE00D247C1 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 983DEA501CDA56EE00D247C1 /* libz.tbd */; };
 		983DEA561CDA57B400D247C1 /* libMobClickLibrary.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 983DEA531CDA57B400D247C1 /* libMobClickLibrary.a */; };
+		984F3BF51CEED3A000E9119A /* LTCharacterLimbo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 984F3BE21CEED3A000E9119A /* LTCharacterLimbo.swift */; };
+		984F3BF61CEED3A000E9119A /* LTEasing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 984F3BE31CEED3A000E9119A /* LTEasing.swift */; };
+		984F3BF71CEED3A000E9119A /* LTEmitterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 984F3BE41CEED3A000E9119A /* LTEmitterView.swift */; };
+		984F3BF81CEED3A000E9119A /* LTMorphingEffect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 984F3BE51CEED3A000E9119A /* LTMorphingEffect.swift */; };
+		984F3BF91CEED3A000E9119A /* LTMorphingLabel+Anvil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 984F3BE61CEED3A000E9119A /* LTMorphingLabel+Anvil.swift */; };
+		984F3BFA1CEED3A000E9119A /* LTMorphingLabel+Burn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 984F3BE71CEED3A000E9119A /* LTMorphingLabel+Burn.swift */; };
+		984F3BFB1CEED3A000E9119A /* LTMorphingLabel+Evaporate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 984F3BE81CEED3A000E9119A /* LTMorphingLabel+Evaporate.swift */; };
+		984F3BFC1CEED3A000E9119A /* LTMorphingLabel+Fall.swift in Sources */ = {isa = PBXBuildFile; fileRef = 984F3BE91CEED3A000E9119A /* LTMorphingLabel+Fall.swift */; };
+		984F3BFD1CEED3A000E9119A /* LTMorphingLabel+Pixelate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 984F3BEA1CEED3A000E9119A /* LTMorphingLabel+Pixelate.swift */; };
+		984F3BFE1CEED3A000E9119A /* LTMorphingLabel+Sparkle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 984F3BEB1CEED3A000E9119A /* LTMorphingLabel+Sparkle.swift */; };
+		984F3BFF1CEED3A000E9119A /* LTMorphingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 984F3BED1CEED3A000E9119A /* LTMorphingLabel.swift */; };
+		984F3C001CEED3A000E9119A /* NSString+LTMorphingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 984F3BEE1CEED3A000E9119A /* NSString+LTMorphingLabel.swift */; };
+		984F3C011CEED3A000E9119A /* Fire.png in Resources */ = {isa = PBXBuildFile; fileRef = 984F3BF01CEED3A000E9119A /* Fire.png */; };
+		984F3C021CEED3A000E9119A /* Fragment.png in Resources */ = {isa = PBXBuildFile; fileRef = 984F3BF11CEED3A000E9119A /* Fragment.png */; };
+		984F3C031CEED3A000E9119A /* Smoke.png in Resources */ = {isa = PBXBuildFile; fileRef = 984F3BF21CEED3A000E9119A /* Smoke.png */; };
+		984F3C041CEED3A000E9119A /* Sparkle.png in Resources */ = {isa = PBXBuildFile; fileRef = 984F3BF31CEED3A000E9119A /* Sparkle.png */; };
 		98503E0B1CEDAB8B00894CD3 /* LLAnimationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 98503E061CEDAB8B00894CD3 /* LLAnimationManager.m */; };
 		98503E0C1CEDAB8B00894CD3 /* LLEyesLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 98503E081CEDAB8B00894CD3 /* LLEyesLayer.m */; };
 		98503E0D1CEDAB8B00894CD3 /* LLSwitch.m in Sources */ = {isa = PBXBuildFile; fileRef = 98503E0A1CEDAB8B00894CD3 /* LLSwitch.m */; };
@@ -123,6 +139,23 @@
 		983DEA531CDA57B400D247C1 /* libMobClickLibrary.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libMobClickLibrary.a; sourceTree = "<group>"; };
 		983DEA541CDA57B400D247C1 /* MobClick.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MobClick.h; sourceTree = "<group>"; };
 		983DEA551CDA57B400D247C1 /* MobClickSocialAnalytics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MobClickSocialAnalytics.h; sourceTree = "<group>"; };
+		984F3BE21CEED3A000E9119A /* LTCharacterLimbo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LTCharacterLimbo.swift; sourceTree = "<group>"; };
+		984F3BE31CEED3A000E9119A /* LTEasing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LTEasing.swift; sourceTree = "<group>"; };
+		984F3BE41CEED3A000E9119A /* LTEmitterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LTEmitterView.swift; sourceTree = "<group>"; };
+		984F3BE51CEED3A000E9119A /* LTMorphingEffect.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LTMorphingEffect.swift; sourceTree = "<group>"; };
+		984F3BE61CEED3A000E9119A /* LTMorphingLabel+Anvil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "LTMorphingLabel+Anvil.swift"; sourceTree = "<group>"; };
+		984F3BE71CEED3A000E9119A /* LTMorphingLabel+Burn.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "LTMorphingLabel+Burn.swift"; sourceTree = "<group>"; };
+		984F3BE81CEED3A000E9119A /* LTMorphingLabel+Evaporate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "LTMorphingLabel+Evaporate.swift"; sourceTree = "<group>"; };
+		984F3BE91CEED3A000E9119A /* LTMorphingLabel+Fall.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "LTMorphingLabel+Fall.swift"; sourceTree = "<group>"; };
+		984F3BEA1CEED3A000E9119A /* LTMorphingLabel+Pixelate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "LTMorphingLabel+Pixelate.swift"; sourceTree = "<group>"; };
+		984F3BEB1CEED3A000E9119A /* LTMorphingLabel+Sparkle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "LTMorphingLabel+Sparkle.swift"; sourceTree = "<group>"; };
+		984F3BEC1CEED3A000E9119A /* LTMorphingLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTMorphingLabel.h; sourceTree = "<group>"; };
+		984F3BED1CEED3A000E9119A /* LTMorphingLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LTMorphingLabel.swift; sourceTree = "<group>"; };
+		984F3BEE1CEED3A000E9119A /* NSString+LTMorphingLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSString+LTMorphingLabel.swift"; sourceTree = "<group>"; };
+		984F3BF01CEED3A000E9119A /* Fire.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Fire.png; sourceTree = "<group>"; };
+		984F3BF11CEED3A000E9119A /* Fragment.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Fragment.png; sourceTree = "<group>"; };
+		984F3BF21CEED3A000E9119A /* Smoke.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Smoke.png; sourceTree = "<group>"; };
+		984F3BF31CEED3A000E9119A /* Sparkle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Sparkle.png; sourceTree = "<group>"; };
 		98503E051CEDAB8B00894CD3 /* LLAnimationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLAnimationManager.h; sourceTree = "<group>"; };
 		98503E061CEDAB8B00894CD3 /* LLAnimationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLAnimationManager.m; sourceTree = "<group>"; };
 		98503E071CEDAB8B00894CD3 /* LLEyesLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLEyesLayer.h; sourceTree = "<group>"; };
@@ -279,6 +312,38 @@
 			path = UMAnalytics_Sdk_3.6.6;
 			sourceTree = "<group>";
 		};
+		984F3BE01CEED3A000E9119A /* LTMorphingLabel */ = {
+			isa = PBXGroup;
+			children = (
+				984F3BE21CEED3A000E9119A /* LTCharacterLimbo.swift */,
+				984F3BE31CEED3A000E9119A /* LTEasing.swift */,
+				984F3BE41CEED3A000E9119A /* LTEmitterView.swift */,
+				984F3BE51CEED3A000E9119A /* LTMorphingEffect.swift */,
+				984F3BE61CEED3A000E9119A /* LTMorphingLabel+Anvil.swift */,
+				984F3BE71CEED3A000E9119A /* LTMorphingLabel+Burn.swift */,
+				984F3BE81CEED3A000E9119A /* LTMorphingLabel+Evaporate.swift */,
+				984F3BE91CEED3A000E9119A /* LTMorphingLabel+Fall.swift */,
+				984F3BEA1CEED3A000E9119A /* LTMorphingLabel+Pixelate.swift */,
+				984F3BEB1CEED3A000E9119A /* LTMorphingLabel+Sparkle.swift */,
+				984F3BEC1CEED3A000E9119A /* LTMorphingLabel.h */,
+				984F3BED1CEED3A000E9119A /* LTMorphingLabel.swift */,
+				984F3BEE1CEED3A000E9119A /* NSString+LTMorphingLabel.swift */,
+				984F3BEF1CEED3A000E9119A /* Particles */,
+			);
+			path = LTMorphingLabel;
+			sourceTree = "<group>";
+		};
+		984F3BEF1CEED3A000E9119A /* Particles */ = {
+			isa = PBXGroup;
+			children = (
+				984F3BF01CEED3A000E9119A /* Fire.png */,
+				984F3BF11CEED3A000E9119A /* Fragment.png */,
+				984F3BF21CEED3A000E9119A /* Smoke.png */,
+				984F3BF31CEED3A000E9119A /* Sparkle.png */,
+			);
+			path = Particles;
+			sourceTree = "<group>";
+		};
 		98503E041CEDAB8B00894CD3 /* LLSwitch */ = {
 			isa = PBXGroup;
 			children = (
@@ -433,6 +498,7 @@
 		989397EE1CD9BE9C00079DCF /* Third */ = {
 			isa = PBXGroup;
 			children = (
+				984F3BE01CEED3A000E9119A /* LTMorphingLabel */,
 				98503E041CEDAB8B00894CD3 /* LLSwitch */,
 				9864891D1CED7FAC006E5CDC /* PlaceholderTextView */,
 				980354FE1CE599D100F56C61 /* OpenSDK1.7 */,
@@ -579,8 +645,10 @@
 				985889501CE089430005E0D1 /* umeng_fb_audio_dialog_cancel@2x.png in Resources */,
 				980355051CE599D100F56C61 /* README.txt in Resources */,
 				985889451CE089430005E0D1 /* UMFeedbackLocalizable.strings in Resources */,
+				984F3C031CEED3A000E9119A /* Smoke.png in Resources */,
 				9858894B1CE089430005E0D1 /* ToolViewInputText@2x.png in Resources */,
 				989398101CD9EEB100079DCF /* MyVoiceViewController.xib in Resources */,
+				984F3C041CEED3A000E9119A /* Sparkle.png in Resources */,
 				985889491CE089430005E0D1 /* microphone@2x.png in Resources */,
 				985889521CE089430005E0D1 /* umeng_fb_audio_play_01@2x.png in Resources */,
 				985889541CE089430005E0D1 /* umeng_fb_audio_play_03@2x.png in Resources */,
@@ -592,8 +660,10 @@
 				9858894C1CE089430005E0D1 /* ToolViewInputTextHL@2x.png in Resources */,
 				985889551CE089430005E0D1 /* umeng_fb_audio_play_default@2x.png in Resources */,
 				989397C81CD9BE4E00079DCF /* Assets.xcassets in Resources */,
+				984F3C011CEED3A000E9119A /* Fire.png in Resources */,
 				985889511CE089430005E0D1 /* umeng_fb_audio_dialog_content@2x.png in Resources */,
 				989397C61CD9BE4E00079DCF /* Main.storyboard in Resources */,
+				984F3C021CEED3A000E9119A /* Fragment.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -624,6 +694,9 @@
 			files = (
 				98260CB61CDB1B8D00661A92 /* SCLExtensions.swift in Sources */,
 				985889591CE089430005E0D1 /* UMChatToolBar.m in Sources */,
+				984F3BFE1CEED3A000E9119A /* LTMorphingLabel+Sparkle.swift in Sources */,
+				984F3BF71CEED3A000E9119A /* LTEmitterView.swift in Sources */,
+				984F3BFB1CEED3A000E9119A /* LTMorphingLabel+Evaporate.swift in Sources */,
 				989397FF1CD9E57600079DCF /* PathMenuItem.swift in Sources */,
 				98260B8F1CDADCCF00661A92 /* ATAppUpdater.m in Sources */,
 				98260CB51CDB1B8D00661A92 /* SCLAlertView.swift in Sources */,
@@ -633,16 +706,25 @@
 				98503E0B1CEDAB8B00894CD3 /* LLAnimationManager.m in Sources */,
 				985889581CE089430005E0D1 /* UMChatTableViewCell.m in Sources */,
 				9893981B1CDA04AB00079DCF /* MeViewController.swift in Sources */,
+				984F3BF81CEED3A000E9119A /* LTMorphingEffect.swift in Sources */,
 				9858895C1CE089430005E0D1 /* UMRadialView.m in Sources */,
 				9893980D1CD9EEB100079DCF /* MyVoiceViewController.swift in Sources */,
 				985889561CE089430005E0D1 /* UMFeedbackViewController.m in Sources */,
 				989397FC1CD9E57600079DCF /* PathMenu.swift in Sources */,
+				984F3BF51CEED3A000E9119A /* LTCharacterLimbo.swift in Sources */,
+				984F3BF91CEED3A000E9119A /* LTMorphingLabel+Anvil.swift in Sources */,
 				986489211CED87A0006E5CDC /* DZMTextViewPlaceholder.swift in Sources */,
 				9858895B1CE089430005E0D1 /* UMPostTableViewCell.m in Sources */,
 				989397C11CD9BE4E00079DCF /* AppDelegate.swift in Sources */,
 				989397F61CD9D9D400079DCF /* MainNavigationController.swift in Sources */,
+				984F3BFF1CEED3A000E9119A /* LTMorphingLabel.swift in Sources */,
 				989397F21CD9BE9C00079DCF /* GlitchLabel.swift in Sources */,
 				9858895A1CE089430005E0D1 /* UMFullScreenPhotoView.m in Sources */,
+				984F3C001CEED3A000E9119A /* NSString+LTMorphingLabel.swift in Sources */,
+				984F3BF61CEED3A000E9119A /* LTEasing.swift in Sources */,
+				984F3BFC1CEED3A000E9119A /* LTMorphingLabel+Fall.swift in Sources */,
+				984F3BFD1CEED3A000E9119A /* LTMorphingLabel+Pixelate.swift in Sources */,
+				984F3BFA1CEED3A000E9119A /* LTMorphingLabel+Burn.swift in Sources */,
 				9858895D1CE089430005E0D1 /* UMTextView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
