@@ -40,6 +40,16 @@ class MeViewController: UIViewController {
         versionLabel.text = (NSString(format: "当前版本 %@", version)) as String
     }
     
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        MobClick.beginEvent(NSStringFromClass(self.classForCoder))
+    }
+    override func viewDidDisappear(animated: Bool) {
+        super.viewDidDisappear(animated)
+        MobClick.endEvent(NSStringFromClass(self.classForCoder))
+    }
+
+    
     override func preferredStatusBarStyle() -> UIStatusBarStyle {
         return UIStatusBarStyle.LightContent
     }
@@ -80,6 +90,7 @@ extension MeViewController: UITableViewDataSource {
             cell!.textLabel?.text = items[indexPath.row]
             
             llSwitch.on = isPushturnOn()
+            
         }else {
             let cellID2 = "cellID2"
             cell = tableView.dequeueReusableCellWithIdentifier(cellID2)
@@ -99,7 +110,6 @@ extension MeViewController: UITableViewDataSource {
             cell!.textLabel?.text = items[indexPath.row]
         }
         
-        
         return cell!
     }
     
@@ -114,14 +124,20 @@ extension MeViewController: UITableViewDataSource {
         case 0:
             break;
         case 1:
+            MobClick.event("pingfen_click")
+
             //评分
             UIApplication.sharedApplication().openURL(NSURL.init(string: "https://itunes.apple.com/us/app/u./id1110613814?l=zh&ls=1&mt=8")!)
             break;
         case 2:
+            MobClick.event("share_click")
+
             //分享
             self.showNotice()
             break;
         case 3:
+            MobClick.event("gonglue_click")
+
             //攻略
             break;
         default: break
@@ -135,9 +151,12 @@ extension MeViewController: UITableViewDataSource {
         let alert = SCLAlertView(appearance: appearance)
         alert.addButton("朋友圈") {
             self.share2WeChat(1)
+            MobClick.event("pengyouquan_btn")
+
         }
         alert.addButton("微信好友") {
             self.share2WeChat(0)
+            MobClick.event("pengyou_btn")
         }
         alert.showNotice("分享到", subTitle: "")
     }
@@ -180,9 +199,11 @@ extension MeViewController: UITableViewDataSource {
     
     func isPushturnOn() -> Bool {
         let setting = UIApplication.sharedApplication().currentUserNotificationSettings()
-        if(UIUserNotificationType.None == setting!.types) {
+        if(UIUserNotificationType.None != setting!.types) {
+            MobClick.event("push_on")
             return true
         }
+        MobClick.event("push_off")
         return false
     }
     
@@ -190,7 +211,11 @@ extension MeViewController: UITableViewDataSource {
 
 extension MeViewController: LLSwitchDelegate {
     func didTapLLSwitch(llSwitch:LLSwitch) {
-        //
+        if llSwitch.on {
+            MobClick.event("pushON_click")
+        }else {
+            MobClick.event("pushOFF_click")
+        }
     }
     func animationDidStopForLLSwitch(llSwitch:LLSwitch) {
         if llSwitch.on {
@@ -199,6 +224,7 @@ extension MeViewController: LLSwitchDelegate {
                 let url = NSURL.init(string: UIApplicationOpenSettingsURLString)
                 if UIApplication.sharedApplication().canOpenURL(url!) {
                     UIApplication.sharedApplication().openURL(url!)
+                    MobClick.event("push_tiaozhuan")
                 }
             }
         }

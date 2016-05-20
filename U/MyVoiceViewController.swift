@@ -41,6 +41,15 @@ class MyVoiceViewController: UIViewController {
         self.voiceTextView.placeholderColor = UIColor.whiteColor()
     }
     
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        MobClick.beginEvent(NSStringFromClass(self.classForCoder))
+    }
+    override func viewDidDisappear(animated: Bool) {
+        super.viewDidDisappear(animated)
+        MobClick.endEvent(NSStringFromClass(self.classForCoder))
+    }
+    
     override func preferredStatusBarStyle() -> UIStatusBarStyle {
         return UIStatusBarStyle.LightContent
     }
@@ -49,6 +58,7 @@ class MyVoiceViewController: UIViewController {
     @IBAction func commitBtnAction(sender: AnyObject) {
         self.view.endEditing(true)
         if (voiceTextView.text.compare(kVoice) == NSComparisonResult.OrderedSame) || (nameTextField.text!.compare(kName) == NSComparisonResult.OrderedSame) || voiceTextView.text.isEmpty || nameTextField.text!.isEmpty {
+            MobClick.event("tiaojiaoEmpty_btn")
             return
         }
         
@@ -60,6 +70,9 @@ class MyVoiceViewController: UIViewController {
         UMFeedback.sharedInstance().post(pDic) { (error) in
             if (error != nil) {
                 NSLog("error ====== %@", error)
+                MobClick.event("tiaojiaoSuccess")
+            }else {
+                MobClick.event("tiaojiaoError")
             }
         }
         
@@ -79,9 +92,10 @@ class MyVoiceViewController: UIViewController {
         alert.addButton("好") {
             self.navigationController?.popViewControllerAnimated(true)
             self.view.viewWithTag(10086)?.removeFromSuperview()
+            MobClick.event("tiaojiaoHao_btn")
         }
         alert.addButton("再来一次") {
-            print("Second button tapped")
+            MobClick.event("tiaojiaoAgin_btn")
             self.view.viewWithTag(10086)?.removeFromSuperview()
         }
         alert.showSuccess(kSuccessTitle, subTitle: "")
@@ -173,6 +187,7 @@ class MyVoiceViewController: UIViewController {
     
     func tapped(gestureRecognizer: UITapGestureRecognizer) {
         self.view.endEditing(true)
+        MobClick.event("shou_qi_jian_pan_shou_shi")
     }
 
 }

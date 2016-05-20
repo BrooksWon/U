@@ -28,7 +28,7 @@
                                             <constraint firstAttribute="height" constant="20" id="I2d-Wa-6mG"/>
                                         </constraints>
                                     </view>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="U." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VYe-ln-IUy">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="U" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VYe-ln-IUy" customClass="LTMorphingLabel" customModule="U" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="20" width="288" height="44"/>
                                         <fontDescription key="fontDescription" type="system" weight="black" pointSize="24"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -72,7 +72,7 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X6t-fh-MJ2">
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X6t-fh-MJ2" customClass="LTMorphingLabel" customModule="U" customModuleProvider="target">
                                 <rect key="frame" x="31" y="294" width="258" height="15"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -81,6 +81,9 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="morphingEnabled" value="YES"/>
+                                </userDefinedRuntimeAttributes>
                             </label>
                         </subviews>
                         <color key="backgroundColor" red="0.10585353523492813" green="0.10581768304109573" blue="0.10994400829076767" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -105,6 +108,7 @@
                         <outlet property="byUerLabel" destination="X6t-fh-MJ2" id="XSY-4w-PQG"/>
                         <outlet property="glitchLabel" destination="ykq-qK-JQS" id="ey3-D0-DNr"/>
                         <outlet property="navBar" destination="9op-Nw-9ht" id="EdV-6r-qo2"/>
+                        <outlet property="navBarTittleLabel" destination="VYe-ln-IUy" id="zdQ-mV-z4G"/>
                         <outlet property="voiceLabel" destination="oCY-sa-WY0" id="bDZ-mW-RJo"/>
                     </connections>
                 </viewController>

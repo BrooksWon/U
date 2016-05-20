@@ -16,7 +16,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
-                
+        
         // 版本更新
         ATAppUpdater.sharedUpdater().forceOpenNewAppVersion(true)
         
@@ -97,12 +97,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: NSData) {
         UMessage.registerDeviceToken(deviceToken)
+        MobClick.event("Register_success")
     }
     
     func application(application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: NSError) {
         //如果注册不成功，打印错误信息，可以在网上找到对应的解决方案
         //如果注册成功，可以删掉这个方法
         NSLog("application:didFailToRegisterForRemoteNotificationsWithError: %@", error);
+        MobClick.event("Register_Fail")
+
     }
     
     func application(application: UIApplication, didReceiveRemoteNotification userInfo: [NSObject : AnyObject]) {
@@ -112,9 +115,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UMessage.didReceiveRemoteNotification(userInfo)
         
         showPushMsg(userInfo)
+        
+        MobClick.event("didReceiveRemoteNotification")
     }
     
     func showPushMsg(userInfo: NSObject) {
+        
+        MobClick.event("showPushMsg")
         
         let msg:String = (userInfo as NSObject).valueForKeyPath("aps.alert") as! String
         
