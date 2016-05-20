@@ -31,7 +31,7 @@ class MeViewController: UIViewController {
         self.navigationController?.popViewControllerAnimated(true)
     }
     
-    let items = ["是否接收push消息", "给个好评👌", "分享", "攻略"]
+    let items = ["消息", "鼓励", "予人", "攻略"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
