@@ -16,6 +16,14 @@ class RootViewController: UIViewController {
     @IBOutlet weak var navBar: UIView!
     @IBOutlet weak var navBarTittleLabel: LTMorphingLabel!
     
+    var emojiFlay : LSEmojiFly!
+    
+    
+    let keys = ["生日", "爱", "生活", "gay", "你算什么", "傻逼", "牛逼"]
+    let kekDic = ["生日":"shengri", "爱":"lover", "生活" :"life", "gay":"gay", "你算什么":"nssm", "傻逼" :"sb", "牛逼":"nb",]
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 //        If white background
@@ -75,10 +83,30 @@ class RootViewController: UIViewController {
             self.voiceLabel.text = voice as String
             self.byUerLabel.text = NSString.init(format: "by %@", uer) as String
             
+            
+//            self.emojiFlay = [LSEmojiFly emojiFly];
+//            [self.emojiFlay startFlyWithEmojiImage:[UIImage imageNamed:@"5"] onView:self.view];
+            self.performSelector(#selector(rainFly), withObject: nil, afterDelay: 1.0)
+            
         }else {
             self.voiceLabel.text = "以后的时光里，愿你被世界温柔以待！"
             self.byUerLabel.text = "by 倪小暖"
         }
+    }
+    
+    func rainFly() {
+        var key : String!
+        for item in keys {
+            if ((self.voiceLabel.text?.containsString(item)) == true) {
+                key = item
+                break
+            }
+        }
+        
+        self.emojiFlay = LSEmojiFly()
+        self.emojiFlay.startFlyWithEmojiImage(UIImage.init(named: kekDic[key]!), onView: self.view)
+        
+        self.emojiFlay.performSelector(#selector(LSEmojiFly.endFly), withObject: nil, afterDelay: 3.0)
     }
 
     override func preferredStatusBarStyle() -> UIStatusBarStyle {

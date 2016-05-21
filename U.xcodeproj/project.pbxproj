@@ -100,6 +100,7 @@
 		989398201CDA04AB00079DCF /* MeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9893981A1CDA04AB00079DCF /* MeViewController.xib */; };
 		98E87F0F1CF0DEB600B16A31 /* GLViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98E87F0D1CF0DEB600B16A31 /* GLViewController.swift */; };
 		98E87F101CF0DEB600B16A31 /* GLViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 98E87F0E1CF0DEB600B16A31 /* GLViewController.xib */; };
+		98E87F141CF0E7DE00B16A31 /* LSEmojiFly.m in Sources */ = {isa = PBXBuildFile; fileRef = 98E87F131CF0E7DE00B16A31 /* LSEmojiFly.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -227,6 +228,8 @@
 		9893981A1CDA04AB00079DCF /* MeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MeViewController.xib; sourceTree = "<group>"; };
 		98E87F0D1CF0DEB600B16A31 /* GLViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GLViewController.swift; sourceTree = "<group>"; };
 		98E87F0E1CF0DEB600B16A31 /* GLViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GLViewController.xib; sourceTree = "<group>"; };
+		98E87F121CF0E7DE00B16A31 /* LSEmojiFly.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LSEmojiFly.h; sourceTree = "<group>"; };
+		98E87F131CF0E7DE00B16A31 /* LSEmojiFly.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LSEmojiFly.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -504,6 +507,7 @@
 		989397EE1CD9BE9C00079DCF /* Third */ = {
 			isa = PBXGroup;
 			children = (
+				98E87F111CF0E7CD00B16A31 /* EmojiFly */,
 				984F3BE01CEED3A000E9119A /* LTMorphingLabel */,
 				98503E041CEDAB8B00894CD3 /* LLSwitch */,
 				9864891D1CED7FAC006E5CDC /* PlaceholderTextView */,
@@ -536,6 +540,15 @@
 				989397FB1CD9E57600079DCF /* PathMenuItem.swift */,
 			);
 			path = PathMenu;
+			sourceTree = "<group>";
+		};
+		98E87F111CF0E7CD00B16A31 /* EmojiFly */ = {
+			isa = PBXGroup;
+			children = (
+				98E87F121CF0E7DE00B16A31 /* LSEmojiFly.h */,
+				98E87F131CF0E7DE00B16A31 /* LSEmojiFly.m */,
+			);
+			path = EmojiFly;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -716,6 +729,7 @@
 				9893981B1CDA04AB00079DCF /* MeViewController.swift in Sources */,
 				984F3BF81CEED3A000E9119A /* LTMorphingEffect.swift in Sources */,
 				9858895C1CE089430005E0D1 /* UMRadialView.m in Sources */,
+				98E87F141CF0E7DE00B16A31 /* LSEmojiFly.m in Sources */,
 				9893980D1CD9EEB100079DCF /* MyVoiceViewController.swift in Sources */,
 				985889561CE089430005E0D1 /* UMFeedbackViewController.m in Sources */,
 				989397FC1CD9E57600079DCF /* PathMenu.swift in Sources */,
