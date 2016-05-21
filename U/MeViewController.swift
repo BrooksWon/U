@@ -42,11 +42,11 @@ class MeViewController: UIViewController {
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
-        MobClick.beginEvent(NSStringFromClass(self.classForCoder))
+        MobClick.beginLogPageView(NSStringFromClass(self.classForCoder))
     }
     override func viewDidDisappear(animated: Bool) {
         super.viewDidDisappear(animated)
-        MobClick.endEvent(NSStringFromClass(self.classForCoder))
+        MobClick.endLogPageView(NSStringFromClass(self.classForCoder))
     }
 
     

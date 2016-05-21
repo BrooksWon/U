@@ -23,9 +23,6 @@ class RootViewController: UIViewController {
         glitchLabel.text = "Hello, Uer!"
 //        view.backgroundColor = UIColor.whiteColor()
         
-        // 关闭状态栏
-        self.navigationController?.navigationBar.barStyle
-        
         sleep(1);
         
         UIView.animateWithDuration(3.0, delay: 0.0, options: UIViewAnimationOptions.BeginFromCurrentState, animations: {
@@ -55,11 +52,11 @@ class RootViewController: UIViewController {
     }
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
-        MobClick.beginEvent(NSStringFromClass(self.classForCoder))
+        MobClick.beginLogPageView(NSStringFromClass(self.classForCoder))
     }
     override func viewDidDisappear(animated: Bool) {
         super.viewDidDisappear(animated)
-        MobClick.endEvent(NSStringFromClass(self.classForCoder))
+        MobClick.endLogPageView(NSStringFromClass(self.classForCoder))
     }
     
     func changeVoiceText() {
@@ -77,6 +74,7 @@ class RootViewController: UIViewController {
             
             self.voiceLabel.text = voice as String
             self.byUerLabel.text = NSString.init(format: "by %@", uer) as String
+            
         }else {
             self.voiceLabel.text = "在以后的日子里，愿你被世界温柔以待。"
             self.byUerLabel.text = "by 倪小暖"
@@ -160,7 +158,7 @@ extension RootViewController: PathMenuDelegate {
     
     func pathMenuDidFinishAnimationOpen(menu: PathMenu) {
         print("Menu was open!")
-        MobClick.event("+_btn")
+        MobClick.event("plus_btn")
     }
     
     func pathMenuDidFinishAnimationClose(menu: PathMenu) {

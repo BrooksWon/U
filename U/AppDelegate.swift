@@ -93,6 +93,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let rootNav = window?.rootViewController as! UINavigationController
         
         rootNav.showViewController(MyVoiceViewController.init(), sender: nil)
+        
+        MobClick.event("3DTouch_btn")
     }
     
     func application(application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: NSData) {
@@ -152,6 +154,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 
                 let vc = (self.window?.rootViewController as! UINavigationController).viewControllers.last as! RootViewController
                 vc.changeVoiceText()
+                
+                MobClick.event("dian_ji_hao_chan_kan_push")
+                
             }
             alert.showNotice(kNoticeTitle, subTitle: msg as String)
         }
