@@ -98,6 +98,8 @@
 		9893981E1CDA04AB00079DCF /* MeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9893981A1CDA04AB00079DCF /* MeViewController.xib */; };
 		9893981F1CDA04AB00079DCF /* MeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9893981A1CDA04AB00079DCF /* MeViewController.xib */; };
 		989398201CDA04AB00079DCF /* MeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9893981A1CDA04AB00079DCF /* MeViewController.xib */; };
+		98E87F0F1CF0DEB600B16A31 /* GLViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98E87F0D1CF0DEB600B16A31 /* GLViewController.swift */; };
+		98E87F101CF0DEB600B16A31 /* GLViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 98E87F0E1CF0DEB600B16A31 /* GLViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -223,6 +225,8 @@
 		9893980C1CD9EEB100079DCF /* MyVoiceViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyVoiceViewController.xib; sourceTree = "<group>"; };
 		989398191CDA04AB00079DCF /* MeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeViewController.swift; sourceTree = "<group>"; };
 		9893981A1CDA04AB00079DCF /* MeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MeViewController.xib; sourceTree = "<group>"; };
+		98E87F0D1CF0DEB600B16A31 /* GLViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GLViewController.swift; sourceTree = "<group>"; };
+		98E87F0E1CF0DEB600B16A31 /* GLViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GLViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -467,6 +471,8 @@
 				9893980C1CD9EEB100079DCF /* MyVoiceViewController.xib */,
 				989398191CDA04AB00079DCF /* MeViewController.swift */,
 				9893981A1CDA04AB00079DCF /* MeViewController.xib */,
+				98E87F0D1CF0DEB600B16A31 /* GLViewController.swift */,
+				98E87F0E1CF0DEB600B16A31 /* GLViewController.xib */,
 				989397F51CD9D9D400079DCF /* MainNavigationController.swift */,
 				989397C41CD9BE4E00079DCF /* Main.storyboard */,
 				989397C71CD9BE4E00079DCF /* Assets.xcassets */,
@@ -664,6 +670,7 @@
 				985889511CE089430005E0D1 /* umeng_fb_audio_dialog_content@2x.png in Resources */,
 				989397C61CD9BE4E00079DCF /* Main.storyboard in Resources */,
 				984F3C021CEED3A000E9119A /* Fragment.png in Resources */,
+				98E87F101CF0DEB600B16A31 /* GLViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -705,6 +712,7 @@
 				98503E0C1CEDAB8B00894CD3 /* LLEyesLayer.m in Sources */,
 				98503E0B1CEDAB8B00894CD3 /* LLAnimationManager.m in Sources */,
 				985889581CE089430005E0D1 /* UMChatTableViewCell.m in Sources */,
+				98E87F0F1CF0DEB600B16A31 /* GLViewController.swift in Sources */,
 				9893981B1CDA04AB00079DCF /* MeViewController.swift in Sources */,
 				984F3BF81CEED3A000E9119A /* LTMorphingEffect.swift in Sources */,
 				9858895C1CE089430005E0D1 /* UMRadialView.m in Sources */,

@@ -21,8 +21,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         ATAppUpdater.sharedUpdater().forceOpenNewAppVersion(true)
         
         //定制光标
-        UITextField.appearance().tintColor = UIColor.init(red: 27/255.0, green: 27/255.0, blue: 28/255.0, alpha: 1.0)
-        UITextView.appearance().tintColor = UIColor.init(red: 27/255.0, green: 27/255.0, blue: 28/255.0, alpha: 1.0)
+//        UITextField.appearance().tintColor = UIColor.init(red: 27/255.0, green: 27/255.0, blue: 28/255.0, alpha: 1.0)
+//        UITextView.appearance().tintColor = UIColor.init(red: 27/255.0, green: 27/255.0, blue: 28/255.0, alpha: 1.0)
+        UITextField.appearance().tintColor = UIColor.whiteColor()
+        UITextView.appearance().tintColor = UIColor.whiteColor()
         //下一版本最好增加3Dtouch
         
         // UM push

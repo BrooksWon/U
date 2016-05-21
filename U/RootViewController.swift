@@ -76,7 +76,7 @@ class RootViewController: UIViewController {
             self.byUerLabel.text = NSString.init(format: "by %@", uer) as String
             
         }else {
-            self.voiceLabel.text = "在以后的日子里，愿你被世界温柔以待。"
+            self.voiceLabel.text = "以后的时光里，愿你被世界温柔以待！"
             self.byUerLabel.text = "by 倪小暖"
         }
     }
@@ -136,7 +136,7 @@ extension RootViewController: PathMenuDelegate {
         case 1:
             MobClick.event("voice_btn")
             // 我的Voice
-            self.showViewController(MyVoiceViewController.init(), sender: nil)
+            self.navigationController?.pushViewController(MyVoiceViewController.init(), animated: true)
             break
         case 2:
             MobClick.event("jvbao_btn")

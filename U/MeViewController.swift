@@ -137,8 +137,9 @@ extension MeViewController: UITableViewDataSource {
             break;
         case 3:
             MobClick.event("gonglue_click")
-
+            
             //攻略
+            self.navigationController?.pushViewController(GLViewController.init(), animated: true)
             break;
         default: break
         }
