@@ -103,10 +103,12 @@ class RootViewController: UIViewController {
             }
         }
         
-        self.emojiFlay = LSEmojiFly()
-        self.emojiFlay.startFlyWithEmojiImage(UIImage.init(named: kekDic[key]!), onView: self.view)
-        
-        self.emojiFlay.performSelector(#selector(LSEmojiFly.endFly), withObject: nil, afterDelay: 3.0)
+        if nil != key {
+            self.emojiFlay = LSEmojiFly()
+            self.emojiFlay.startFlyWithEmojiImage(UIImage.init(named: kekDic[key]!), onView: self.view)
+            
+            self.emojiFlay.performSelector(#selector(LSEmojiFly.endFly), withObject: nil, afterDelay: 3.0)
+        }
     }
 
     override func preferredStatusBarStyle() -> UIStatusBarStyle {
