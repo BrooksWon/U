@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AdSupport
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -16,6 +17,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
+        
+        // idfa
+//        NSString *adId =[[[ASIdentifierManager sharedManager] advertisingIdentifier] UUIDString];
+        let adid = ASIdentifierManager.sharedManager().advertisingIdentifier.UUIDString
+        NSLog("adid ====== %@", adid)
         
         // 版本更新
         ATAppUpdater.sharedUpdater().forceOpenNewAppVersion(true)

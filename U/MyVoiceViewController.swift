@@ -70,9 +70,9 @@ class MyVoiceViewController: UIViewController {
         UMFeedback.sharedInstance().post(pDic) { (error) in
             if (error != nil) {
                 NSLog("error ====== %@", error)
-                MobClick.event("tiaojiaoSuccess")
+                 MobClick.event("tiaojiaoError")
             }else {
-                MobClick.event("tiaojiaoError")
+                MobClick.event("tiaojiaoSuccess")
             }
         }
         
