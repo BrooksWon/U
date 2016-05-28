@@ -1,0 +1,41 @@
+/* 
+  Localizable.strings
+  U
+
+  Created by Brooks on 16/5/28.
+  Copyright © 2016年 王建雨. All rights reserved.
+*/
+CFBundleDisplayName ="U.";
+"DefaultVoiceKey"   = "If you are working on your dream.\nSure there will be times you what to give up.\nSure there will be times that life will knock you down.\nAnd kept you on the blind side.\n\nBut the challenge is to hold on.\nAnd if you hold on tenaciously, I said that universe is on your side.\nSee ?";
+"ByUerKey"          = "Brooks";
+"MessageKey"        = "Message";
+"EncourageKey"      = "Encourage";
+"ShareKey"          = "Share";
+"ExplanationKey"    = "Explanation";
+"CurrentVersionKey" = "Current Version ";
+"FeedbackKey"       = "Feedback";
+"YourWordsKey"      = "your words...";
+"WhoAreYouKey"      = "who are you";
+"SayToTheWorldKey"  = "Shout to the world";
+"NoteTextKey"       = "If you are eager to listen and shout :\n\nU. hope you take a minute every day, read a word, write a word; then leave it.\n\nU. will select the strongest voices shout every day, so that all Uer hear.\n\n(Right Open: Click push messages to start the application)";
+"JvBaoKey"          = "Report";
+"JvBao_Yes_Key"     = "Yes";
+"JvBao_NO_Key"      = "No";
+"JvBao_Success_Key" = "Report Succeed";
+
+"ShouDaoKey"        = "Received";
+"ShouDao_Done_Key"  = "Done";
+"ShouDao_Again_Key" = "Again";
+"Push_Ok_Key"       = "OK";
+"NotificationKey"   = "Notification";
+
+"FriendKey"         = "Friend";
+"WechatKey"         = "WeChat";
+"VoiceKey"          = "Shout";
+
+"UpdateKey"         = "Update";
+
+"NewVersionKey"     = "New Version";
+
+
+

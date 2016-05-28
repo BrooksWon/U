@@ -7,6 +7,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="GLViewController" customModule="U" customModuleProvider="target">
             <connections>
+                <outlet property="noteTextView" destination="BoF-gE-yPg" id="Mb0-5S-uEG"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>

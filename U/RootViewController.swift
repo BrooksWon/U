@@ -82,15 +82,12 @@ class RootViewController: UIViewController {
             
             self.voiceLabel.text = voice as String
             self.byUerLabel.text = NSString.init(format: "by %@", uer) as String
-            
-            
-//            self.emojiFlay = [LSEmojiFly emojiFly];
-//            [self.emojiFlay startFlyWithEmojiImage:[UIImage imageNamed:@"5"] onView:self.view];
+        
             self.performSelector(#selector(rainFly), withObject: nil, afterDelay: 1.0)
             
         }else {
-            self.voiceLabel.text = "以后的时光里，愿你被世界温柔以待！"
-            self.byUerLabel.text = "by 倪小暖"
+            self.voiceLabel.text = NSLocalizedString("DefaultVoiceKey", comment: "wobuzhidao")
+            self.byUerLabel.text = NSString.init(format: "by %@", NSLocalizedString("ByUerKey", comment: "None")) as String
         }
     }
     
@@ -200,14 +197,15 @@ extension RootViewController: PathMenuDelegate {
             showCloseButton: false
         )
         let alert = SCLAlertView(appearance: appearance)
-        alert.addButton("举报") {
-            SCLAlertView().showSuccess("举报成功", subTitle: "")
+
+        alert.addButton(NSLocalizedString("JvBao_Yes_Key", comment: "")) {
+            SCLAlertView().showSuccess(NSLocalizedString("JvBao_Success_Key", comment: ""), subTitle: "")
             MobClick.event("jvbaoSuccess_btn")
         }
-        alert.addButton("点错了") {
+        alert.addButton(NSLocalizedString("JvBao_NO_Key", comment: "")) {
             MobClick.event("jvbaoError_btn")
         }
-        alert.showWarning("举报该内容和用户", subTitle: "")
+        alert.showWarning(NSLocalizedString("JvBaoKey", comment: ""), subTitle: "")
     }
 }
 

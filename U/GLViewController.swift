@@ -10,16 +10,20 @@ import UIKit
 
 class GLViewController: UIViewController {
     
+    @IBOutlet weak var noteTextView: UITextView!
     @IBAction func backBtnAction(sender: AnyObject) {
         self.navigationController?.popViewControllerAnimated(true)
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
     }
-
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        self.noteTextView.text = NSLocalizedString("NoteTextKey", comment: "")
+        self.noteTextView.textColor = UIColor.whiteColor()
+        self.noteTextView.font = UIFont.systemFontOfSize(14.0)
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

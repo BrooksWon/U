@@ -605,7 +605,7 @@ public class SCLAlertView: UIViewController {
         
         // Done button
         if appearance.showCloseButton {
-            addButton(completeText ?? "好", target:self, selector:#selector(SCLAlertView.hideView))
+            addButton(completeText ?? NSLocalizedString("ShouDao_Done_Key", comment: ""), target:self, selector:#selector(SCLAlertView.hideView))
         }
         
         //hidden/show circular view based on the ui option

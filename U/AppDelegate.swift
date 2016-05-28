@@ -69,7 +69,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         //3Dtouch
         if #available(iOS 9.0, *) {
-            let shortitem = UIApplicationShortcutItem.init(type: "呐喊", localizedTitle: "呐喊", localizedSubtitle: nil, icon: UIApplicationShortcutIcon.init(templateImageName: "nahan"), userInfo: nil)
+            let shortitem = UIApplicationShortcutItem.init(type: NSLocalizedString("VoiceKey", comment: ""), localizedTitle: NSLocalizedString("VoiceKey", comment: ""), localizedSubtitle: nil, icon: UIApplicationShortcutIcon.init(templateImageName: "nahan"), userInfo: nil)
             
             let shortItems = NSArray.init(object: shortitem)
             
@@ -148,25 +148,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             )
             
             let alert = SCLAlertView(appearance: appearance)
-            alert.addButton("好") {
-//                if ((NSUserDefaults.standardUserDefaults().objectForKey("PUSH_MSG_KEY")) != nil){
-//                    let vc = (self.window?.rootViewController as! UINavigationController).viewControllers.last as! RootViewController
-//                    
-//                    let content = (NSUserDefaults.standardUserDefaults().objectForKey("PUSH_MSG_KEY")) as! NSString as String
-//                    let voice = (content.componentsSeparatedByString("by") as NSArray).firstObject as! NSString
-//                    let uer = (content.componentsSeparatedByString("by") as NSArray).lastObject as! NSString
-//                    
-//                    vc.voiceLabel.text = voice as String
-//                    vc.byUerLabel.text = NSString.init(format: "by %@", uer) as String
-//                }
-                
+            alert.addButton(NSLocalizedString("Push_Ok_Key", comment: "")) {
                 let vc = (self.window?.rootViewController as! UINavigationController).viewControllers.last as! RootViewController
                 vc.changeVoiceText()
                 
                 MobClick.event("dian_ji_hao_chan_kan_push")
                 
             }
-            alert.showNotice(kNoticeTitle, subTitle: msg as String)
+            alert.showNotice(NSLocalizedString("NotificationKey", comment: ""), subTitle: msg as String)
         }
     }
     

@@ -31,13 +31,13 @@ class MeViewController: UIViewController {
         self.navigationController?.popViewControllerAnimated(true)
     }
     
-    let items = ["消息", "鼓励", "予人", "攻略"]
+    let items = [NSLocalizedString("MessageKey", comment: ""), NSLocalizedString("EncourageKey", comment: ""), NSLocalizedString("ShareKey", comment: ""), NSLocalizedString("ExplanationKey", comment: "")]
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         let version = NSBundle.mainBundle().objectForInfoDictionaryKey("CFBundleShortVersionString") as! String
-        versionLabel.text = (NSString(format: "当前版本 %@", version)) as String
+        versionLabel.text = (NSString(format: "%@ %@", NSLocalizedString("CurrentVersionKey", comment: ""),version)) as String
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -150,16 +150,18 @@ extension MeViewController: UITableViewDataSource {
             showCloseButton: true
         )
         let alert = SCLAlertView(appearance: appearance)
-        alert.addButton("朋友圈") {
+
+        alert.addButton(NSLocalizedString("WechatKey", comment: "")) {
             self.share2WeChat(1)
             MobClick.event("pengyouquan_btn")
-
+            
         }
-        alert.addButton("微信好友") {
+        alert.addButton(NSLocalizedString("FriendKey", comment: "")) {
             self.share2WeChat(0)
             MobClick.event("pengyou_btn")
         }
-        alert.showNotice("分享到", subTitle: "")
+    
+        alert.showNotice(NSLocalizedString("ShareKey", comment: ""), subTitle: "")
     }
     
     func share2WeChat(sceneType:Int32) -> Bool {

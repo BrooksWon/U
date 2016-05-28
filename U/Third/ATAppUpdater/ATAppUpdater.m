@@ -168,12 +168,12 @@ NSString *appStoreURL = nil;
 {
     appStoreURL = appUrl;
     UIAlertView *alert = nil;
-    NSString *tittle = [NSString stringWithFormat:@"发现新版本%@", version];
+    NSString *tittle = [NSString stringWithFormat:NSLocalizedString(@"NewVersionKey", nil), version];
     NSString *latestReleaseNotes = [NSString stringWithFormat:@"%@", releaseNotes];
     NSString *msg    = [NSString stringWithFormat:@"%@", latestReleaseNotes];
     
     
-    if (force) alert = [[UIAlertView alloc] initWithTitle:tittle message:msg delegate:self cancelButtonTitle:nil otherButtonTitles:@"立即更新", nil];
+    if (force) alert = [[UIAlertView alloc] initWithTitle:tittle message:msg delegate:self cancelButtonTitle:nil otherButtonTitles:NSLocalizedString(@"UpdateKey", nil), nil];
     else alert = [[UIAlertView alloc] initWithTitle:tittle message:msg delegate:self cancelButtonTitle:@"立即更新" otherButtonTitles:@"稍后再说", nil];
     return alert;
 }

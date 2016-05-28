@@ -6,6 +6,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MyVoiceViewController" customModule="U" customModuleProvider="target">
             <connections>
+                <outlet property="commitBtn" destination="rPJ-TP-50b" id="lGM-kQ-oBk"/>
                 <outlet property="nameTextField" destination="GQx-oi-Lcd" id="1sV-72-jaN"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
                 <outlet property="voiceTextView" destination="3z9-SD-gnI" id="Uhe-Ic-xXq"/>
@@ -153,25 +154,6 @@
                         <action selector="commitBtnAction:" destination="-1" eventType="touchUpInside" id="Eh4-4R-st6"/>
                     </connections>
                 </button>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="每天会抽出一个用户的呐喊，让天涯海角的人听到你的心声！" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wpg-bS-tuX">
-                    <rect key="frame" x="-2" y="532" width="324" height="21"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="21" id="Py8-yU-p9Q"/>
-                    </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                    <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
-                    <nil key="highlightedColor"/>
-                </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="U." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nno-Qw-AiT">
-                    <rect key="frame" x="-21" y="532" width="21" height="21"/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="21" id="Wno-uk-mWm"/>
-                        <constraint firstAttribute="height" constant="21" id="bPq-JG-XJu"/>
-                    </constraints>
-                    <fontDescription key="fontDescription" type="system" weight="black" pointSize="12"/>
-                    <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
-                    <nil key="highlightedColor"/>
-                </label>
             </subviews>
             <color key="backgroundColor" red="0.10585353523492813" green="0.10581768304109573" blue="0.10994400829076767" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
@@ -180,14 +162,10 @@
                 <constraint firstItem="t62-wb-1u3" firstAttribute="top" secondItem="3z9-SD-gnI" secondAttribute="bottom" constant="16" id="64Q-NZ-apU"/>
                 <constraint firstItem="t62-wb-1u3" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="10" id="6P9-Kc-xgl"/>
                 <constraint firstItem="GQx-oi-Lcd" firstAttribute="top" secondItem="3z9-SD-gnI" secondAttribute="bottom" constant="12" id="Az2-Lk-Fog"/>
-                <constraint firstItem="Wpg-bS-tuX" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="E5n-4C-5zf"/>
                 <constraint firstItem="pEf-5H-Lor" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Fpt-Iu-Pf4"/>
                 <constraint firstItem="3z9-SD-gnI" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="10" id="cNt-on-SdS"/>
-                <constraint firstAttribute="bottom" secondItem="Wpg-bS-tuX" secondAttribute="bottom" constant="15" id="fEZ-rb-M9p"/>
                 <constraint firstItem="rPJ-TP-50b" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="15" id="hWF-2O-PeM"/>
                 <constraint firstItem="rPJ-TP-50b" firstAttribute="top" secondItem="GQx-oi-Lcd" secondAttribute="bottom" constant="20" id="hdq-Hp-xor"/>
-                <constraint firstAttribute="bottom" secondItem="nno-Qw-AiT" secondAttribute="bottom" constant="15" id="kLU-sG-wun"/>
-                <constraint firstItem="Wpg-bS-tuX" firstAttribute="leading" secondItem="nno-Qw-AiT" secondAttribute="trailing" constant="-2" id="kMA-Bp-zDZ"/>
                 <constraint firstItem="pEf-5H-Lor" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="kgn-0E-yez"/>
                 <constraint firstAttribute="trailing" secondItem="pEf-5H-Lor" secondAttribute="trailing" id="xP1-VU-Cjf"/>
                 <constraint firstItem="3z9-SD-gnI" firstAttribute="top" secondItem="pEf-5H-Lor" secondAttribute="bottom" constant="15" id="xaN-9R-Qua"/>
