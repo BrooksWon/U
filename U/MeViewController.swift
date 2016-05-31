@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MessageUI
 
 class MeViewController: UIViewController {
     
@@ -31,7 +32,7 @@ class MeViewController: UIViewController {
         self.navigationController?.popViewControllerAnimated(true)
     }
     
-    let items = [NSLocalizedString("MessageKey", comment: ""), NSLocalizedString("EncourageKey", comment: ""), NSLocalizedString("ShareKey", comment: ""), NSLocalizedString("ExplanationKey", comment: "")]
+    let items = [NSLocalizedString("MessageKey", comment: ""), NSLocalizedString("EncourageKey", comment: ""), NSLocalizedString("ShareKey", comment: ""), NSLocalizedString("ExplanationKey", comment: ""), NSLocalizedString("FeedbackKey", comment: "")]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -141,6 +142,19 @@ extension MeViewController: UITableViewDataSource {
             //攻略
             self.navigationController?.pushViewController(GLViewController.init(), animated: true)
             break;
+        case 4:
+            MobClick.event("feedback_click")
+            
+            let mail = MFMailComposeViewController.init()
+            mail.setSubject("Feedback")
+            mail.setToRecipients(["open.self.now@gmail.com"])
+            mail.setCcRecipients([])
+            mail.setBccRecipients([])
+            mail.mailComposeDelegate = self
+            
+            self.presentViewController(mail, animated: true, completion: nil)
+            
+            break;
         default: break
         }
     }
@@ -231,5 +245,12 @@ extension MeViewController: LLSwitchDelegate {
                 }
             }
         }
+    }
+}
+
+extension MeViewController: MFMailComposeViewControllerDelegate {
+    func mailComposeController(controller: MFMailComposeViewController, didFinishWithResult result: MFMailComposeResult, error: NSError?) {
+        //todo
+        controller.dismissViewControllerAnimated(true, completion: nil)
     }
 }
