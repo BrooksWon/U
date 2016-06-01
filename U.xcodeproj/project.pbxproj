@@ -99,6 +99,10 @@
 		9893981E1CDA04AB00079DCF /* MeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9893981A1CDA04AB00079DCF /* MeViewController.xib */; };
 		9893981F1CDA04AB00079DCF /* MeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9893981A1CDA04AB00079DCF /* MeViewController.xib */; };
 		989398201CDA04AB00079DCF /* MeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9893981A1CDA04AB00079DCF /* MeViewController.xib */; };
+		98B7865C1CFEA97F00576C4F /* heart.png in Resources */ = {isa = PBXBuildFile; fileRef = 98B786581CFEA97F00576C4F /* heart.png */; };
+		98B7865D1CFEA97F00576C4F /* heartBorder.png in Resources */ = {isa = PBXBuildFile; fileRef = 98B786591CFEA97F00576C4F /* heartBorder.png */; };
+		98B7865E1CFEA97F00576C4F /* HeartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98B7865A1CFEA97F00576C4F /* HeartView.swift */; };
+		98B7865F1CFEA97F00576C4F /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98B7865B1CFEA97F00576C4F /* Helpers.swift */; };
 		98E87F0F1CF0DEB600B16A31 /* GLViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98E87F0D1CF0DEB600B16A31 /* GLViewController.swift */; };
 		98E87F101CF0DEB600B16A31 /* GLViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 98E87F0E1CF0DEB600B16A31 /* GLViewController.xib */; };
 		98E87F141CF0E7DE00B16A31 /* LSEmojiFly.m in Sources */ = {isa = PBXBuildFile; fileRef = 98E87F131CF0E7DE00B16A31 /* LSEmojiFly.m */; };
@@ -242,6 +246,11 @@
 		9893980C1CD9EEB100079DCF /* MyVoiceViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyVoiceViewController.xib; sourceTree = "<group>"; };
 		989398191CDA04AB00079DCF /* MeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeViewController.swift; sourceTree = "<group>"; };
 		9893981A1CDA04AB00079DCF /* MeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MeViewController.xib; sourceTree = "<group>"; };
+		98B786571CFEA97F00576C4F /* FloatingHearts.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FloatingHearts.h; sourceTree = "<group>"; };
+		98B786581CFEA97F00576C4F /* heart.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = heart.png; sourceTree = "<group>"; };
+		98B786591CFEA97F00576C4F /* heartBorder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = heartBorder.png; sourceTree = "<group>"; };
+		98B7865A1CFEA97F00576C4F /* HeartView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeartView.swift; sourceTree = "<group>"; };
+		98B7865B1CFEA97F00576C4F /* Helpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
 		98E87F0D1CF0DEB600B16A31 /* GLViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GLViewController.swift; sourceTree = "<group>"; };
 		98E87F0E1CF0DEB600B16A31 /* GLViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GLViewController.xib; sourceTree = "<group>"; };
 		98E87F121CF0E7DE00B16A31 /* LSEmojiFly.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LSEmojiFly.h; sourceTree = "<group>"; };
@@ -524,6 +533,7 @@
 		989397EE1CD9BE9C00079DCF /* Third */ = {
 			isa = PBXGroup;
 			children = (
+				98B786561CFEA97F00576C4F /* FloatingHearts */,
 				98E87F111CF0E7CD00B16A31 /* EmojiFly */,
 				984F3BE01CEED3A000E9119A /* LTMorphingLabel */,
 				98503E041CEDAB8B00894CD3 /* LLSwitch */,
@@ -557,6 +567,18 @@
 				989397FB1CD9E57600079DCF /* PathMenuItem.swift */,
 			);
 			path = PathMenu;
+			sourceTree = "<group>";
+		};
+		98B786561CFEA97F00576C4F /* FloatingHearts */ = {
+			isa = PBXGroup;
+			children = (
+				98B786571CFEA97F00576C4F /* FloatingHearts.h */,
+				98B786581CFEA97F00576C4F /* heart.png */,
+				98B786591CFEA97F00576C4F /* heartBorder.png */,
+				98B7865A1CFEA97F00576C4F /* HeartView.swift */,
+				98B7865B1CFEA97F00576C4F /* Helpers.swift */,
+			);
+			path = FloatingHearts;
 			sourceTree = "<group>";
 		};
 		98E87F111CF0E7CD00B16A31 /* EmojiFly */ = {
@@ -680,6 +702,7 @@
 				9858894F1CE089430005E0D1 /* umeng_add_photo@2x.png in Resources */,
 				989397CB1CD9BE4E00079DCF /* LaunchScreen.storyboard in Resources */,
 				9858894D1CE089430005E0D1 /* ToolViewInputVoice@2x.png in Resources */,
+				98B7865D1CFEA97F00576C4F /* heartBorder.png in Resources */,
 				985889481CE089430005E0D1 /* cancel@2x.png in Resources */,
 				985889501CE089430005E0D1 /* umeng_fb_audio_dialog_cancel@2x.png in Resources */,
 				980355051CE599D100F56C61 /* README.txt in Resources */,
@@ -698,6 +721,7 @@
 				9858894E1CE089430005E0D1 /* ToolViewInputVoiceHL@2x.png in Resources */,
 				9858894C1CE089430005E0D1 /* ToolViewInputTextHL@2x.png in Resources */,
 				985889551CE089430005E0D1 /* umeng_fb_audio_play_default@2x.png in Resources */,
+				98B7865C1CFEA97F00576C4F /* heart.png in Resources */,
 				989397C81CD9BE4E00079DCF /* Assets.xcassets in Resources */,
 				984F3C011CEED3A000E9119A /* Fire.png in Resources */,
 				98264F1A1CF93A0E0028124B /* Localizable.strings in Resources */,
@@ -734,6 +758,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				98260CB61CDB1B8D00661A92 /* SCLExtensions.swift in Sources */,
+				98B7865F1CFEA97F00576C4F /* Helpers.swift in Sources */,
 				985889591CE089430005E0D1 /* UMChatToolBar.m in Sources */,
 				984F3BFE1CEED3A000E9119A /* LTMorphingLabel+Sparkle.swift in Sources */,
 				984F3BF71CEED3A000E9119A /* LTEmitterView.swift in Sources */,
@@ -741,6 +766,7 @@
 				989397FF1CD9E57600079DCF /* PathMenuItem.swift in Sources */,
 				98260B8F1CDADCCF00661A92 /* ATAppUpdater.m in Sources */,
 				98260CB51CDB1B8D00661A92 /* SCLAlertView.swift in Sources */,
+				98B7865E1CFEA97F00576C4F /* HeartView.swift in Sources */,
 				98503E0D1CEDAB8B00894CD3 /* LLSwitch.m in Sources */,
 				989397C31CD9BE4E00079DCF /* RootViewController.swift in Sources */,
 				98503E0C1CEDAB8B00894CD3 /* LLEyesLayer.m in Sources */,
@@ -960,6 +986,10 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: jianyu wang (4XUU6CEV36)";
 				DEFINES_MODULE = YES;
 				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/U/Third/FloatingHearts",
+				);
 				INFOPLIST_FILE = U/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -989,6 +1019,10 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: jianyu wang (4XUU6CEV36)";
 				DEFINES_MODULE = YES;
 				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/U/Third/FloatingHearts",
+				);
 				INFOPLIST_FILE = U/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

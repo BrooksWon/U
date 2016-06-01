@@ -16,11 +16,21 @@ class RootViewController: UIViewController {
     @IBOutlet weak var navBar: UIView!
     @IBOutlet weak var navBarTittleLabel: LTMorphingLabel!
     
+    @IBOutlet weak var zanLabel: UILabel!
+    
     var emojiFlay : LSEmojiFly!
     
     
     let keys = ["生日", "爱", "生活", "gay", "你算什么", "傻逼", "牛逼"]
     let kekDic = ["生日":"shengri", "爱":"lover", "生活" :"life", "gay":"gay", "你算什么":"nssm", "傻逼" :"sb", "牛逼":"nb",]
+    
+    
+    //点赞动画
+    private struct HeartAttributes {
+        static let heartSize: CGFloat = 36
+        static let burstDelay: NSTimeInterval = 0.1
+    }
+    var burstTimer: NSTimer?
     
     
     
@@ -47,6 +57,7 @@ class RootViewController: UIViewController {
             self.view.addSubview(self.addPathMenu())
             self.voiceLabel.hidden = false
             self.byUerLabel.hidden = false
+            self.zanLabel.hidden = false
             self.navBar.hidden = false
             
             if let effect = LTMorphingEffect(rawValue: 4) {
@@ -57,7 +68,52 @@ class RootViewController: UIViewController {
             
             self.changeVoiceText()
         }
+        
+        
+//        view.backgroundColor = UIColor(hex: 0xf2f4f6)
+        // 左滑点赞
+        let swipeGestureLeft = UISwipeGestureRecognizer(target: self, action: #selector(swipeGestureAction))
+        swipeGestureLeft.direction = UISwipeGestureRecognizerDirection.Left
+        view.addGestureRecognizer(swipeGestureLeft)
+        
+        // 旋转点大赞，右滑，每次点赞10次
+        let rotationGesture = UIRotationGestureRecognizer(target: self, action: #selector(rotationGestureAction))
+        view.addGestureRecognizer(rotationGesture)
     }
+    
+    func swipeGestureAction(swipeGesture: UISwipeGestureRecognizer) {
+        if swipeGesture.direction == UISwipeGestureRecognizerDirection.Left {
+            showTheLove()
+        }
+    }
+    
+    func rotationGestureAction(rotationGesture: UIRotationGestureRecognizer) {
+        switch rotationGesture.state {
+        case UIGestureRecognizerState.Began:
+            burstTimer = NSTimer.scheduledTimerWithTimeInterval(HeartAttributes.burstDelay, target: self, selector: #selector(showTheLove), userInfo: nil, repeats: true)
+            break
+        case UIGestureRecognizerState.Ended:
+            burstTimer?.invalidate()
+            NSLog("1")
+            break
+        default:
+            break
+        }
+    }
+    
+    func showTheLove() {
+        let heart = HeartView(frame: CGRectMake(0, 0, HeartAttributes.heartSize, HeartAttributes.heartSize))
+        view.addSubview(heart)
+        let fountainX = HeartAttributes.heartSize / 2.0 + 20
+        let fountainY = view.bounds.height - HeartAttributes.heartSize / 2.0 - 10
+        heart.center = CGPoint(x: fountainX, y: fountainY)
+        heart.animateInView(view)
+        
+        //更改点赞的数目
+        let like = self.zanLabel.text?.substringFromIndex((self.zanLabel.text?.startIndex.advancedBy(1))!)
+        self.zanLabel.text = NSString(format: "👍%d", Int(like!)!+1) as String
+    }
+    
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
         MobClick.beginLogPageView(NSStringFromClass(self.classForCoder))
@@ -82,12 +138,14 @@ class RootViewController: UIViewController {
             
             self.voiceLabel.text = voice as String
             self.byUerLabel.text = NSString.init(format: "by %@", uer) as String
+            self.zanLabel.text = "👍1"
         
             self.performSelector(#selector(rainFly), withObject: nil, afterDelay: 1.0)
             
         }else {
             self.voiceLabel.text = NSLocalizedString("DefaultVoiceKey", comment: "wobuzhidao")
             self.byUerLabel.text = NSString.init(format: "by %@", NSLocalizedString("ByUerKey", comment: "None")) as String
+            self.zanLabel.text = "👍1"
         }
     }
     
