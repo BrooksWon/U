@@ -166,12 +166,12 @@ extension MeViewController: UITableViewDataSource {
         let alert = SCLAlertView(appearance: appearance)
 
         alert.addButton(NSLocalizedString("WechatKey", comment: "")) {
-            self.share2WeChat(1)
+            self.share2WeChat(0)
             MobClick.event("pengyouquan_btn")
             
         }
         alert.addButton(NSLocalizedString("FriendKey", comment: "")) {
-            self.share2WeChat(0)
+            self.share2WeChat(1)
             MobClick.event("pengyou_btn")
         }
     

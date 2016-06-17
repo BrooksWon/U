@@ -21,6 +21,7 @@ CFBundleDisplayName ="U.";
 "JvBaoKey"          = "이 사용자와 콘텐츠를 신고";
 "JvBao_Yes_Key"     = "예";
 "JvBao_NO_Key"      = "아니";
+"JvBao_Success_Key" = "성공 보고서";
 
 "ShouDaoKey"        = "U.당신의 외침을받은";
 "ShouDao_Done_Key"  = "끝난";

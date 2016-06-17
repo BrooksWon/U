@@ -255,6 +255,15 @@
 		98E87F0E1CF0DEB600B16A31 /* GLViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GLViewController.xib; sourceTree = "<group>"; };
 		98E87F121CF0E7DE00B16A31 /* LSEmojiFly.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LSEmojiFly.h; sourceTree = "<group>"; };
 		98E87F131CF0E7DE00B16A31 /* LSEmojiFly.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LSEmojiFly.m; sourceTree = "<group>"; };
+		98F9710E1D13AA1100E7A0F0 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		98F9710F1D13AA1100E7A0F0 /* es */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = es; path = es.lproj/Main.storyboard; sourceTree = "<group>"; };
+		98F971101D13AA1100E7A0F0 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
+		98F971111D13AA7800E7A0F0 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		98F971121D13AA7800E7A0F0 /* fr */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = fr; path = fr.lproj/Main.storyboard; sourceTree = "<group>"; };
+		98F971131D13AA7800E7A0F0 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
+		98F971141D13AA8C00E7A0F0 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		98F971151D13AA8C00E7A0F0 /* de */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = de; path = de.lproj/Main.storyboard; sourceTree = "<group>"; };
+		98F971161D13AA8C00E7A0F0 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -680,6 +689,9 @@
 				"zh-Hant",
 				ja,
 				ko,
+				es,
+				fr,
+				de,
 			);
 			mainGroup = 989397B41CD9BE4E00079DCF;
 			productRefGroup = 989397BE1CD9BE4E00079DCF /* Products */;
@@ -850,6 +862,9 @@
 				98264F1E1CF93A110028124B /* zh-Hant */,
 				98264F1F1CF93A120028124B /* ja */,
 				98264F201CF93A140028124B /* ko */,
+				98F971101D13AA1100E7A0F0 /* es */,
+				98F971131D13AA7800E7A0F0 /* fr */,
+				98F971161D13AA8C00E7A0F0 /* de */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";
@@ -874,6 +889,9 @@
 				98264F141CF937C60028124B /* ko */,
 				98264F151CF937C60028124B /* zh-Hans */,
 				98264F171CF937C90028124B /* en */,
+				98F9710F1D13AA1100E7A0F0 /* es */,
+				98F971121D13AA7800E7A0F0 /* fr */,
+				98F971151D13AA8C00E7A0F0 /* de */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -885,6 +903,9 @@
 				986C26BD1CF85C8F003D3D3D /* zh-Hant */,
 				986C26C01CF85C9B003D3D3D /* ja */,
 				986C26C31CF85CA0003D3D3D /* ko */,
+				98F9710E1D13AA1100E7A0F0 /* es */,
+				98F971111D13AA7800E7A0F0 /* fr */,
+				98F971141D13AA8C00E7A0F0 /* de */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";

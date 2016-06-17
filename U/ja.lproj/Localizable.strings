@@ -21,6 +21,7 @@ CFBundleDisplayName ="U.";
 "JvBaoKey"          = "このコンテンツとユーザーを報告";
 "JvBao_Yes_Key"     = "はい";
 "JvBao_NO_Key"      = "いいえ";
+"JvBao_Success_Key" = "サクセスレポート";
 
 "ShouDaoKey"        = "受け";
 "ShouDao_Done_Key"  = "終わりました";

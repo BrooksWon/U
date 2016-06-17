@@ -21,6 +21,7 @@ CFBundleDisplayName ="U.";
 "JvBaoKey"          = "舉報該內容和用戶";
 "JvBao_Yes_Key"     = "舉報";
 "JvBao_NO_Key"      = "點錯了";
+"JvBao_Success_Key" = "舉報成功";
 
 "ShouDaoKey"        = "U.已經收到你的吶喊";
 "ShouDao_Done_Key"  = "好";

@@ -5,6 +5,7 @@
   Created by Brooks on 16/5/28.
   Copyright © 2016年 王建雨. All rights reserved.
 */
+CFBundleDisplayName ="U.";
 "DefaultVoiceKey"   = "以后的时光里，愿你被世界温柔以待!";
 "ByUerKey"          = "倪小暖";
 "MessageKey"        = "消息";
@@ -20,6 +21,7 @@
 "JvBaoKey"          = "举报该内容和用户";
 "JvBao_Yes_Key"     = "举报";
 "JvBao_NO_Key"      = "点错了";
+"JvBao_Success_Key" = "举报成功";
 
 "ShouDaoKey"        = "U.已经收到你的呐喊";
 "ShouDao_Done_Key"  = "好";

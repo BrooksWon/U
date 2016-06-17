@@ -57,7 +57,7 @@ class RootViewController: UIViewController {
             self.view.addSubview(self.addPathMenu())
             self.voiceLabel.hidden = false
             self.byUerLabel.hidden = false
-            self.zanLabel.hidden = false
+            self.zanLabel?.hidden = false
             self.navBar.hidden = false
             
             if let effect = LTMorphingEffect(rawValue: 4) {
@@ -70,19 +70,39 @@ class RootViewController: UIViewController {
         }
         
         
-//        view.backgroundColor = UIColor(hex: 0xf2f4f6)
-        // 左滑点赞
+        // 右滑点赞
         let swipeGestureLeft = UISwipeGestureRecognizer(target: self, action: #selector(swipeGestureAction))
-        swipeGestureLeft.direction = UISwipeGestureRecognizerDirection.Left
+        swipeGestureLeft.direction = UISwipeGestureRecognizerDirection.Right
         view.addGestureRecognizer(swipeGestureLeft)
         
         // 旋转点大赞，右滑，每次点赞10次
         let rotationGesture = UIRotationGestureRecognizer(target: self, action: #selector(rotationGestureAction))
         view.addGestureRecognizer(rotationGesture)
+        
+//        //单击点赞
+//        let tapGesture1 = UITapGestureRecognizer(target: self, action: #selector(showTheLove))
+//        view.addGestureRecognizer(tapGesture1)
+//        
+//        //长按点赞
+//        let longPressGesture = UILongPressGestureRecognizer(target: self, action: #selector(longPressGestureAction))
+//        longPressGesture.minimumPressDuration = 0.2
+//        view.addGestureRecognizer(longPressGesture)
     }
     
+    func longPressGestureAction(longPressGesture: UILongPressGestureRecognizer) {
+        switch longPressGesture.state {
+        case .Began:
+            burstTimer = NSTimer.scheduledTimerWithTimeInterval(HeartAttributes.burstDelay, target: self, selector: #selector(showTheLove), userInfo: nil, repeats: true)
+        case .Ended, .Cancelled:
+            burstTimer?.invalidate()
+        default:
+            break
+        }
+    }
+    
+    
     func swipeGestureAction(swipeGesture: UISwipeGestureRecognizer) {
-        if swipeGesture.direction == UISwipeGestureRecognizerDirection.Left {
+        if swipeGesture.direction == UISwipeGestureRecognizerDirection.Right {
             showTheLove()
         }
     }
@@ -103,15 +123,15 @@ class RootViewController: UIViewController {
     
     func showTheLove() {
         let heart = HeartView(frame: CGRectMake(0, 0, HeartAttributes.heartSize, HeartAttributes.heartSize))
-        view.addSubview(heart)
+        self.view.addSubview(heart)
         let fountainX = HeartAttributes.heartSize / 2.0 + 20
         let fountainY = view.bounds.height - HeartAttributes.heartSize / 2.0 - 10
         heart.center = CGPoint(x: fountainX, y: fountainY)
-        heart.animateInView(view)
+        heart.animateInView(self.view)
         
         //更改点赞的数目
-        let like = self.zanLabel.text?.substringFromIndex((self.zanLabel.text?.startIndex.advancedBy(1))!)
-        self.zanLabel.text = NSString(format: "👍%d", Int(like!)!+1) as String
+        let like = self.zanLabel?.text?.substringFromIndex((self.zanLabel?.text?.startIndex.advancedBy(1))!)
+        self.zanLabel?.text = NSString(format: "👍%d", Int(like!)!+1) as String
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -138,14 +158,14 @@ class RootViewController: UIViewController {
             
             self.voiceLabel.text = voice as String
             self.byUerLabel.text = NSString.init(format: "by %@", uer) as String
-            self.zanLabel.text = "👍1"
+            self.zanLabel?.text = "👍1"
         
             self.performSelector(#selector(rainFly), withObject: nil, afterDelay: 1.0)
             
         }else {
             self.voiceLabel.text = NSLocalizedString("DefaultVoiceKey", comment: "wobuzhidao")
             self.byUerLabel.text = NSString.init(format: "by %@", NSLocalizedString("ByUerKey", comment: "None")) as String
-            self.zanLabel.text = "👍1"
+            self.zanLabel?.text = "👍1"
         }
     }
     

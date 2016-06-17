@@ -59,7 +59,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UMessage.setLogEnabled(true)
         
         //UM 统计
-        MobClick.setLogEnabled(true)
+        MobClick.setLogEnabled(false)
         MobClick.setAppVersion(NSBundle.mainBundle().objectForInfoDictionaryKey("CFBundleShortVersionString") as! String)
         MobClick.startWithAppkey("572a0d0fe0f55a9dc1001e9d")
         
