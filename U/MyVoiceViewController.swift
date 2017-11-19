@@ -14,8 +14,8 @@ class MyVoiceViewController: UIViewController {
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var commitBtn: UIButton!
 
-    @IBAction func backBtnAction(sender: AnyObject) {
-        self.navigationController?.popViewControllerAnimated(true)
+    @IBAction func backBtnAction(_ sender: AnyObject) {
+        self.navigationController?.popViewController(animated: true)
     }
     
     override func viewDidLoad() {
@@ -26,62 +26,54 @@ class MyVoiceViewController: UIViewController {
         self.view.addGestureRecognizer(tapGesture)
         
         self.voiceTextView.placeholder = NSLocalizedString("YourWordsKey", comment: "")
-        self.voiceTextView.placeholderColor = UIColor.whiteColor()
+        self.voiceTextView.placeholderColor = UIColor.white
         self.nameTextField.placeholder = NSLocalizedString("WhoAreYouKey", comment: "")
         self.nameTextField.text = NSLocalizedString("WhoAreYouKey", comment: "")
-        self.commitBtn.setTitle(NSLocalizedString("SayToTheWorldKey", comment: ""), forState: UIControlState.Normal)
+        self.commitBtn.setTitle(NSLocalizedString("SayToTheWorldKey", comment: ""), for: UIControlState())
     }
     
-    override func viewDidAppear(animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         MobClick.beginLogPageView(NSStringFromClass(self.classForCoder))
     }
-    override func viewDidDisappear(animated: Bool) {
+    override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
         MobClick.endLogPageView(NSStringFromClass(self.classForCoder))
     }
     
-    override func preferredStatusBarStyle() -> UIStatusBarStyle {
-        return UIStatusBarStyle.LightContent
+    override var preferredStatusBarStyle : UIStatusBarStyle {
+        return UIStatusBarStyle.lightContent
     }
 
 
-    @IBAction func commitBtnAction(sender: AnyObject) {
+    @IBAction func commitBtnAction(_ sender: AnyObject) {
         self.view.endEditing(true)
-        if (voiceTextView.text.compare(NSLocalizedString("YourWordsKey", comment: "")) == NSComparisonResult.OrderedSame) || (nameTextField.text!.compare(NSLocalizedString("WhoAreYouKey", comment: "")) == NSComparisonResult.OrderedSame) || voiceTextView.text.isEmpty || nameTextField.text!.isEmpty {
+        if (voiceTextView.text.compare(NSLocalizedString("YourWordsKey", comment: "")) == ComparisonResult.orderedSame) || (nameTextField.text!.compare(NSLocalizedString("WhoAreYouKey", comment: "")) == ComparisonResult.orderedSame) || voiceTextView.text.isEmpty || nameTextField.text!.isEmpty {
             MobClick.event("tiaojiaoEmpty_btn")
             return
         }
         
         showSuccess(sender)
         
-        // 利用UM反馈作为数据提交的api
-        let stringContent:String = NSString.init(format: "%@ by%@", voiceTextView.text, nameTextField.text!) as String
-        let pDic:Dictionary<String,String> = ["content":stringContent];
-        UMFeedback.sharedInstance().post(pDic) { (error) in
-            if (error != nil) {
-                NSLog("error ====== %@", error)
-                 MobClick.event("tiaojiaoError")
-            }else {
-                MobClick.event("tiaojiaoSuccess")
-            }
-        }
+        // 利用Bugtags反馈作为数据提交的api
+        Bugtags.setUserData(nameTextField.text, forKey: "用户姓名")
+        Bugtags.sendFeedback(voiceTextView.text)
         
         // 毛玻璃
-        let visualEffectView = UIVisualEffectView(effect: UIBlurEffect(style: .ExtraLight)) as UIVisualEffectView
+        let visualEffectView = UIVisualEffectView(effect: UIBlurEffect(style: .extraLight)) as UIVisualEffectView
         visualEffectView.frame = view.bounds
         visualEffectView.tag = 10086
         view.addSubview(visualEffectView)
     }
     
 
-    @IBAction func showSuccess(sender: AnyObject) {
+    @IBAction func showSuccess(_ sender: AnyObject) {
         let appearance = SCLAlertView.SCLAppearance(
             showCloseButton: false
         )
         let alert = SCLAlertView(appearance: appearance)
         alert.addButton(NSLocalizedString("ShouDao_Done_Key", comment: "")) {
-            self.navigationController?.popViewControllerAnimated(true)
+            self.navigationController?.popViewController(animated: true)
             self.view.viewWithTag(10086)?.removeFromSuperview()
             MobClick.event("tiaojiaoHao_btn")
         }
@@ -92,7 +84,7 @@ class MyVoiceViewController: UIViewController {
         alert.showSuccess(NSLocalizedString("ShouDaoKey", comment: ""), subTitle: "")
     }
     
-    func tapped(gestureRecognizer: UITapGestureRecognizer) {
+    func tapped(_ gestureRecognizer: UITapGestureRecognizer) {
         self.view.endEditing(true)
         MobClick.event("shou_qi_jian_pan_shou_shi")
     }

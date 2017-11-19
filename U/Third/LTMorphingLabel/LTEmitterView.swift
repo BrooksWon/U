@@ -37,7 +37,7 @@ public struct LTEmitter {
         layer.renderMode = kCAEmitterLayerOutline
         layer.emitterShape = kCAEmitterLayerLine
         return layer
-        }()
+    }()
     
     let cell: CAEmitterCell = {
         let cell = CAEmitterCell()
@@ -54,7 +54,7 @@ public struct LTEmitter {
         cell.scaleSpeed = -0.06
         cell.scaleRange = 0.1
         return cell
-        }()
+    }()
     
     public var duration: Float = 0.6
     
@@ -63,34 +63,33 @@ public struct LTEmitter {
         self.duration = duration
         var image: UIImage?
         defer {
-            cell.contents = image?.CGImage
+            cell.contents = image?.cgImage
         }
-
+        
         image = UIImage(named: particleName)
-
+        
         if image != nil {
             return
         }
         // Load from Framework
         image = UIImage(
             named: particleName,
-            inBundle: NSBundle(forClass: LTMorphingLabel.self),
-            compatibleWithTraitCollection: nil)
+            in: Bundle(for: LTMorphingLabel.self),
+            compatibleWith: nil)
     }
     
     public func play() {
-        if layer.emitterCells?.count > 0 {
+        if layer.emitterCells != nil  && (layer.emitterCells?.count)! > 0 {
             return
         }
         
         layer.emitterCells = [cell]
-        let d = dispatch_time(
-            DISPATCH_TIME_NOW,
-            Int64(duration * Float(NSEC_PER_SEC))
-        )
-        dispatch_after(d, dispatch_get_main_queue()) {
+        layer.emitterCells = [cell]
+
+        let d = DispatchTime.now()+DispatchTimeInterval.seconds(Int(duration))
+        DispatchQueue.main.asyncAfter(deadline: d, execute: { 
             self.layer.birthRate = 0.0
-        }
+        })
     }
     
     public func stop() {
@@ -99,7 +98,7 @@ public struct LTEmitter {
         }
     }
     
-    func update(configureClosure: LTEmitterConfigureClosure? = .None) -> LTEmitter {
+    func update(configureClosure: LTEmitterConfigureClosure? = .none) -> LTEmitter {
         configureClosure?(layer, cell)
         return self
     }
@@ -115,7 +114,7 @@ public class LTEmitterView: UIView {
     public lazy var emitters: Dictionary<String, LTEmitter> = {
         var _emitters = Dictionary<String, LTEmitter>()
         return _emitters
-        }()
+    }()
     
     public func createEmitter(
         name: String,
@@ -123,37 +122,37 @@ public class LTEmitterView: UIView {
         duration: Float,
         configureClosure: LTEmitterConfigureClosure?
         ) -> LTEmitter {
-
-            var emitter: LTEmitter
-            if let e = emitterByName(name) {
-                emitter = e
-            } else {
-                emitter = LTEmitter(
-                    name: name,
-                    particleName: particleName,
-                    duration: duration
-                )
-
-                configureClosure?(emitter.layer, emitter.cell)
-
-                layer.addSublayer(emitter.layer)
-                emitters.updateValue(emitter, forKey: name)
-            }
-            return emitter
+        
+        var emitter: LTEmitter
+        if let e = emitterByName(name: name) {
+            emitter = e
+        } else {
+            emitter = LTEmitter(
+                name: name,
+                particleName: particleName,
+                duration: duration
+            )
+            
+            configureClosure?(emitter.layer, emitter.cell)
+            
+            layer.addSublayer(emitter.layer)
+            emitters.updateValue(emitter, forKey: name)
+        }
+        return emitter
     }
     
     public func emitterByName(name: String) -> LTEmitter? {
         if let e = emitters[name] {
             return e
         }
-        return Optional.None
+        return Optional.none
     }
     
     public func removeAllEmitters() {
         for (_, emitter) in emitters {
             emitter.layer.removeFromSuperlayer()
         }
-        emitters.removeAll(keepCapacity: false)
+        emitters.removeAll(keepingCapacity: false)
     }
     
 }

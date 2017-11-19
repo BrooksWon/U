@@ -21,38 +21,38 @@ class MeViewController: UIViewController {
     var llSwitch: LLSwitch!
     func setupLLSwitch() -> LLSwitch {
         if nil == llSwitch {
-            llSwitch = LLSwitch.init(frame:CGRectMake(0, 0, 60, 30))
+            llSwitch = LLSwitch.init(frame:CGRect(x: 0, y: 0, width: 60, height: 30))
         }
         llSwitch.delegate = self
         return llSwitch
     }
-
     
-    @IBAction func backBtnAction(sender: AnyObject) {
-        self.navigationController?.popViewControllerAnimated(true)
+    
+    @IBAction func backBtnAction(_ sender: AnyObject) {
+        self.navigationController?.popViewController(animated: true)
     }
     
     let items = [NSLocalizedString("MessageKey", comment: ""), NSLocalizedString("EncourageKey", comment: ""), NSLocalizedString("ShareKey", comment: ""), NSLocalizedString("ExplanationKey", comment: ""), NSLocalizedString("FeedbackKey", comment: "")]
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        let version = NSBundle.mainBundle().objectForInfoDictionaryKey("CFBundleShortVersionString") as! String
+        
+        let version = Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as! String
         versionLabel.text = (NSString(format: "%@ %@", NSLocalizedString("CurrentVersionKey", comment: ""),version)) as String
     }
     
-    override func viewDidAppear(animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         MobClick.beginLogPageView(NSStringFromClass(self.classForCoder))
     }
-    override func viewDidDisappear(animated: Bool) {
+    override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
         MobClick.endLogPageView(NSStringFromClass(self.classForCoder))
     }
-
     
-    override func preferredStatusBarStyle() -> UIStatusBarStyle {
-        return UIStatusBarStyle.LightContent
+    
+    override var preferredStatusBarStyle : UIStatusBarStyle {
+        return UIStatusBarStyle.lightContent
     }
 }
 
@@ -61,22 +61,22 @@ extension MeViewController: UITableViewDelegate {
 
 extension MeViewController: UITableViewDataSource {
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return items.count
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         var cell:UITableViewCell!
         
-        if (0 == indexPath.row) {
+        if (0 == (indexPath as NSIndexPath).row) {
             let cellID1 = "cellID1"
-            cell = tableView.dequeueReusableCellWithIdentifier(cellID1)
+            cell = tableView.dequeueReusableCell(withIdentifier: cellID1)
             if (nil == cell) {
-                cell = UITableViewCell.init(style: UITableViewCellStyle.Default, reuseIdentifier: cellID1)
-                cell?.accessoryType = UITableViewCellAccessoryType.None
-                cell?.textLabel?.textColor = UIColor.whiteColor()
-                cell?.selectionStyle = UITableViewCellSelectionStyle.None
+                cell = UITableViewCell.init(style: UITableViewCellStyle.default, reuseIdentifier: cellID1)
+                cell?.accessoryType = UITableViewCellAccessoryType.none
+                cell?.textLabel?.textColor = UIColor.white
+                cell?.selectionStyle = UITableViewCellSelectionStyle.none
                 
                 cell?.backgroundColor = UIColor.init(red: 27/255.0, green: 27/255.0, blue: 28/255.0, alpha: 1.0)
                 for subView in (cell?.subviews)! {
@@ -84,22 +84,22 @@ extension MeViewController: UITableViewDataSource {
                 }
                 
                 cell?.addSubview(self.setupLLSwitch())
-                llSwitch.frame = CGRectMake(cell!.frame.size.width-60-5, (cell!.frame.size.height-30)/2.0, 60, 30)
+                llSwitch.frame = CGRect(x: cell!.frame.size.width-60/2.0, y: (cell!.frame.size.height-30)/2.0, width: 60, height: 30)
             }
             
             
-            cell!.textLabel?.text = items[indexPath.row]
+            cell!.textLabel?.text = items[(indexPath as NSIndexPath).row]
             
             llSwitch.on = isPushturnOn()
             
         }else {
             let cellID2 = "cellID2"
-            cell = tableView.dequeueReusableCellWithIdentifier(cellID2)
+            cell = tableView.dequeueReusableCell(withIdentifier: cellID2)
             if (nil == cell) {
-                cell = UITableViewCell.init(style: UITableViewCellStyle.Default, reuseIdentifier: cellID2)
-                cell?.accessoryType = UITableViewCellAccessoryType.DisclosureIndicator
-                cell?.textLabel?.textColor = UIColor.whiteColor()
-                cell?.selectionStyle = UITableViewCellSelectionStyle.Gray
+                cell = UITableViewCell.init(style: UITableViewCellStyle.default, reuseIdentifier: cellID2)
+                cell?.accessoryType = UITableViewCellAccessoryType.disclosureIndicator
+                cell?.textLabel?.textColor = UIColor.white
+                cell?.selectionStyle = UITableViewCellSelectionStyle.gray
                 
                 cell?.backgroundColor = UIColor.init(red: 27/255.0, green: 27/255.0, blue: 28/255.0, alpha: 1.0)
                 for subView in (cell?.subviews)! {
@@ -108,33 +108,31 @@ extension MeViewController: UITableViewDataSource {
             }
             
             
-            cell!.textLabel?.text = items[indexPath.row]
+            cell!.textLabel?.text = items[(indexPath as NSIndexPath).row]
         }
         
         return cell!
     }
     
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
     
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        tableView.deselectRowAtIndexPath(indexPath, animated: true)
-        
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         switch indexPath.row {
         case 0:
             break;
         case 1:
             MobClick.event("pingfen_click")
-
+            
             //评分
-            UIApplication.sharedApplication().openURL(NSURL.init(string: "https://itunes.apple.com/us/app/u./id1110613814?l=zh&ls=1&mt=8")!)
+            UIApplication.shared.openURL(URL.init(string: "https://itunes.apple.com/us/app/u./id1110613814?l=zh&ls=1&mt=8")!)
             break;
         case 2:
             MobClick.event("share_click")
-
+            
             //分享
-            self.showNotice()
+            self.share2Other()
             break;
         case 3:
             MobClick.event("gonglue_click")
@@ -146,77 +144,40 @@ extension MeViewController: UITableViewDataSource {
             MobClick.event("feedback_click")
             
             let mail = MFMailComposeViewController.init()
-            mail.setSubject("Feedback")
+            mail.setSubject("i wanna hear you say it")
             mail.setToRecipients(["open.self.now@gmail.com"])
             mail.setCcRecipients([])
             mail.setBccRecipients([])
             mail.mailComposeDelegate = self
             
-            self.presentViewController(mail, animated: true, completion: nil)
-            
-            break;
+            self.present(mail, animated: true, completion: nil)
         default: break
         }
     }
     
-    func showNotice() {
-        let appearance = SCLAlertView.SCLAppearance(
-            showCloseButton: true
-        )
-        let alert = SCLAlertView(appearance: appearance)
-
-        alert.addButton(NSLocalizedString("WechatKey", comment: "")) {
-            self.share2WeChat(0)
-            MobClick.event("pengyouquan_btn")
-            
-        }
-        alert.addButton(NSLocalizedString("FriendKey", comment: "")) {
-            self.share2WeChat(1)
-            MobClick.event("pengyou_btn")
-        }
-    
-        alert.showNotice(NSLocalizedString("ShareKey", comment: ""), subTitle: "")
-    }
-    
-    func share2WeChat(sceneType:Int32) -> Bool {
-        let ext = WXWebpageObject()
-        ext.webpageUrl = "https://itunes.apple.com/us/app/u./id1110613814?l=zh&ls=1&mt=8"
+    func share2Other() -> Void {
         
-        let message = WXMediaMessage()
-        if sceneType == 0 {
-            message.title = "悦己未必悅人，为自己发声！"
-        }else {
-            message.title = self.voiceText
-        }
+        let description = self.voiceText
+        let url = NSURL.init(string: "https://itunes.apple.com/us/app/u./id1110613814?l=zh&ls=1&mt=8")
+        let image = UIImage.init(named: "Icon1024x1024")
         
-        message.description = self.voiceText
-        message.mediaObject = ext
-        message.setThumbImage(UIImage.init(named: "Icon1024x1024"))
         
-        let req = SendMessageToWXReq.init()
-        req.message = message
-        req.scene = sceneType;
         
-        /*
-         
-         /*! @brief 请求发送场景
-         *
-         */
-         enum WXScene {
-         WXSceneSession  = 0,        /**< 聊天界面    */
-         WXSceneTimeline = 1,        /**< 朋友圈      */
-         WXSceneFavorite = 2,        /**< 收藏       */
-         };
-         
-         */
-        
-        return WXApi.sendReq(req)
+        let activityVC = UIActivityViewController.init(activityItems: [url!,
+                                                                       image!,
+                                                                       description!],
+                                                       applicationActivities: nil)
+        //设置不出现的项目
+        //        activityVC.excludedActivityTypes = [UIActivityTypeAssignToContact]
+        self.present(activityVC, animated: true, completion: {
+            //分享回调
+        })
     }
     
     
     func isPushturnOn() -> Bool {
-        let setting = UIApplication.sharedApplication().currentUserNotificationSettings()
-        if(UIUserNotificationType.None != setting!.types) {
+        let setting = UIApplication.shared.currentUserNotificationSettings
+        if(UIUserNotificationType() != setting!.types) {
             MobClick.event("push_on")
             return true
         }
@@ -227,20 +188,20 @@ extension MeViewController: UITableViewDataSource {
 }
 
 extension MeViewController: LLSwitchDelegate {
-    func didTapLLSwitch(llSwitch:LLSwitch) {
+    func didTap(_ llSwitch:LLSwitch) {
         if llSwitch.on {
             MobClick.event("pushON_click")
         }else {
             MobClick.event("pushOFF_click")
         }
     }
-    func animationDidStopForLLSwitch(llSwitch:LLSwitch) {
+    func animationDidStop(for  llSwitch:LLSwitch) {
         if llSwitch.on {
-            let setting = UIApplication.sharedApplication().currentUserNotificationSettings()
-            if(UIUserNotificationType.None == setting!.types) {
-                let url = NSURL.init(string: UIApplicationOpenSettingsURLString)
-                if UIApplication.sharedApplication().canOpenURL(url!) {
-                    UIApplication.sharedApplication().openURL(url!)
+            let setting = UIApplication.shared.currentUserNotificationSettings
+            if(UIUserNotificationType() == setting!.types) {
+                let url = URL.init(string: UIApplicationOpenSettingsURLString)
+                if UIApplication.shared.canOpenURL(url!) {
+                    UIApplication.shared.openURL(url!)
                     MobClick.event("push_tiaozhuan")
                 }
             }
@@ -249,8 +210,8 @@ extension MeViewController: LLSwitchDelegate {
 }
 
 extension MeViewController: MFMailComposeViewControllerDelegate {
-    func mailComposeController(controller: MFMailComposeViewController, didFinishWithResult result: MFMailComposeResult, error: NSError?) {
+    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
         //todo
-        controller.dismissViewControllerAnimated(true, completion: nil)
+        controller.dismiss(animated: true, completion: nil)
     }
 }

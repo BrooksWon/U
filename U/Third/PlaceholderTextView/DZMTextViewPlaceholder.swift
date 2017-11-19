@@ -21,7 +21,7 @@ class DZMTextViewPlaceholder: UITextView {
     }
     
     /// placeholderColor
-    var placeholderColor:UIColor! = UIColor.lightGrayColor() {
+    var placeholderColor:UIColor! = UIColor.lightGray {
         didSet{
             if placeholderLabel != nil {
                 placeholderLabel.textColor = placeholderColor
@@ -30,7 +30,7 @@ class DZMTextViewPlaceholder: UITextView {
     }
     
     /// placeholderFont
-    var placeholderFont:UIFont! = UIFont.systemFontOfSize(14) {
+    var placeholderFont:UIFont! = UIFont.systemFont(ofSize: 14) {
         didSet{
             if placeholderLabel != nil {
                 placeholderLabel.font = placeholderFont
@@ -39,7 +39,7 @@ class DZMTextViewPlaceholder: UITextView {
         }
     }
     
-    private var placeholderLabel:UILabel!
+    fileprivate var placeholderLabel:UILabel!
     
     override init(frame: CGRect, textContainer: NSTextContainer?) {
         super.init(frame: frame, textContainer: nil)
@@ -55,20 +55,20 @@ class DZMTextViewPlaceholder: UITextView {
     func addNotificationCenter() {
         
         placeholderLabel = UILabel()
-        placeholderLabel.backgroundColor = UIColor.clearColor()
+        placeholderLabel.backgroundColor = UIColor.clear
         placeholderLabel.numberOfLines = 0
         placeholderLabel.textColor = placeholderColor
         placeholderLabel.font = placeholderFont
         addSubview(placeholderLabel)
         
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(DZMTextViewPlaceholder.textDidChange), name: UITextViewTextDidChangeNotification, object: self)
+        NotificationCenter.default.addObserver(self, selector: #selector(DZMTextViewPlaceholder.textDidChange), name: NSNotification.Name.UITextViewTextDidChange, object: self)
     }
     
     deinit {
         
         debugPrint("DZMTextViewPlaceholder 释放了")
         
-        NSNotificationCenter.defaultCenter().removeObserver(self, name: UITextViewTextDidChangeNotification, object: self)
+        NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UITextViewTextDidChange, object: self)
     }
     
     override func layoutSubviews() {
@@ -81,9 +81,9 @@ class DZMTextViewPlaceholder: UITextView {
             let maxW = frame.size.width - textContainerInset.left - textContainerInset.right - spaceX
             let maxH = frame.size.height - textContainerInset.top - textContainerInset.bottom
             
-            let placeholderLabelSize = (placeholder! as NSString).boundingRectWithSize(CGSizeMake(maxW,maxH), options: NSStringDrawingOptions.UsesLineFragmentOrigin, attributes: [NSFontAttributeName: placeholderFont!], context: nil)
+            let placeholderLabelSize = (placeholder! as NSString).boundingRect(with: CGSize(width: maxW,height: maxH), options: NSStringDrawingOptions.usesLineFragmentOrigin, attributes: [NSFontAttributeName: placeholderFont!], context: nil)
             
-            placeholderLabel.frame = CGRectMake(textContainerInset.left + spaceX, textContainerInset.top, placeholderLabelSize.width, placeholderLabelSize.height)
+            placeholderLabel.frame = CGRect(x: textContainerInset.left + spaceX, y: textContainerInset.top, width: placeholderLabelSize.width, height: placeholderLabelSize.height)
         }
     }
     
@@ -92,9 +92,9 @@ class DZMTextViewPlaceholder: UITextView {
     func textDidChange() {
         
         if placeholder != nil && text.isEmpty {
-            placeholderLabel.hidden = false
+            placeholderLabel.isHidden = false
         }else{
-            placeholderLabel.hidden = true
+            placeholderLabel.isHidden = true
         }
     }
 }

@@ -4,16 +4,16 @@
 
 #import "UMessage.h"
 #import "MobClick.h"
-#import "UMFeedback.h"
+#import <Bugtags/Bugtags.h>
+
 
 #import "ATAppUpdater.h"
-
-#import "WXApi.h"
 
 #import "LLSwitch.h"
 
 #import "LTMorphingLabel.h"
 
 #import "LSEmojiFly.h"
+
 
 

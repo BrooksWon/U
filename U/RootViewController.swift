@@ -26,11 +26,11 @@ class RootViewController: UIViewController {
     
     
     //点赞动画
-    private struct HeartAttributes {
+    fileprivate struct HeartAttributes {
         static let heartSize: CGFloat = 36
-        static let burstDelay: NSTimeInterval = 0.1
+        static let burstDelay: TimeInterval = 0.1
     }
-    var burstTimer: NSTimer?
+    var burstTimer: Timer?
     
     
     
@@ -43,22 +43,22 @@ class RootViewController: UIViewController {
         
         sleep(1);
         
-        UIView.animateWithDuration(3.0, delay: 0.0, options: UIViewAnimationOptions.BeginFromCurrentState, animations: {
+        UIView.animate(withDuration: 3.0, delay: 0.0, options: UIViewAnimationOptions.beginFromCurrentState, animations: {
             self.glitchLabel.alpha = 0.0
             self.glitchLabel.layer.transform = CATransform3DScale(CATransform3DIdentity, 1.5, 1.5, 1.0)
             
         }) { (finished) in
             
             // 打开状态栏
-            UIApplication.sharedApplication().setStatusBarHidden(false, withAnimation: UIStatusBarAnimation.Fade)
+            UIApplication.shared.setStatusBarHidden(false, with: UIStatusBarAnimation.fade)
             
             self.glitchLabel.removeFromSuperview()
             // path
             self.view.addSubview(self.addPathMenu())
-            self.voiceLabel.hidden = false
-            self.byUerLabel.hidden = false
-            self.zanLabel?.hidden = false
-            self.navBar.hidden = false
+            self.voiceLabel.isHidden = false
+            self.byUerLabel.isHidden = false
+            self.zanLabel?.isHidden = false
+            self.navBar.isHidden = false
             
             if let effect = LTMorphingEffect(rawValue: 4) {
                 self.navBarTittleLabel.morphingEffect = effect
@@ -72,7 +72,7 @@ class RootViewController: UIViewController {
         
         // 右滑点赞
         let swipeGestureLeft = UISwipeGestureRecognizer(target: self, action: #selector(swipeGestureAction))
-        swipeGestureLeft.direction = UISwipeGestureRecognizerDirection.Right
+        swipeGestureLeft.direction = UISwipeGestureRecognizerDirection.right
         view.addGestureRecognizer(swipeGestureLeft)
         
         // 旋转点大赞，右滑，每次点赞10次
@@ -89,11 +89,11 @@ class RootViewController: UIViewController {
 //        view.addGestureRecognizer(longPressGesture)
     }
     
-    func longPressGestureAction(longPressGesture: UILongPressGestureRecognizer) {
+    func longPressGestureAction(_ longPressGesture: UILongPressGestureRecognizer) {
         switch longPressGesture.state {
-        case .Began:
-            burstTimer = NSTimer.scheduledTimerWithTimeInterval(HeartAttributes.burstDelay, target: self, selector: #selector(showTheLove), userInfo: nil, repeats: true)
-        case .Ended, .Cancelled:
+        case .began:
+            burstTimer = Timer.scheduledTimer(timeInterval: HeartAttributes.burstDelay, target: self, selector: #selector(showTheLove), userInfo: nil, repeats: true)
+        case .ended, .cancelled:
             burstTimer?.invalidate()
         default:
             break
@@ -101,18 +101,18 @@ class RootViewController: UIViewController {
     }
     
     
-    func swipeGestureAction(swipeGesture: UISwipeGestureRecognizer) {
-        if swipeGesture.direction == UISwipeGestureRecognizerDirection.Right {
+    func swipeGestureAction(_ swipeGesture: UISwipeGestureRecognizer) {
+        if swipeGesture.direction == UISwipeGestureRecognizerDirection.right {
             showTheLove()
         }
     }
     
-    func rotationGestureAction(rotationGesture: UIRotationGestureRecognizer) {
+    func rotationGestureAction(_ rotationGesture: UIRotationGestureRecognizer) {
         switch rotationGesture.state {
-        case UIGestureRecognizerState.Began:
-            burstTimer = NSTimer.scheduledTimerWithTimeInterval(HeartAttributes.burstDelay, target: self, selector: #selector(showTheLove), userInfo: nil, repeats: true)
+        case UIGestureRecognizerState.began:
+            burstTimer = Timer.scheduledTimer(timeInterval: HeartAttributes.burstDelay, target: self, selector: #selector(showTheLove), userInfo: nil, repeats: true)
             break
-        case UIGestureRecognizerState.Ended:
+        case UIGestureRecognizerState.ended:
             burstTimer?.invalidate()
             NSLog("1")
             break
@@ -122,7 +122,7 @@ class RootViewController: UIViewController {
     }
     
     func showTheLove() {
-        let heart = HeartView(frame: CGRectMake(0, 0, HeartAttributes.heartSize, HeartAttributes.heartSize))
+        let heart = HeartView(frame: CGRect(x: 0, y: 0, width: HeartAttributes.heartSize, height: HeartAttributes.heartSize))
         self.view.addSubview(heart)
         let fountainX = HeartAttributes.heartSize / 2.0 + 20
         let fountainY = view.bounds.height - HeartAttributes.heartSize / 2.0 - 10
@@ -130,15 +130,15 @@ class RootViewController: UIViewController {
         heart.animateInView(self.view)
         
         //更改点赞的数目
-        let like = self.zanLabel?.text?.substringFromIndex((self.zanLabel?.text?.startIndex.advancedBy(1))!)
+        let like = self.zanLabel?.text?.substring(from: (self.zanLabel?.text?.characters.index((self.zanLabel?.text?.startIndex)!, offsetBy: 1))!)
         self.zanLabel?.text = NSString(format: "👍%d", Int(like!)!+1) as String
     }
     
-    override func viewDidAppear(animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         MobClick.beginLogPageView(NSStringFromClass(self.classForCoder))
     }
-    override func viewDidDisappear(animated: Bool) {
+    override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
         MobClick.endLogPageView(NSStringFromClass(self.classForCoder))
     }
@@ -151,16 +151,16 @@ class RootViewController: UIViewController {
             self.byUerLabel.morphingEffect = effect
         }
         
-        if ((NSUserDefaults.standardUserDefaults().objectForKey("PUSH_MSG_KEY")) != nil){
-            let content = (NSUserDefaults.standardUserDefaults().objectForKey("PUSH_MSG_KEY")) as! NSString as String
-            let voice = (content.componentsSeparatedByString("by") as NSArray).firstObject as! NSString
-            let uer = (content.componentsSeparatedByString("by") as NSArray).lastObject as! NSString
+        if ((UserDefaults.standard.object(forKey: "PUSH_MSG_KEY")) != nil){
+            let content = (UserDefaults.standard.object(forKey: "PUSH_MSG_KEY")) as! NSString as String
+            let voice = (content.components(separatedBy: "by") as NSArray).firstObject as! NSString
+            let uer = (content.components(separatedBy: "by") as NSArray).lastObject as! NSString
             
             self.voiceLabel.text = voice as String
             self.byUerLabel.text = NSString.init(format: "by %@", uer) as String
             self.zanLabel?.text = "👍1"
         
-            self.performSelector(#selector(rainFly), withObject: nil, afterDelay: 1.0)
+            self.perform(#selector(rainFly), with: nil, afterDelay: 1.0)
             
         }else {
             self.voiceLabel.text = NSLocalizedString("DefaultVoiceKey", comment: "wobuzhidao")
@@ -172,7 +172,7 @@ class RootViewController: UIViewController {
     func rainFly() {
         var key : String!
         for item in keys {
-            if ((self.voiceLabel.text?.containsString(item)) == true) {
+            if ((self.voiceLabel.text?.contains(item)) == true) {
                 key = item
                 break
             }
@@ -180,14 +180,14 @@ class RootViewController: UIViewController {
         
         if nil != key {
             self.emojiFlay = LSEmojiFly()
-            self.emojiFlay.startFlyWithEmojiImage(UIImage.init(named: kekDic[key]!), onView: self.view)
+            self.emojiFlay.start(withEmojiImage: UIImage.init(named: kekDic[key]!), on: self.view)
             
-            self.emojiFlay.performSelector(#selector(LSEmojiFly.endFly), withObject: nil, afterDelay: 3.0)
+            self.emojiFlay.perform(#selector(LSEmojiFly.end), with: nil, afterDelay: 3.0)
         }
     }
 
-    override func preferredStatusBarStyle() -> UIStatusBarStyle {
-        return UIStatusBarStyle.LightContent
+    override var preferredStatusBarStyle : UIStatusBarStyle {
+        return UIStatusBarStyle.lightContent
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -213,7 +213,7 @@ class RootViewController: UIViewController {
         
         let menu = PathMenu.init(frame: view.bounds, startItem: startItem, items: items)
         menu.delegate = self
-        menu.startPoint     = CGPointMake(UIScreen.mainScreen().bounds.width/2, view.frame.size.height - 30.0)
+        menu.startPoint     = CGPoint(x: UIScreen.main.bounds.width/2, y: view.frame.size.height - 30.0)
         menu.menuWholeAngle = CGFloat(M_PI) - CGFloat(M_PI/count)
         menu.rotateAngle    = -CGFloat(M_PI_2) + CGFloat(M_PI/count) * 1/2
         menu.timeOffset     = 0.0
@@ -228,15 +228,14 @@ class RootViewController: UIViewController {
 }
 
 extension RootViewController: PathMenuDelegate {
-    func pathMenu(menu: PathMenu, didSelectIndex idx: Int) {
-        print("Select the index : \(idx)")
-        switch idx {
+    public func didSelect(on menu: PathMenu, index: Int) {
+        switch index {
         case 0:
             MobClick.event("gengduo_btn")
             //更多
             let vc = MeViewController.init()
             vc.voiceText = self.voiceLabel.text;
-            self.showViewController(vc, sender: nil)
+            self.show(vc, sender: nil)
             break
         case 1:
             MobClick.event("voice_btn")
@@ -252,24 +251,18 @@ extension RootViewController: PathMenuDelegate {
             break;
         }
     }
-    
-    func pathMenuWillAnimateOpen(menu: PathMenu) {
-        print("Menu will open!")
+    public func willStartAnimationOpen(on menu: PathMenu) {
+        //
     }
-    
-    func pathMenuWillAnimateClose(menu: PathMenu) {
-        print("Menu will close!")
+    public func willStartAnimationClose(on menu: PathMenu) {
+        //
     }
-    
-    func pathMenuDidFinishAnimationOpen(menu: PathMenu) {
-        print("Menu was open!")
-        MobClick.event("plus_btn")
+    public func didFinishAnimationOpen(on menu: PathMenu) {
+        //
     }
-    
-    func pathMenuDidFinishAnimationClose(menu: PathMenu) {
-        print("Menu was closed!")
+    public func didFinishAnimationClose(on menu: PathMenu) {
+        //
     }
-    
     func showJvBao() {
         let appearance = SCLAlertView.SCLAppearance(
             showCloseButton: false

@@ -48,7 +48,7 @@ public struct LTEasing {
                 let t = $0 - 2.625 / 2.75
                 return c * (7.5625 * t * t + 0.984375) + b
             }
-        }(t / d)
+            }(t / d)
     }
-
+    
 }

@@ -6,7 +6,7 @@
 //  Copyright (c) 2016 Lex Tang, http://lexrus.com
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a
-//  copy of this software and associated documentation files 
+//  copy of this software and associated documentation files
 //  (the “Software”), to deal in the Software without restriction,
 //  including without limitation the rights to use, copy, modify, merge,
 //  publish, distribute, sublicense, and/or sell copies of the Software,
@@ -34,35 +34,40 @@ extension LTMorphingLabel {
         charLimbo: LTCharacterLimbo,
         withProgress progress: CGFloat
         ) -> (UIImage, CGRect) {
-            let maskedHeight = charLimbo.rect.size.height * max(0.01, progress)
-            let maskedSize = CGSize(
-                width: charLimbo.rect.size.width,
-                height: maskedHeight
-            )
-            UIGraphicsBeginImageContextWithOptions(
-                maskedSize,
-                false,
-                UIScreen.mainScreen().scale
-            )
-            let rect = CGRect(
-                x: 0,
-                y: 0,
-                width: charLimbo.rect.size.width,
-                height: maskedHeight
-            )
-            String(charLimbo.char).drawInRect(rect, withAttributes: [
-                NSFontAttributeName: self.font,
-                NSForegroundColorAttributeName: self.textColor
-                ])
-            let newImage = UIGraphicsGetImageFromCurrentImageContext()
-            UIGraphicsEndImageContext()
-            let newRect = CGRect(
-                x: charLimbo.rect.origin.x,
-                y: charLimbo.rect.origin.y,
-                width: charLimbo.rect.size.width,
-                height: maskedHeight
-            )
-            return (newImage, newRect)
+        let maskedHeight = charLimbo.rect.size.height * max(0.01, progress)
+        let maskedSize = CGSize(
+            width: charLimbo.rect.size.width,
+            height: maskedHeight
+        )
+        UIGraphicsBeginImageContextWithOptions(
+            maskedSize,
+            false,
+            UIScreen.main.scale
+        )
+        let rect = CGRect(
+            x: 0,
+            y: 0,
+            width: charLimbo.rect.size.width,
+            height: maskedHeight
+        )
+        String(charLimbo.char).draw(in: rect, withAttributes: [
+            NSFontAttributeName: self.font,
+            NSForegroundColorAttributeName: self.textColor
+            ])
+        var newImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        let newRect = CGRect(
+            x: charLimbo.rect.origin.x,
+            y: charLimbo.rect.origin.y,
+            width: charLimbo.rect.size.width,
+            height: maskedHeight
+        )
+        
+        if newImage == nil {
+            newImage = UIImage.init()
+        }
+        
+        return (newImage!, newRect)
     }
     
     func SparkleLoad() {
@@ -109,30 +114,30 @@ extension LTMorphingLabel {
                     x: rect.origin.x + rect.size.width / 2.0,
                     y: CGFloat(progress) * rect.size.height * 0.9 + rect.origin.y
                 )
-
+                
                 self.emitterView.createEmitter(
-                    "c\(index)",
+                    name: "c\(index)",
                     particleName: "Sparkle",
                     duration: self.morphingDuration
-                    ) { (layer, cell) in
-                        layer.emitterSize = CGSize(
-                            width: rect.size.width,
-                            height: 1
-                        )
-                        layer.renderMode = kCAEmitterLayerOutline
-                        cell.emissionLongitude = CGFloat(M_PI / 2.0)
-                        cell.scale = self.font.pointSize / 300.0
-                        cell.scaleSpeed = self.font.pointSize / 300.0 * -1.5
-                        cell.color = self.textColor.CGColor
-                        cell.birthRate =
-                            Float(self.font.pointSize)
-                            * Float(arc4random_uniform(7) + 3)
+                ) { (layer, cell) in
+                    layer.emitterSize = CGSize(
+                        width: rect.size.width,
+                        height: 1
+                    )
+                    layer.renderMode = kCAEmitterLayerOutline
+                    cell.emissionLongitude = CGFloat(M_PI / 2.0)
+                    cell.scale = self.font.pointSize / 300.0
+                    cell.scaleSpeed = self.font.pointSize / 300.0 * -1.5
+                    cell.color = self.textColor.cgColor
+                    cell.birthRate =
+                        Float(self.font.pointSize)
+                        * Float(arc4random_uniform(7) + 3)
                     }.update {
                         (layer, cell) in
                         layer.emitterPosition = emitterPosition
                     }.play()
             }
-
+            
             return LTCharacterLimbo(
                 char: char,
                 rect: self.newRects[index],
@@ -148,10 +153,10 @@ extension LTMorphingLabel {
             if charLimbo.drawingProgress > 0.0 {
                 
                 let (charImage, rect) = self.maskedImageForCharLimbo(
-                    charLimbo,
+                    charLimbo: charLimbo,
                     withProgress: charLimbo.drawingProgress
                 )
-                charImage.drawInRect(rect)
+                charImage.draw(in: rect)
                 
                 return true
             }
