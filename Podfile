@@ -1,10 +1,20 @@
-# Uncomment the next line to define a global platform for your project
-# platform :ios, '9.0'
+# platform :ios, '8.0'
 
 target 'U' do
-  # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
   use_frameworks!
+  
+  pod 'Bugtags', '2.4.0'
+  pod 'UMengAnalytics', '4.2.4'
+  pod 'LLSwitch', '1.0.4'
+  pod 'PathMenu', :git => 'https://github.com/BrooksWon/PathMenu.git'#暂时写自己的库，等待master合并我的PR后再替换成master
+  
+  pod 'SCLAlertView', :git => 'https://github.com/vikmeup/SCLAlertView-Swift.git'
+  
+  # pod 'GlitchLabel', '2.0.0'   GlitchLabel.source = { :git => 'https://github.com/BrooksWon/GlitchLabel.git'}
+  pod 'GlitchLabel', :git => 'https://github.com/BrooksWon/GlitchLabel.git'#暂时写自己的库，等待master合并我的PR后再替换成master
 
-  # Pods for U
+  pod 'LTMorphingLabel'
+  
+
 
 end

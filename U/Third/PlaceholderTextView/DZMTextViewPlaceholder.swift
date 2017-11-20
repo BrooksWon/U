@@ -81,7 +81,7 @@ class DZMTextViewPlaceholder: UITextView {
             let maxW = frame.size.width - textContainerInset.left - textContainerInset.right - spaceX
             let maxH = frame.size.height - textContainerInset.top - textContainerInset.bottom
             
-            let placeholderLabelSize = (placeholder! as NSString).boundingRect(with: CGSize(width: maxW,height: maxH), options: NSStringDrawingOptions.usesLineFragmentOrigin, attributes: [NSFontAttributeName: placeholderFont!], context: nil)
+            let placeholderLabelSize = (placeholder! as NSString).boundingRect(with: CGSize(width: maxW,height: maxH), options: NSStringDrawingOptions.usesLineFragmentOrigin, attributes: [NSAttributedStringKey.font: placeholderFont!], context: nil)
             
             placeholderLabel.frame = CGRect(x: textContainerInset.left + spaceX, y: textContainerInset.top, width: placeholderLabelSize.width, height: placeholderLabelSize.height)
         }
@@ -89,7 +89,7 @@ class DZMTextViewPlaceholder: UITextView {
     
     
     // 文本输入监听  如果是插入 attributedText  则需要在插入的地方调用该方法进行监听 比如输入框自定义做的表情插入
-    func textDidChange() {
+    @objc func textDidChange() {
         
         if placeholder != nil && text.isEmpty {
             placeholderLabel.isHidden = false

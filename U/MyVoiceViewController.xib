@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -159,15 +159,6 @@
                         <action selector="commitBtnAction:" destination="-1" eventType="touchUpInside" id="Eh4-4R-st6"/>
                     </connections>
                 </button>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="WeChat:BrooksWon" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E8S-4K-DFE">
-                    <rect key="frame" x="132" y="639" width="112" height="21"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="21" id="laW-WN-j42"/>
-                    </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                    <color key="textColor" red="0.80000000000000004" green="0.80000000000000004" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    <nil key="highlightedColor"/>
-                </label>
             </subviews>
             <color key="backgroundColor" red="0.081446088850498199" green="0.081328548491001129" blue="0.084216199815273285" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
@@ -180,9 +171,7 @@
                 <constraint firstItem="3z9-SD-gnI" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="10" id="cNt-on-SdS"/>
                 <constraint firstItem="rPJ-TP-50b" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="15" id="hWF-2O-PeM"/>
                 <constraint firstItem="rPJ-TP-50b" firstAttribute="top" secondItem="GQx-oi-Lcd" secondAttribute="bottom" constant="20" id="hdq-Hp-xor"/>
-                <constraint firstAttribute="bottom" secondItem="E8S-4K-DFE" secondAttribute="bottom" constant="7" id="jxB-aX-pvR"/>
                 <constraint firstItem="pEf-5H-Lor" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="kgn-0E-yez"/>
-                <constraint firstItem="E8S-4K-DFE" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="wcO-HI-SU9"/>
                 <constraint firstAttribute="trailing" secondItem="pEf-5H-Lor" secondAttribute="trailing" id="xP1-VU-Cjf"/>
                 <constraint firstItem="3z9-SD-gnI" firstAttribute="top" secondItem="pEf-5H-Lor" secondAttribute="bottom" constant="15" id="xaN-9R-Qua"/>
                 <constraint firstAttribute="trailing" secondItem="rPJ-TP-50b" secondAttribute="trailing" constant="15" id="zUH-XZ-sHR"/>
@@ -194,9 +183,4 @@
     <resources>
         <image name="back" width="32" height="32"/>
     </resources>
-    <simulatedMetricsContainer key="defaultSimulatedMetrics">
-        <simulatedStatusBarMetrics key="statusBar"/>
-        <simulatedOrientationMetrics key="orientation"/>
-        <simulatedScreenMetrics key="destination" type="retina4_7.fullscreen"/>
-    </simulatedMetricsContainer>
 </document>

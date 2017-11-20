@@ -1,0 +1,51 @@
+PODS:
+  - Bugtags (2.4.0):
+    - Bugtags/Core (= 2.4.0)
+  - Bugtags/Core (2.4.0)
+  - GlitchLabel (2.0.0)
+  - LLSwitch (1.0.4)
+  - LTMorphingLabel (0.5.5)
+  - PathMenu (2.0.1)
+  - SCLAlertView (0.7.0)
+  - UMengAnalytics (4.2.4)
+
+DEPENDENCIES:
+  - Bugtags (= 2.4.0)
+  - GlitchLabel (from `https://github.com/BrooksWon/GlitchLabel.git`)
+  - LLSwitch (= 1.0.4)
+  - LTMorphingLabel
+  - PathMenu (from `https://github.com/BrooksWon/PathMenu.git`)
+  - SCLAlertView (from `https://github.com/vikmeup/SCLAlertView-Swift.git`)
+  - UMengAnalytics (= 4.2.4)
+
+EXTERNAL SOURCES:
+  GlitchLabel:
+    :git: https://github.com/BrooksWon/GlitchLabel.git
+  PathMenu:
+    :git: https://github.com/BrooksWon/PathMenu.git
+  SCLAlertView:
+    :git: https://github.com/vikmeup/SCLAlertView-Swift.git
+
+CHECKOUT OPTIONS:
+  GlitchLabel:
+    :commit: 7dc515c737ac62fffc67bccf968ac775c3b7259b
+    :git: https://github.com/BrooksWon/GlitchLabel.git
+  PathMenu:
+    :commit: a4a8bbf9e80def384c2f8fcafca82c927e5d5bbc
+    :git: https://github.com/BrooksWon/PathMenu.git
+  SCLAlertView:
+    :commit: 85329ce66c297bea79ddef92908ff2040174ccf9
+    :git: https://github.com/vikmeup/SCLAlertView-Swift.git
+
+SPEC CHECKSUMS:
+  Bugtags: 916b3dcbc4e495f96206ac35546aa196c9ed2132
+  GlitchLabel: 65773d1df358ef66c8daa40428eb79bd04e7a976
+  LLSwitch: b5f0e574b4c53f46806df015cd21285464d4b440
+  LTMorphingLabel: 86464e41c3394dbf1ad098442ed4dcf8891ba975
+  PathMenu: 2e9c0f3daac9336e1a7db581a39708a41cbd4a40
+  SCLAlertView: 8a14ffc40590c619e183eed2298b854385f30be1
+  UMengAnalytics: ef8d45f94c0e5771dc364cf6a5731d9d3b101da2
+
+PODFILE CHECKSUM: ad65a0601e66ee79ea5307d2b378ce669ffdfb90
+
+COCOAPODS: 1.1.1

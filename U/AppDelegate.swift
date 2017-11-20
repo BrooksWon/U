@@ -8,6 +8,9 @@
 
 import UIKit
 import AdSupport
+import SCLAlertView
+import LTMorphingLabel
+
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -19,7 +22,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Bugtags 反馈
         let options = BugtagsOptions()
         options.enableUserSignIn = false
-        Bugtags.start(withAppKey: "e5913a19c64342607c785784c7c340a7", invocationEvent: BTGInvocationEventNone, options: options)
+        Bugtags.start(withAppKey: "83dffd20bb1e073e3582ad26893e334f", invocationEvent: BTGInvocationEventNone, options: options)
+        
+        //UM 统计
+        let obj = UMAnalyticsConfig.sharedInstance();
+        obj?.appKey = "572a0d0fe0f55a9dc1001e9d";
+        MobClick.start(withConfigure:obj);
+        MobClick.setLogEnabled(true);
+        MobClick.setCrashReportEnabled(false)
+        MobClick.setAppVersion(Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as! String)
         
         
         // idfa
@@ -33,33 +44,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UITextView.appearance().tintColor = UIColor.white
         
         // UM push
-        UMessage.start(withAppkey: "572a0d0fe0f55a9dc1001e9d", launchOptions: launchOptions)
-        
-        //register remoteNotification types
-        let action1 = UIMutableUserNotificationAction.init()
-        action1.identifier = "action1_identifier"
-        action1.title = "action1_identifier"
-        action1.activationMode = UIUserNotificationActivationMode.foreground//当点击的时候启动程序
-        
-        let action2 = UIMutableUserNotificationAction.init()
-        action2.identifier = "action2_identifier"
-        action2.title = "action2_identifier"
-        action2.activationMode = UIUserNotificationActivationMode.background//当点击的时候不启动程序，在后台处理
-        action2.isAuthenticationRequired = true//需要解锁才能处理，如果action.activationMode = UIUserNotificationActivationModeForeground;则这个属性被忽略；
-        action2.isDestructive = true
-        
-        let categorys = UIMutableUserNotificationCategory.init()
-        categorys.identifier = "category1"//这组动作的唯一标示
-        categorys.setActions([action1,action2], for: UIUserNotificationActionContext.default)
-        
-        let userSettings :UIUserNotificationSettings = UIUserNotificationSettings(types: [UIUserNotificationType.badge,UIUserNotificationType.alert,UIUserNotificationType.sound], categories: NSSet(object: categorys) as? Set<UIUserNotificationCategory>)
-        
-        UMessage.registerRemoteNotificationAndUserNotificationSettings(userSettings)        
-        //UM 统计
-        MobClick.setLogEnabled(false)
-        MobClick.setCrashReportEnabled(false)
-        MobClick.setAppVersion(Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as! String)
-        MobClick.start(withAppkey: "572a0d0fe0f55a9dc1001e9d")
+        UMessage.start(withAppkey: "572a0d0fe0f55a9dc1001e9d", launchOptions: launchOptions, httpsEnable: true)
+        UMessage.registerForRemoteNotifications()
+        UMessage.openDebugMode(true);
+
         
         //3Dtouch
         if #available(iOS 9.0, *) {

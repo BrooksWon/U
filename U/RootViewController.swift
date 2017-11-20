@@ -7,6 +7,10 @@
 //
 
 import UIKit
+import PathMenu
+import GlitchLabel
+import LTMorphingLabel
+import SCLAlertView
 
 class RootViewController: UIViewController {
     
@@ -15,9 +19,7 @@ class RootViewController: UIViewController {
     @IBOutlet weak var byUerLabel: LTMorphingLabel!
     @IBOutlet weak var navBar: UIView!
     @IBOutlet weak var navBarTittleLabel: LTMorphingLabel!
-    
-    @IBOutlet weak var zanLabel: UILabel!
-    
+        
     var emojiFlay : LSEmojiFly!
     
     
@@ -25,21 +27,11 @@ class RootViewController: UIViewController {
     let kekDic = ["生日":"shengri", "爱":"lover", "生活" :"life", "gay":"gay", "你算什么":"nssm", "傻逼" :"sb", "牛逼":"nb",]
     
     
-    //点赞动画
-    fileprivate struct HeartAttributes {
-        static let heartSize: CGFloat = 36
-        static let burstDelay: TimeInterval = 0.1
-    }
-    var burstTimer: Timer?
-    
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        If white background
-//        glitchLabel.blendMode = .Multiply
+
         glitchLabel.text = "Hello, Uer!"
-//        view.backgroundColor = UIColor.whiteColor()
         
         sleep(1);
         
@@ -57,7 +49,6 @@ class RootViewController: UIViewController {
             self.view.addSubview(self.addPathMenu())
             self.voiceLabel.isHidden = false
             self.byUerLabel.isHidden = false
-            self.zanLabel?.isHidden = false
             self.navBar.isHidden = false
             
             if let effect = LTMorphingEffect(rawValue: 4) {
@@ -69,69 +60,6 @@ class RootViewController: UIViewController {
             self.changeVoiceText()
         }
         
-        
-        // 右滑点赞
-        let swipeGestureLeft = UISwipeGestureRecognizer(target: self, action: #selector(swipeGestureAction))
-        swipeGestureLeft.direction = UISwipeGestureRecognizerDirection.right
-        view.addGestureRecognizer(swipeGestureLeft)
-        
-        // 旋转点大赞，右滑，每次点赞10次
-        let rotationGesture = UIRotationGestureRecognizer(target: self, action: #selector(rotationGestureAction))
-        view.addGestureRecognizer(rotationGesture)
-        
-//        //单击点赞
-//        let tapGesture1 = UITapGestureRecognizer(target: self, action: #selector(showTheLove))
-//        view.addGestureRecognizer(tapGesture1)
-//        
-//        //长按点赞
-//        let longPressGesture = UILongPressGestureRecognizer(target: self, action: #selector(longPressGestureAction))
-//        longPressGesture.minimumPressDuration = 0.2
-//        view.addGestureRecognizer(longPressGesture)
-    }
-    
-    func longPressGestureAction(_ longPressGesture: UILongPressGestureRecognizer) {
-        switch longPressGesture.state {
-        case .began:
-            burstTimer = Timer.scheduledTimer(timeInterval: HeartAttributes.burstDelay, target: self, selector: #selector(showTheLove), userInfo: nil, repeats: true)
-        case .ended, .cancelled:
-            burstTimer?.invalidate()
-        default:
-            break
-        }
-    }
-    
-    
-    func swipeGestureAction(_ swipeGesture: UISwipeGestureRecognizer) {
-        if swipeGesture.direction == UISwipeGestureRecognizerDirection.right {
-            showTheLove()
-        }
-    }
-    
-    func rotationGestureAction(_ rotationGesture: UIRotationGestureRecognizer) {
-        switch rotationGesture.state {
-        case UIGestureRecognizerState.began:
-            burstTimer = Timer.scheduledTimer(timeInterval: HeartAttributes.burstDelay, target: self, selector: #selector(showTheLove), userInfo: nil, repeats: true)
-            break
-        case UIGestureRecognizerState.ended:
-            burstTimer?.invalidate()
-            NSLog("1")
-            break
-        default:
-            break
-        }
-    }
-    
-    func showTheLove() {
-        let heart = HeartView(frame: CGRect(x: 0, y: 0, width: HeartAttributes.heartSize, height: HeartAttributes.heartSize))
-        self.view.addSubview(heart)
-        let fountainX = HeartAttributes.heartSize / 2.0 + 20
-        let fountainY = view.bounds.height - HeartAttributes.heartSize / 2.0 - 10
-        heart.center = CGPoint(x: fountainX, y: fountainY)
-        heart.animateInView(self.view)
-        
-        //更改点赞的数目
-        let like = self.zanLabel?.text?.substring(from: (self.zanLabel?.text?.characters.index((self.zanLabel?.text?.startIndex)!, offsetBy: 1))!)
-        self.zanLabel?.text = NSString(format: "👍%d", Int(like!)!+1) as String
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -158,18 +86,16 @@ class RootViewController: UIViewController {
             
             self.voiceLabel.text = voice as String
             self.byUerLabel.text = NSString.init(format: "by %@", uer) as String
-            self.zanLabel?.text = "👍1"
         
             self.perform(#selector(rainFly), with: nil, afterDelay: 1.0)
             
         }else {
             self.voiceLabel.text = NSLocalizedString("DefaultVoiceKey", comment: "wobuzhidao")
             self.byUerLabel.text = NSString.init(format: "by %@", NSLocalizedString("ByUerKey", comment: "None")) as String
-            self.zanLabel?.text = "👍1"
         }
     }
     
-    func rainFly() {
+    @objc func rainFly() {
         var key : String!
         for item in keys {
             if ((self.voiceLabel.text?.contains(item)) == true) {
@@ -270,7 +196,9 @@ extension RootViewController: PathMenuDelegate {
         let alert = SCLAlertView(appearance: appearance)
 
         alert.addButton(NSLocalizedString("JvBao_Yes_Key", comment: "")) {
-            SCLAlertView().showSuccess(NSLocalizedString("JvBao_Success_Key", comment: ""), subTitle: "")
+
+            SCLAlertView().showSuccess(NSLocalizedString("JvBao_Success_Key", comment: ""), subTitle: "", closeButtonTitle: NSLocalizedString("ShouDao_Done_Key", comment: ""), timeout: nil, colorStyle: SCLAlertViewStyle.success.defaultColorInt, colorTextButton: 0xFFFFFF, circleIconImage: nil, animationStyle: SCLAnimationStyle.topToBottom)
+
             MobClick.event("jvbaoSuccess_btn")
         }
         alert.addButton(NSLocalizedString("JvBao_NO_Key", comment: "")) {

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SCLAlertView
 
 class MyVoiceViewController: UIViewController {
     
@@ -21,7 +22,8 @@ class MyVoiceViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(SCLAlertView.tapped(_:)))
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(hideKeyboardTap))
+            
         tapGesture.numberOfTapsRequired = 1
         self.view.addGestureRecognizer(tapGesture)
         
@@ -84,7 +86,7 @@ class MyVoiceViewController: UIViewController {
         alert.showSuccess(NSLocalizedString("ShouDaoKey", comment: ""), subTitle: "")
     }
     
-    func tapped(_ gestureRecognizer: UITapGestureRecognizer) {
+    @objc func hideKeyboardTap(_ gestureRecognizer: UITapGestureRecognizer) {
         self.view.endEditing(true)
         MobClick.event("shou_qi_jian_pan_shou_shi")
     }

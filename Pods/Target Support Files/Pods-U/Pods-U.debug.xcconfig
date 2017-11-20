@@ -1,0 +1,13 @@
+ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES
+EMBEDDED_CONTENT_CONTAINS_SWIFT = YES
+FRAMEWORK_SEARCH_PATHS = $(inherited) "$(PODS_ROOT)/Bugtags/" "$PODS_CONFIGURATION_BUILD_DIR/GlitchLabel" "$PODS_CONFIGURATION_BUILD_DIR/LLSwitch" "$PODS_CONFIGURATION_BUILD_DIR/LTMorphingLabel" "$PODS_CONFIGURATION_BUILD_DIR/PathMenu" "$PODS_CONFIGURATION_BUILD_DIR/SCLAlertView" "${PODS_ROOT}/UMengAnalytics/umsdk_IOS_analyics_idfa_v4.2.4"
+GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1
+HEADER_SEARCH_PATHS = $(inherited) "${PODS_ROOT}/Headers/Public" "${PODS_ROOT}/Headers/Public/Bugtags" "${PODS_ROOT}/Headers/Public/UMengAnalytics"
+LD_RUNPATH_SEARCH_PATHS = $(inherited) '@executable_path/Frameworks' '@loader_path/Frameworks'
+LIBRARY_SEARCH_PATHS = $(inherited) "$(PODS_ROOT)/UMengAnalytics/**"
+OTHER_CFLAGS = $(inherited) -iquote "$PODS_CONFIGURATION_BUILD_DIR/GlitchLabel/GlitchLabel.framework/Headers" -iquote "$PODS_CONFIGURATION_BUILD_DIR/LLSwitch/LLSwitch.framework/Headers" -iquote "$PODS_CONFIGURATION_BUILD_DIR/LTMorphingLabel/LTMorphingLabel.framework/Headers" -iquote "$PODS_CONFIGURATION_BUILD_DIR/PathMenu/PathMenu.framework/Headers" -iquote "$PODS_CONFIGURATION_BUILD_DIR/SCLAlertView/SCLAlertView.framework/Headers" -isystem "${PODS_ROOT}/Headers/Public" -isystem "${PODS_ROOT}/Headers/Public/Bugtags" -isystem "${PODS_ROOT}/Headers/Public/UMengAnalytics"
+OTHER_LDFLAGS = $(inherited) -ObjC -l"c++" -l"sqlite3" -l"z" -framework "AVFoundation" -framework "Bugtags" -framework "CFNetwork" -framework "CoreLocation" -framework "CoreTelephony" -framework "GlitchLabel" -framework "ImageIO" -framework "LLSwitch" -framework "LTMorphingLabel" -framework "PathMenu" -framework "SCLAlertView" -framework "Security" -framework "SystemConfiguration" -framework "UIKit" -framework "UMMobClick"
+OTHER_SWIFT_FLAGS = $(inherited) "-D" "COCOAPODS"
+PODS_BUILD_DIR = $BUILD_DIR
+PODS_CONFIGURATION_BUILD_DIR = $PODS_BUILD_DIR/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)
+PODS_ROOT = ${SRCROOT}/Pods
