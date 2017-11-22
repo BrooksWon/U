@@ -6,8 +6,8 @@
   Copyright © 2016年 王建雨. All rights reserved.
 */
 CFBundleDisplayName ="U.";
-"DefaultVoiceKey"   = "Aller Anfang ist schwer";
-"ByUerKey"          = "Uer";
+"DefaultVoiceKey"   = "——Good night,Daisy.\n\n——Good night,Benjamin.";
+"ByUerKey"          = "The Curious Case Of Benjamin Button";
 "MessageKey"        = "Nachricht";
 "EncourageKey"      = "Ermutigen";
 "ShareKey"          = "Share";

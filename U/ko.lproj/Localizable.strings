@@ -6,8 +6,8 @@
   Copyright © 2016年 王建雨. All rights reserved.
 */
 CFBundleDisplayName ="U.";
-"DefaultVoiceKey"   = "내가 가지고 있기 때문에, 걱정하지 마세요!";
-"ByUerKey"          = "김아념";
+"DefaultVoiceKey"   = "——Good night,Daisy.\n\n——Good night,Benjamin.";
+"ByUerKey"          = "The Curious Case Of Benjamin Button";
 "MessageKey"        = "메시지";
 "EncourageKey"      = "북돋우다";
 "ShareKey"          = "몫";

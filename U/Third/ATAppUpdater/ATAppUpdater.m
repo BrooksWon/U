@@ -61,10 +61,12 @@
     
     [self checkNewAppVersionWithBlock:^(BOOL newVersion, NSString *appUrl, NSString *version, NSString*releaseNotes) {
         if (newVersion) {
-            [[ATUpdateAlert alertUpdateForVersion:version
-                                 withReleaseNotes:(NSString*)releaseNotes
-                                          withURL:appUrl
-                                        withForce:force] show];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [[ATUpdateAlert alertUpdateForVersion:version
+                                     withReleaseNotes:(NSString*)releaseNotes
+                                              withURL:appUrl
+                                            withForce:force] show];
+            });
         }
     }];
 }

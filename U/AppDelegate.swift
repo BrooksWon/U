@@ -32,17 +32,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         MobClick.setCrashReportEnabled(false)
         MobClick.setAppVersion(Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as! String)
         
-        
-        // idfa
-        _ = ASIdentifierManager.shared().advertisingIdentifier.uuidString
-        
-        // 版本更新
-        (ATAppUpdater.sharedUpdater() as AnyObject).forceOpenNewAppVersion(true)
-        
-        //定制光标
-        UITextField.appearance().tintColor = UIColor.white
-        UITextView.appearance().tintColor = UIColor.white
-        
         // UM push
         UMessage.start(withAppkey: "572a0d0fe0f55a9dc1001e9d", launchOptions: launchOptions, httpsEnable: true)
         UMessage.registerForRemoteNotifications()
@@ -70,6 +59,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         
         
+        // idfa
+        _ = ASIdentifierManager.shared().advertisingIdentifier.uuidString
+        
+        //定制光标
+        UITextField.appearance().tintColor = UIColor.white
+        UITextView.appearance().tintColor = UIColor.white
+        
+        // 版本更新
+        DispatchQueue.global().async {
+            (ATAppUpdater.sharedUpdater() as AnyObject).forceOpenNewAppVersion(true)
+        }
+
         return true
     }
     

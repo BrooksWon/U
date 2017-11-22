@@ -6,8 +6,8 @@
   Copyright © 2016年 王建雨. All rights reserved.
 */
 CFBundleDisplayName ="U.";
-"DefaultVoiceKey"   = "La vida no consiste en esperar a que pase la tormenta, sino en aprender a bailar bajo la lluvia.";
-"ByUerKey"          = "ruiz";
+"DefaultVoiceKey"   = "——Good night,Daisy.\n\n——Good night,Benjamin.";
+"ByUerKey"          = "The Curious Case Of Benjamin Button";
 "MessageKey"        = "Mensaje";
 "EncourageKey"      = "Alentar";
 "ShareKey"          = "Compartir";

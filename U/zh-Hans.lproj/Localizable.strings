@@ -6,8 +6,8 @@
   Copyright © 2016年 王建雨. All rights reserved.
 */
 CFBundleDisplayName ="U.";
-"DefaultVoiceKey"   = "人生太苦，你吃一颗糖。";
-"ByUerKey"          = "倪小暖";
+"DefaultVoiceKey"   = "——Good night,Daisy.\n\n——Good night,Benjamin.";
+"ByUerKey"          = "The Curious Case Of Benjamin Button";
 "MessageKey"        = "消息";
 "EncourageKey"      = "鼓励";
 "ShareKey"          = "予人";

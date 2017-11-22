@@ -16,6 +16,3 @@
 #import <LLSwitch/LLSwitch.h>
 
 #import "LSEmojiFly.h"
-
-
-

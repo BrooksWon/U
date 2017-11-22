@@ -1,12 +1,11 @@
 # U
-［ U. —为你说你想说的，给所有人听！］
+        
+## Licence
 
-每天打开一次，写下你想说的一句话；小U 会翻山越岭送到对方面前。
+U. is licensed under the [MIT](https://github.com/BrooksWon/U/blob/master/LICENSE) license. Please see the LICENSE file for more information.
 
-小U 希望你和世界的距离不再是海角天涯。
+## Credits
 
-小U 希望你 轰轰烈烈 或 云淡风轻 或 ..... 的生活着。
+U. was designed and developed by [Brooks](https://github.com/BrooksWon/).
 
-愿：以后的时光里，你被世界温柔以待！
 
-攻略：每天打开一次，写一句话，发给小U；小U会选出心声最强的呐喊，对世界上所有的Uer。

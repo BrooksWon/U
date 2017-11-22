@@ -6,8 +6,8 @@
   Copyright © 2016年 王建雨. All rights reserved.
 */
 CFBundleDisplayName ="U.";
-"DefaultVoiceKey"   = "Je pense, donc jexiste.";
-"ByUerKey"          = "Descartes";
+"DefaultVoiceKey"   = "——Good night,Daisy.\n\n——Good night,Benjamin.";
+"ByUerKey"          = "The Curious Case Of Benjamin Button";
 "MessageKey"        = "Message";
 "EncourageKey"      = "Encourager";
 "ShareKey"          = "Partager";
