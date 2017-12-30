@@ -30,9 +30,6 @@ CFBundleDisplayName ="U.";
 
 "NotificationKey"   = "뉴스";
 
-"FriendKey"         = "친구의 원";
-"WechatKey"         = "친구";
-
 "VoiceKey"          = "외침";
 "UpdateKey"         = "최신 정보";
 

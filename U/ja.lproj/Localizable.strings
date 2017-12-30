@@ -30,9 +30,6 @@ CFBundleDisplayName ="U.";
 
 "NotificationKey"   = "ニュース";
 
-"FriendKey"         = "フレンド";
-"WechatKey"         = "友達の輪";
-
 "VoiceKey"          = "シャウト";
 "UpdateKey"         = "更新";
 
