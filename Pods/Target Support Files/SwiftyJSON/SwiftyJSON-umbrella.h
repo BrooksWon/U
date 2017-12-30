@@ -11,6 +11,6 @@
 #endif
 
 
-FOUNDATION_EXPORT double GlitchLabelVersionNumber;
-FOUNDATION_EXPORT const unsigned char GlitchLabelVersionString[];
+FOUNDATION_EXPORT double SwiftyJSONVersionNumber;
+FOUNDATION_EXPORT const unsigned char SwiftyJSONVersionString[];
 
