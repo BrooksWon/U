@@ -14,6 +14,8 @@
 		9815A5CD1FC312A20000B32C /* ATAppUpdater.m in Sources */ = {isa = PBXBuildFile; fileRef = 9815A5C81FC312A20000B32C /* ATAppUpdater.m */; };
 		98264F1A1CF93A0E0028124B /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 98264F1C1CF93A0E0028124B /* Localizable.strings */; };
 		982A6F251FC3380000C7B68C /* libUMessage_Sdk_1.5.0a.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 982A6F241FC3380000C7B68C /* libUMessage_Sdk_1.5.0a.a */; };
+		984B54611FF7A63300270327 /* Stickers.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 984B54601FF7A63300270327 /* Stickers.xcassets */; };
+		984B54651FF7A63300270327 /* StickerPack.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 984B545E1FF7A63200270327 /* StickerPack.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		985C34FE1FC262E5006A59D5 /* UserNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 985C34FD1FC262E5006A59D5 /* UserNotifications.framework */; };
 		989397C11CD9BE4E00079DCF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 989397C01CD9BE4E00079DCF /* AppDelegate.swift */; };
 		989397C31CD9BE4E00079DCF /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 989397C21CD9BE4E00079DCF /* RootViewController.swift */; };
@@ -28,6 +30,30 @@
 		98E87F0F1CF0DEB600B16A31 /* GLViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98E87F0D1CF0DEB600B16A31 /* GLViewController.swift */; };
 		98E87F101CF0DEB600B16A31 /* GLViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 98E87F0E1CF0DEB600B16A31 /* GLViewController.xib */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		984B54631FF7A63300270327 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 989397B51CD9BE4E00079DCF /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 984B545D1FF7A63200270327;
+			remoteInfo = StickerPack;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		984B54691FF7A63300270327 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				984B54651FF7A63300270327 /* StickerPack.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		00290377EC9EE0E644CDD8BF /* Pods-U.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-U.release.xcconfig"; path = "Pods/Target Support Files/Pods-U/Pods-U.release.xcconfig"; sourceTree = "<group>"; };
@@ -52,6 +78,9 @@
 		98264F201CF93A140028124B /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/Localizable.strings; sourceTree = "<group>"; };
 		982A6F241FC3380000C7B68C /* libUMessage_Sdk_1.5.0a.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libUMessage_Sdk_1.5.0a.a; sourceTree = "<group>"; };
 		983DEA3B1CDA47B300D247C1 /* U-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "U-Bridging-Header.h"; sourceTree = "<group>"; };
+		984B545E1FF7A63200270327 /* StickerPack.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = StickerPack.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		984B54601FF7A63300270327 /* Stickers.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Stickers.xcassets; sourceTree = "<group>"; };
+		984B54621FF7A63300270327 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		985C34FD1FC262E5006A59D5 /* UserNotifications.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotifications.framework; path = System/Library/Frameworks/UserNotifications.framework; sourceTree = SDKROOT; };
 		985C35031FC2767E006A59D5 /* U.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = U.entitlements; sourceTree = "<group>"; };
 		986C26BD1CF85C8F003D3D3D /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
@@ -130,10 +159,20 @@
 			path = ATAppUpdater;
 			sourceTree = "<group>";
 		};
+		984B545F1FF7A63300270327 /* StickerPack */ = {
+			isa = PBXGroup;
+			children = (
+				984B54601FF7A63300270327 /* Stickers.xcassets */,
+				984B54621FF7A63300270327 /* Info.plist */,
+			);
+			path = StickerPack;
+			sourceTree = "<group>";
+		};
 		989397B41CD9BE4E00079DCF = {
 			isa = PBXGroup;
 			children = (
 				989397BF1CD9BE4E00079DCF /* U */,
+				984B545F1FF7A63300270327 /* StickerPack */,
 				989397BE1CD9BE4E00079DCF /* Products */,
 				98BFD9F61E1660BA008A45E5 /* Frameworks */,
 				A014F265A8B45F18A3402C5D /* Pods */,
@@ -144,6 +183,7 @@
 			isa = PBXGroup;
 			children = (
 				989397BD1CD9BE4E00079DCF /* U.app */,
+				984B545E1FF7A63200270327 /* StickerPack.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -205,6 +245,21 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		984B545D1FF7A63200270327 /* StickerPack */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 984B54661FF7A63300270327 /* Build configuration list for PBXNativeTarget "StickerPack" */;
+			buildPhases = (
+				984B545C1FF7A63200270327 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = StickerPack;
+			productName = StickerPack;
+			productReference = 984B545E1FF7A63200270327 /* StickerPack.appex */;
+			productType = "com.apple.product-type.app-extension.messages-sticker-pack";
+		};
 		989397BC1CD9BE4E00079DCF /* U */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 989397E51CD9BE4E00079DCF /* Build configuration list for PBXNativeTarget "U" */;
@@ -215,10 +270,12 @@
 				989397BB1CD9BE4E00079DCF /* Resources */,
 				3C42B54A18619159AF7A9836 /* [CP] Embed Pods Frameworks */,
 				6A5D45405F8E2F1E90B0BBC3 /* [CP] Copy Pods Resources */,
+				984B54691FF7A63300270327 /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				984B54641FF7A63300270327 /* PBXTargetDependency */,
 			);
 			name = U;
 			productName = U;
@@ -235,11 +292,16 @@
 				LastUpgradeCheck = 0800;
 				ORGANIZATIONNAME = "王建雨";
 				TargetAttributes = {
+					984B545D1FF7A63200270327 = {
+						CreatedOnToolsVersion = 9.1;
+						DevelopmentTeam = TXSG7PC5L6;
+						ProvisioningStyle = Automatic;
+					};
 					989397BC1CD9BE4E00079DCF = {
 						CreatedOnToolsVersion = 7.3;
 						DevelopmentTeam = TXSG7PC5L6;
 						LastSwiftMigration = 0800;
-						ProvisioningStyle = Manual;
+						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.Push = {
 								enabled = 1;
@@ -269,11 +331,20 @@
 			projectRoot = "";
 			targets = (
 				989397BC1CD9BE4E00079DCF /* U */,
+				984B545D1FF7A63200270327 /* StickerPack */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		984B545C1FF7A63200270327 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				984B54611FF7A63300270327 /* Stickers.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		989397BB1CD9BE4E00079DCF /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -379,6 +450,14 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		984B54641FF7A63300270327 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 984B545D1FF7A63200270327 /* StickerPack */;
+			targetProxy = 984B54631FF7A63300270327 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin PBXVariantGroup section */
 		98264F1C1CF93A0E0028124B /* Localizable.strings */ = {
 			isa = PBXVariantGroup;
@@ -427,6 +506,65 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		984B54671FF7A63300270327 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = "iMessage App Icon";
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer: jianyu wang (4XUU6CEV36)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = TXSG7PC5L6;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = StickerPack/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.BrooksWon.U.-StickerPack";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		984B54681FF7A63300270327 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = "iMessage App Icon";
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: jianyu wang (TXSG7PC5L6)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = TXSG7PC5L6;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = StickerPack/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.BrooksWon.U.-StickerPack";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 		989397E31CD9BE4E00079DCF /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -528,7 +666,7 @@
 				CODE_SIGN_ENTITLEMENTS = U/U.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer: jianyu wang (4XUU6CEV36)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = TXSG7PC5L6;
 				ENABLE_BITCODE = NO;
@@ -544,8 +682,8 @@
 				OTHER_SWIFT_FLAGS = "$(inherited) \"-D\" \"COCOAPODS\" -D DEBUG";
 				PRODUCT_BUNDLE_IDENTIFIER = com.BrooksWon.U;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "543dbf43-ef2c-4546-862a-f831c7e870c7";
-				PROVISIONING_PROFILE_SPECIFIER = "U-Dev";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "U/U-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
@@ -561,8 +699,8 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = U/U.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: jianyu wang (TXSG7PC5L6)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
-				CODE_SIGN_STYLE = Manual;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = TXSG7PC5L6;
 				ENABLE_BITCODE = NO;
@@ -578,8 +716,8 @@
 				OTHER_SWIFT_FLAGS = "$(inherited) \"-D\" \"COCOAPODS\"";
 				PRODUCT_BUNDLE_IDENTIFIER = com.BrooksWon.U;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "5740b421-1d15-4973-b07a-7ea17bf75f05";
-				PROVISIONING_PROFILE_SPECIFIER = "U-Dis";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "U/U-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -589,6 +727,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		984B54661FF7A63300270327 /* Build configuration list for PBXNativeTarget "StickerPack" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				984B54671FF7A63300270327 /* Debug */,
+				984B54681FF7A63300270327 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		989397B81CD9BE4E00079DCF /* Build configuration list for PBXProject "U" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
