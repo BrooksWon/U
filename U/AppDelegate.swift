@@ -20,6 +20,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate,UNUserNotificationCenterDe
     var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+        
+        //configure iRate
+//        [iRate sharedInstance].firstUsed = [NSDate dat];
+        
 
         // Bugtags 反馈
         let options = BugtagsOptions()

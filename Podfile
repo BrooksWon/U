@@ -15,5 +15,6 @@ target 'U' do
 
   pod 'LTMorphingLabel'
   pod 'SwiftyJSON', '~>4.0.0'
+  pod 'iRate', '~>1.12.1'
 
 end
