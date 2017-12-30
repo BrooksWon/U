@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		0A444C3E0EBD4EE104F57A22 /* Pods_U.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F09D101DC14949B99C41E6A /* Pods_U.framework */; };
-		9806E31A1FF7727B002D31D2 /* PushMessageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9806E3191FF7727B002D31D2 /* PushMessageModel.swift */; };
 		9815A5CA1FC312A20000B32C /* DZMTextViewPlaceholder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9815A5C01FC312A10000B32C /* DZMTextViewPlaceholder.swift */; };
 		9815A5CD1FC312A20000B32C /* ATAppUpdater.m in Sources */ = {isa = PBXBuildFile; fileRef = 9815A5C81FC312A20000B32C /* ATAppUpdater.m */; };
 		98264F1A1CF93A0E0028124B /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 98264F1C1CF93A0E0028124B /* Localizable.strings */; };
@@ -58,7 +57,6 @@
 		00290377EC9EE0E644CDD8BF /* Pods-U.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-U.release.xcconfig"; path = "Pods/Target Support Files/Pods-U/Pods-U.release.xcconfig"; sourceTree = "<group>"; };
 		6F09D101DC14949B99C41E6A /* Pods_U.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_U.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7DB6DE6C835FD066CF13AA6E /* Pods-U.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-U.debug.xcconfig"; path = "Pods/Target Support Files/Pods-U/Pods-U.debug.xcconfig"; sourceTree = "<group>"; };
-		9806E3191FF7727B002D31D2 /* PushMessageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushMessageModel.swift; sourceTree = "<group>"; };
 		9815A5C01FC312A10000B32C /* DZMTextViewPlaceholder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DZMTextViewPlaceholder.swift; sourceTree = "<group>"; };
 		9815A5C31FC312A10000B32C /* UMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMessage.h; sourceTree = "<group>"; };
 		9815A5C71FC312A20000B32C /* ATAppUpdater.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATAppUpdater.h; sourceTree = "<group>"; };
@@ -182,7 +180,6 @@
 				985C35031FC2767E006A59D5 /* U.entitlements */,
 				989397EE1CD9BE9C00079DCF /* Third */,
 				989397C01CD9BE4E00079DCF /* AppDelegate.swift */,
-				9806E3191FF7727B002D31D2 /* PushMessageModel.swift */,
 				989397C21CD9BE4E00079DCF /* RootViewController.swift */,
 				9893980B1CD9EEB100079DCF /* MyVoiceViewController.swift */,
 				9893980C1CD9EEB100079DCF /* MyVoiceViewController.xib */,
@@ -423,7 +420,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				989397C31CD9BE4E00079DCF /* RootViewController.swift in Sources */,
-				9806E31A1FF7727B002D31D2 /* PushMessageModel.swift in Sources */,
 				9815A5CD1FC312A20000B32C /* ATAppUpdater.m in Sources */,
 				98E87F0F1CF0DEB600B16A31 /* GLViewController.swift in Sources */,
 				9893981B1CDA04AB00079DCF /* MeViewController.swift in Sources */,
