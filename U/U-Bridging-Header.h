@@ -15,6 +15,4 @@
 
 #import <LLSwitch/LLSwitch.h>
 
-#import "LSEmojiFly.h"
-
 #import <iRate/iRate.h>

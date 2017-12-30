@@ -19,14 +19,6 @@ class RootViewController: UIViewController {
     @IBOutlet weak var byUerLabel: LTMorphingLabel!
     @IBOutlet weak var navBar: UIView!
     @IBOutlet weak var navBarTittleLabel: LTMorphingLabel!
-        
-    var emojiFlay : LSEmojiFly!
-    
-    
-    let keys = ["生日", "爱", "生活", "gay", "你算什么", "傻逼", "牛逼"]
-    let kekDic = ["生日":"shengri", "爱":"lover", "生活" :"life", "gay":"gay", "你算什么":"nssm", "傻逼" :"sb", "牛逼":"nb",]
-    
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -86,8 +78,6 @@ class RootViewController: UIViewController {
             
             self.voiceLabel.text = voice as String
             self.byUerLabel.text = NSString.init(format: "by %@", uer) as String
-        
-            self.perform(#selector(rainFly), with: nil, afterDelay: 1.0)
             
         }else {
             self.voiceLabel.text = NSLocalizedString("DefaultVoiceKey", comment: "wobuzhidao")
@@ -95,23 +85,6 @@ class RootViewController: UIViewController {
         }
     }
     
-    @objc func rainFly() {
-        var key : String!
-        for item in keys {
-            if ((self.voiceLabel.text?.contains(item)) == true) {
-                key = item
-                break
-            }
-        }
-        
-        if nil != key {
-            self.emojiFlay = LSEmojiFly()
-            self.emojiFlay.start(withEmojiImage: UIImage.init(named: kekDic[key]!), on: self.view)
-            
-            self.emojiFlay.perform(#selector(LSEmojiFly.end), with: nil, afterDelay: 3.0)
-        }
-    }
-
     override var preferredStatusBarStyle : UIStatusBarStyle {
         return UIStatusBarStyle.lightContent
     }

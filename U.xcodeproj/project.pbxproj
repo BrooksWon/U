@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		0A444C3E0EBD4EE104F57A22 /* Pods_U.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F09D101DC14949B99C41E6A /* Pods_U.framework */; };
 		9806E31A1FF7727B002D31D2 /* PushMessageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9806E3191FF7727B002D31D2 /* PushMessageModel.swift */; };
-		9815A5C91FC312A20000B32C /* LSEmojiFly.m in Sources */ = {isa = PBXBuildFile; fileRef = 9815A5BE1FC312A10000B32C /* LSEmojiFly.m */; };
 		9815A5CA1FC312A20000B32C /* DZMTextViewPlaceholder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9815A5C01FC312A10000B32C /* DZMTextViewPlaceholder.swift */; };
 		9815A5CD1FC312A20000B32C /* ATAppUpdater.m in Sources */ = {isa = PBXBuildFile; fileRef = 9815A5C81FC312A20000B32C /* ATAppUpdater.m */; };
 		98264F1A1CF93A0E0028124B /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 98264F1C1CF93A0E0028124B /* Localizable.strings */; };
@@ -60,8 +59,6 @@
 		6F09D101DC14949B99C41E6A /* Pods_U.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_U.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7DB6DE6C835FD066CF13AA6E /* Pods-U.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-U.debug.xcconfig"; path = "Pods/Target Support Files/Pods-U/Pods-U.debug.xcconfig"; sourceTree = "<group>"; };
 		9806E3191FF7727B002D31D2 /* PushMessageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushMessageModel.swift; sourceTree = "<group>"; };
-		9815A5BD1FC312A10000B32C /* LSEmojiFly.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LSEmojiFly.h; sourceTree = "<group>"; };
-		9815A5BE1FC312A10000B32C /* LSEmojiFly.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LSEmojiFly.m; sourceTree = "<group>"; };
 		9815A5C01FC312A10000B32C /* DZMTextViewPlaceholder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DZMTextViewPlaceholder.swift; sourceTree = "<group>"; };
 		9815A5C31FC312A10000B32C /* UMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMessage.h; sourceTree = "<group>"; };
 		9815A5C71FC312A20000B32C /* ATAppUpdater.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATAppUpdater.h; sourceTree = "<group>"; };
@@ -124,15 +121,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		9815A5BC1FC312A10000B32C /* EmojiFly */ = {
-			isa = PBXGroup;
-			children = (
-				9815A5BD1FC312A10000B32C /* LSEmojiFly.h */,
-				9815A5BE1FC312A10000B32C /* LSEmojiFly.m */,
-			);
-			path = EmojiFly;
-			sourceTree = "<group>";
-		};
 		9815A5BF1FC312A10000B32C /* PlaceholderTextView */ = {
 			isa = PBXGroup;
 			children = (
@@ -217,7 +205,6 @@
 			isa = PBXGroup;
 			children = (
 				9815A5C61FC312A20000B32C /* ATAppUpdater */,
-				9815A5BC1FC312A10000B32C /* EmojiFly */,
 				9815A5BF1FC312A10000B32C /* PlaceholderTextView */,
 				9815A5C11FC312A10000B32C /* UMessage_Sdk_1.5.0a */,
 			);
@@ -444,7 +431,6 @@
 				989397C11CD9BE4E00079DCF /* AppDelegate.swift in Sources */,
 				9815A5CA1FC312A20000B32C /* DZMTextViewPlaceholder.swift in Sources */,
 				989397F61CD9D9D400079DCF /* MainNavigationController.swift in Sources */,
-				9815A5C91FC312A20000B32C /* LSEmojiFly.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
