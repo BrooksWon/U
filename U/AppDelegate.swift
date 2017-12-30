@@ -13,18 +13,49 @@ import LTMorphingLabel
 import UserNotifications
 import UserNotificationsUI
 import SwiftyJSON
+import iRate
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate,UNUserNotificationCenterDelegate {
-
+class AppDelegate: UIResponder, UIApplicationDelegate,UNUserNotificationCenterDelegate,iRateDelegate {
+    
     var window: UIWindow?
-
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
-        //configure iRate
-//        [iRate sharedInstance].firstUsed = [NSDate dat];
+        // idfa
+        _ = ASIdentifierManager.shared().advertisingIdentifier.uuidString
         
-
+        //定制光标
+        UITextField.appearance().tintColor = UIColor.white
+        UITextView.appearance().tintColor = UIColor.white
+        
+        // 版本更新
+        DispatchQueue.global().async {
+            (ATAppUpdater.sharedUpdater() as AnyObject).forceOpenNewAppVersion(true)
+        }
+        
+        //configure iRate
+        #if DEBUG
+            iRate.sharedInstance().daysUntilPrompt = 1
+            iRate.sharedInstance().usesCount = 1
+            iRate.sharedInstance().eventsUntilPrompt = 1;
+        #else
+            let dateFormatter = DateFormatter.init()
+            dateFormatter.setLocalizedDateFormatFromTemplate("yyyy-MM-dd HH-mm-sss")
+            let startDate = dateFormatter.date(from: "2018-01-06 12-00-00")
+            
+            iRate.sharedInstance().firstUsed = startDate
+        #endif
+        iRate.sharedInstance().previewMode = true
+        iRate.sharedInstance().useAllAvailableLanguages = true;
+        iRate.sharedInstance().promptForNewVersionIfUserRated = true
+        
+        if (iRate.sharedInstance().shouldPromptForRating() && !iRate.sharedInstance().ratedThisVersion) {
+            DispatchQueue.main.asyncAfter(deadline:  DispatchTime.now() + 5, execute: {
+                iRate.sharedInstance().promptForRating()
+            })
+        }
+        
         // Bugtags 反馈
         let options = BugtagsOptions()
         options.enableUserSignIn = false
@@ -41,7 +72,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,UNUserNotificationCenterDe
         // UM push
         UMessage.start(withAppkey: "572a0d0fe0f55a9dc1001e9d", launchOptions: launchOptions, httpsEnable: true)
         UMessage.registerForRemoteNotifications()
-
+        
         if #available(iOS 10.0, *) {
             let center = UNUserNotificationCenter.current()
             center.delegate = self
@@ -59,12 +90,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate,UNUserNotificationCenterDe
         
         
         
-#if DEBUG
-        UMessage.openDebugMode(true)
-#else
-        UMessage.openDebugMode(false);
-#endif
-
+        #if DEBUG
+            UMessage.openDebugMode(true)
+        #else
+            UMessage.openDebugMode(false);
+        #endif
+        
         
         //3Dtouch
         if #available(iOS 9.0, *) {
@@ -86,19 +117,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate,UNUserNotificationCenterDe
             }
         }
         
-        
-        // idfa
-        _ = ASIdentifierManager.shared().advertisingIdentifier.uuidString
-        
-        //定制光标
-        UITextField.appearance().tintColor = UIColor.white
-        UITextView.appearance().tintColor = UIColor.white
-        
-        // 版本更新
-        DispatchQueue.global().async {
-            (ATAppUpdater.sharedUpdater() as AnyObject).forceOpenNewAppVersion(true)
-        }
-
         return true
     }
     
@@ -161,7 +179,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,UNUserNotificationCenterDe
         
         completionHandler([UNNotificationPresentationOptions.alert, UNNotificationPresentationOptions.sound])
     }
- 
+    
     func showPushMsg(userInfo: NSDictionary) {
         
         MobClick.event("showPushMsg")
@@ -216,6 +234,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate,UNUserNotificationCenterDe
             print("解析push消息失败")
             return "" as NSString;
         }
+    }
+    
+    func iRateShouldOpenAppStore() -> Bool {
+        return true
+    }
+    
+    func iRateShouldPromptForRating() -> Bool {
+        return true
     }
 }
 

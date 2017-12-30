@@ -293,7 +293,7 @@
 /* Begin PBXShellScriptBuildPhase section */
 		3C42B54A18619159AF7A9836 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
+			buildActionMask = 12;
 			files = (
 			);
 			inputPaths = (
@@ -323,7 +323,7 @@
 		};
 		6A5D45405F8E2F1E90B0BBC3 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
+			buildActionMask = 12;
 			files = (
 			);
 			inputPaths = (
@@ -341,7 +341,7 @@
 		};
 		FBA36D3C2BE34718ABCBE73E /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
+			buildActionMask = 12;
 			files = (
 			);
 			inputPaths = (
@@ -541,6 +541,7 @@
 					"$(PROJECT_DIR)/U/Third/UMessage_Sdk_1.5.0a",
 				);
 				OTHER_LDFLAGS = "$(inherited)";
+				OTHER_SWIFT_FLAGS = "$(inherited) \"-D\" \"COCOAPODS\" -D DEBUG";
 				PRODUCT_BUNDLE_IDENTIFIER = com.BrooksWon.U;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "543dbf43-ef2c-4546-862a-f831c7e870c7";
@@ -574,6 +575,7 @@
 					"$(PROJECT_DIR)/U/Third/UMessage_Sdk_1.5.0a",
 				);
 				OTHER_LDFLAGS = "$(inherited)";
+				OTHER_SWIFT_FLAGS = "$(inherited) \"-D\" \"COCOAPODS\"";
 				PRODUCT_BUNDLE_IDENTIFIER = com.BrooksWon.U;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "5740b421-1d15-4973-b07a-7ea17bf75f05";
