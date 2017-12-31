@@ -19,7 +19,6 @@
 		9844A6B01FF7FAE100ABB6FB /* ExtensionDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9844A6AF1FF7FAE100ABB6FB /* ExtensionDelegate.m */; };
 		9844A6B31FF7FAE100ABB6FB /* NotificationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9844A6B21FF7FAE100ABB6FB /* NotificationController.m */; };
 		9844A6B51FF7FAE100ABB6FB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9844A6B41FF7FAE100ABB6FB /* Assets.xcassets */; };
-		9844A6BA1FF7FAE100ABB6FB /* iWatch.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 9844A69A1FF7FAE100ABB6FB /* iWatch.app */; };
 		9844A6C71FF7FEE500ABB6FB /* iWatch.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 9844A69A1FF7FAE100ABB6FB /* iWatch.app */; };
 		984B54611FF7A63300270327 /* Stickers.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 984B54601FF7A63300270327 /* Stickers.xcassets */; };
 		984B54651FF7A63300270327 /* StickerPack.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 984B545E1FF7A63200270327 /* StickerPack.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
@@ -80,7 +79,6 @@
 			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
 			dstSubfolderSpec = 16;
 			files = (
-				9844A6BA1FF7FAE100ABB6FB /* iWatch.app in Embed Watch Content */,
 				9844A6C71FF7FEE500ABB6FB /* iWatch.app in Embed Watch Content */,
 			);
 			name = "Embed Watch Content";
@@ -729,6 +727,7 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CODE_SIGN_IDENTITY = "iPhone Developer: jianyu wang (4XUU6CEV36)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = TXSG7PC5L6;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
@@ -736,6 +735,8 @@
 				INFOPLIST_FILE = iWatch/Info.plist;
 				PRODUCT_BUNDLE_IDENTIFIER = com.BrooksWon.U.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = 4;
@@ -759,6 +760,7 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: jianyu wang (TXSG7PC5L6)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = TXSG7PC5L6;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
@@ -766,6 +768,8 @@
 				INFOPLIST_FILE = iWatch/Info.plist;
 				PRODUCT_BUNDLE_IDENTIFIER = com.BrooksWon.U.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = 4;
