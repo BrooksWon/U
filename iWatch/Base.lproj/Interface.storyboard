@@ -12,7 +12,34 @@
         <!--Interface Controller-->
         <scene sceneID="aou-V4-d1y">
             <objects>
-                <controller id="AgC-eL-Hgc" customClass="InterfaceController"/>
+                <controller id="AgC-eL-Hgc" customClass="InterfaceController">
+                    <items>
+                        <group width="1" alignment="left" layout="vertical" id="vKZ-Em-fhq">
+                            <items>
+                                <label width="1" alignment="left" text="content" textAlignment="left" numberOfLines="0" id="1B7-9d-QXP"/>
+                                <group width="1" alignment="center" id="gTA-cK-Xmp">
+                                    <items>
+                                        <button alignment="left" verticalAlignment="bottom" backgroundImage="like_normal" id="gtb-0g-wwl">
+                                            <connections>
+                                                <action selector="likeButtonAction" destination="AgC-eL-Hgc" id="rUl-N6-Ydv"/>
+                                            </connections>
+                                        </button>
+                                        <button alignment="right" verticalAlignment="bottom" backgroundImage="hate_normal" id="9rW-cx-7Na">
+                                            <connections>
+                                                <action selector="hateButtonAction" destination="AgC-eL-Hgc" id="cy6-UU-fz2"/>
+                                            </connections>
+                                        </button>
+                                    </items>
+                                </group>
+                            </items>
+                        </group>
+                    </items>
+                    <connections>
+                        <outlet property="contentLabel" destination="1B7-9d-QXP" id="rwu-SL-dCa"/>
+                        <outlet property="hateButton" destination="9rW-cx-7Na" id="0z3-CB-aju"/>
+                        <outlet property="likeButton" destination="gtb-0g-wwl" id="xbs-T9-pNV"/>
+                    </connections>
+                </controller>
             </objects>
             <point key="canvasLocation" x="220" y="345"/>
         </scene>
@@ -21,7 +48,7 @@
             <objects>
                 <notificationController id="YCC-NB-fut">
                     <items>
-                        <label alignment="left" text="TEST" id="IdU-wH-bcW"/>
+                        <label width="1" alignment="left" verticalAlignment="center" text="——Good night,Daisy.\n\n——Good night,Benjamin." numberOfLines="10" id="IdU-wH-bcW"/>
                     </items>
                     <notificationCategory key="notificationCategory" identifier="myCategory" id="JfB-70-Muf"/>
                     <connections>
@@ -37,7 +64,7 @@
             <objects>
                 <controller id="4sK-HA-Art" customClass="NotificationController">
                     <items>
-                        <label width="136" alignment="left" text="哈哈哈" textAlignment="left" id="6A7-Yo-NNe"/>
+                        <label width="1" alignment="left" verticalAlignment="center" text="哈哈哈" textAlignment="left" id="6A7-Yo-NNe"/>
                     </items>
                     <connections>
                         <outlet property="pushMessageLabel" destination="6A7-Yo-NNe" id="3zk-Dy-ZdD"/>

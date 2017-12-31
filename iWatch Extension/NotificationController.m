@@ -8,7 +8,7 @@
 
 #import "NotificationController.h"
 #import <UserNotifications/UserNotifications.h>
-
+#import "Header.h"
 
 @interface NotificationController ()
 @property (unsafe_unretained, nonatomic) IBOutlet WKInterfaceLabel *pushMessageLabel;
@@ -49,24 +49,20 @@
     
     //取出自定义的通知的内容并展示到界面的各个组件上
     UNNotificationContent *content = notification.request.content;
-//    NSDictionary *customDic = [content.userInfo objectForKey:@"customKey"];
-    [self.pushMessageLabel setText:@"新的push 内容"];
+    NSString *contentString = (NSString *)[content.userInfo objectForKey:kAppleWatchPushNitificationContentKey];
+    if (contentString.length > 0) {
+        [self.pushMessageLabel setText:contentString];
+        [[NSUserDefaults standardUserDefaults] setObject:contentString forKey:kAppleWatchPushNitificationContentKey];
+    } else {
+        [self.pushMessageLabel setText:@""];
+        [[NSUserDefaults standardUserDefaults] setObject:@"" forKey:kAppleWatchPushNitificationContentKey];
+    }
+
+    [[NSUserDefaults standardUserDefaults] synchronize];
     
     completionHandler(WKUserNotificationInterfaceTypeCustom);
-    
-    /*
-     
-     NSMutableDictionary *userInfo = [NSMutableDictionary dictionary];
-     [userInfo setObject:@"say something" forKey:@"openType"];
-     [WKInterfaceController openParentApplication:userInfo reply:^(NSDictionary *replyInfo, NSError *error){
-     
-     //主应用处理完后的回调，返回extension所需的数据
-     NSString *words = [replyInfo objectForKey:@"words"];
-     NSLog(@"say: %@",words);
-     }];
-     
-     **/
 }
+
 
 @end
 

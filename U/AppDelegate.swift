@@ -243,5 +243,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate,UNUserNotificationCenterDe
     func iRateShouldPromptForRating() -> Bool {
         return true
     }
+    
+    // 处理Apple watch 传递过过来的消息
+    func application(_ application: UIApplication, handleWatchKitExtensionRequest userInfo: [AnyHashable : Any]?, reply: @escaping ([AnyHashable : Any]?) -> Void) {
+        print(userInfo ?? "Apple Watch 没有传递任何消息")
+        
+        let rootNav = window?.rootViewController as! UINavigationController
+        rootNav.show(MyVoiceViewController.init(), sender: nil)
+        
+        MobClick.event("Apple Watch open app")
+        
+        let replyDictionary = NSDictionary.init(object: "replyContent", forKey: "replyKey" as NSCopying)
+        reply(replyDictionary as? [AnyHashable : Any])
+    }
 }
 

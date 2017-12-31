@@ -1,8 +1,8 @@
 {
     "aps": {
         "alert": {
-            "body": "Test message",
-            "title": "Optional title"
+            "body": "Nice to meet you.",
+            "title": "Hello,Uer!"
         },
         "category": "myCategory",
         "thread-id":"5280"
@@ -10,10 +10,10 @@
     
     "WatchKit Simulator Actions": [
         {
-            "title": "First Button",
+            "title": "Click",
             "identifier": "firstButtonAction"
         }
     ],
     
-    "customKey": "Use this file to define a testing payload for your notifications. The aps dictionary specifies the category, alert text and title. The WatchKit Simulator Actions array can provide info for one or more action buttons in addition to the standard Dismiss button. Any other top level keys are custom payload. If you have multiple such JSON files in your project, you'll be able to select them when choosing to debug the notification interface of your Watch App."
+    "kAppleWatchPushNitificationContentKey": "fjlhsdfjvdjhvj辨识度繁华的世界腹背受敌 丁捷符合国际大会上发表 的世界法律后果山东警方打击腐败😊觉得还是健康的十公分不到附近获得康师傅个地方喝酒啦公司没过多久  啊说了句废话少说的 v 粉红色的功夫 说丁捷火力发电颂古非今的十公分 的十公分个机会都是反攻倒算理解\n\n\nhdfjkldsh健康的发挥空间的\n你的身份回来看见对方"
 }

@@ -99,8 +99,11 @@
 
 /* Begin PBXFileReference section */
 		00290377EC9EE0E644CDD8BF /* Pods-U.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-U.release.xcconfig"; path = "Pods/Target Support Files/Pods-U/Pods-U.release.xcconfig"; sourceTree = "<group>"; };
+		3FFCA0514FC5AE8F974D8F92 /* Pods_U_iWatch.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_U_iWatch.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5EAFF70EC2C3829CBB6EDBB4 /* Pods-U-iWatch.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-U-iWatch.debug.xcconfig"; path = "Pods/Target Support Files/Pods-U-iWatch/Pods-U-iWatch.debug.xcconfig"; sourceTree = "<group>"; };
 		6F09D101DC14949B99C41E6A /* Pods_U.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_U.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7DB6DE6C835FD066CF13AA6E /* Pods-U.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-U.debug.xcconfig"; path = "Pods/Target Support Files/Pods-U/Pods-U.debug.xcconfig"; sourceTree = "<group>"; };
+		7E812F207DA25470C9946F6F /* Pods_iWatch.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iWatch.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9815A5C01FC312A10000B32C /* DZMTextViewPlaceholder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DZMTextViewPlaceholder.swift; sourceTree = "<group>"; };
 		9815A5C31FC312A10000B32C /* UMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMessage.h; sourceTree = "<group>"; };
 		9815A5C71FC312A20000B32C /* ATAppUpdater.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATAppUpdater.h; sourceTree = "<group>"; };
@@ -163,6 +166,7 @@
 		9893980C1CD9EEB100079DCF /* MyVoiceViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyVoiceViewController.xib; sourceTree = "<group>"; };
 		989398191CDA04AB00079DCF /* MeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeViewController.swift; sourceTree = "<group>"; };
 		9893981A1CDA04AB00079DCF /* MeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MeViewController.xib; sourceTree = "<group>"; };
+		98AE58E51FF89B84000E9F85 /* Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Header.h; sourceTree = "<group>"; };
 		98E87F0D1CF0DEB600B16A31 /* GLViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GLViewController.swift; sourceTree = "<group>"; };
 		98E87F0E1CF0DEB600B16A31 /* GLViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GLViewController.xib; sourceTree = "<group>"; };
 		98F9710E1D13AA1100E7A0F0 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
@@ -174,9 +178,24 @@
 		98F971141D13AA8C00E7A0F0 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		98F971151D13AA8C00E7A0F0 /* de */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = de; path = de.lproj/Main.storyboard; sourceTree = "<group>"; };
 		98F971161D13AA8C00E7A0F0 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
+		9B75F1264381E6C07CD4746B /* Pods-U-iWatch.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-U-iWatch.release.xcconfig"; path = "Pods/Target Support Files/Pods-U-iWatch/Pods-U-iWatch.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		36CFF3C05A3FFDEF5747B4F0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		52461EFE0F248E246377C67B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		9844A6A31FF7FAE100ABB6FB /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -243,6 +262,7 @@
 				9844A6AF1FF7FAE100ABB6FB /* ExtensionDelegate.m */,
 				9844A6B11FF7FAE100ABB6FB /* NotificationController.h */,
 				9844A6B21FF7FAE100ABB6FB /* NotificationController.m */,
+				98AE58E51FF89B84000E9F85 /* Header.h */,
 				9844A6B41FF7FAE100ABB6FB /* Assets.xcassets */,
 				9844A6B61FF7FAE100ABB6FB /* Info.plist */,
 				9844A6B71FF7FAE100ABB6FB /* PushNotificationPayload.apns */,
@@ -322,6 +342,8 @@
 			children = (
 				985C34FD1FC262E5006A59D5 /* UserNotifications.framework */,
 				6F09D101DC14949B99C41E6A /* Pods_U.framework */,
+				3FFCA0514FC5AE8F974D8F92 /* Pods_U_iWatch.framework */,
+				7E812F207DA25470C9946F6F /* Pods_iWatch.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -331,6 +353,8 @@
 			children = (
 				7DB6DE6C835FD066CF13AA6E /* Pods-U.debug.xcconfig */,
 				00290377EC9EE0E644CDD8BF /* Pods-U.release.xcconfig */,
+				5EAFF70EC2C3829CBB6EDBB4 /* Pods-U-iWatch.debug.xcconfig */,
+				9B75F1264381E6C07CD4746B /* Pods-U-iWatch.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -344,6 +368,7 @@
 			buildPhases = (
 				9844A6981FF7FAE100ABB6FB /* Resources */,
 				9844A6C01FF7FAE100ABB6FB /* Embed App Extensions */,
+				36CFF3C05A3FFDEF5747B4F0 /* Frameworks */,
 			);
 			buildRules = (
 			);
@@ -377,6 +402,7 @@
 			buildConfigurationList = 984B54661FF7A63300270327 /* Build configuration list for PBXNativeTarget "StickerPack" */;
 			buildPhases = (
 				984B545C1FF7A63200270327 /* Resources */,
+				52461EFE0F248E246377C67B /* Frameworks */,
 			);
 			buildRules = (
 			);
@@ -418,7 +444,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0730;
-				LastUpgradeCheck = 0800;
+				LastUpgradeCheck = 0910;
 				ORGANIZATIONNAME = "王建雨";
 				TargetAttributes = {
 					9844A6991FF7FAE100ABB6FB = {
@@ -730,9 +756,25 @@
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = TXSG7PC5L6;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$PODS_CONFIGURATION_BUILD_DIR/GlitchLabel\"",
+					"\"$PODS_CONFIGURATION_BUILD_DIR/LLSwitch\"",
+					"\"$PODS_CONFIGURATION_BUILD_DIR/LTMorphingLabel\"",
+					"\"$PODS_CONFIGURATION_BUILD_DIR/PathMenu\"",
+					"\"$PODS_CONFIGURATION_BUILD_DIR/SCLAlertView\"",
+					"\"$PODS_CONFIGURATION_BUILD_DIR/SwiftyJSON\"",
+					"\"$PODS_CONFIGURATION_BUILD_DIR/iRate\"",
+					"\"${PODS_ROOT}/UMengAnalytics/umsdk_IOS_analyics_idfa_v4.2.4\"",
+					"\"$PODS_CONFIGURATION_BUILD_DIR/Bugtags\"",
+				);
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				IBSC_MODULE = iWatch_Extension;
 				INFOPLIST_FILE = iWatch/Info.plist;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(PODS_ROOT)/UMengAnalytics/**\"",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.BrooksWon.U.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
@@ -740,7 +782,7 @@
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = 4;
-				WATCHOS_DEPLOYMENT_TARGET = 2.0;
+				WATCHOS_DEPLOYMENT_TARGET = 3.0;
 			};
 			name = Debug;
 		};
@@ -763,9 +805,25 @@
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = TXSG7PC5L6;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$PODS_CONFIGURATION_BUILD_DIR/Bugtags/\"",
+					"\"$PODS_CONFIGURATION_BUILD_DIR/GlitchLabel\"",
+					"\"$PODS_CONFIGURATION_BUILD_DIR/LLSwitch\"",
+					"\"$PODS_CONFIGURATION_BUILD_DIR/LTMorphingLabel\"",
+					"\"$PODS_CONFIGURATION_BUILD_DIR/PathMenu\"",
+					"\"$PODS_CONFIGURATION_BUILD_DIR/SCLAlertView\"",
+					"\"$PODS_CONFIGURATION_BUILD_DIR/SwiftyJSON\"",
+					"\"$PODS_CONFIGURATION_BUILD_DIR/iRate\"",
+					"\"${PODS_ROOT}/UMengAnalytics/umsdk_IOS_analyics_idfa_v4.2.4\"",
+				);
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				IBSC_MODULE = iWatch_Extension;
 				INFOPLIST_FILE = iWatch/Info.plist;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(PODS_ROOT)/UMengAnalytics/**\"",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.BrooksWon.U.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
@@ -773,7 +831,7 @@
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = 4;
-				WATCHOS_DEPLOYMENT_TARGET = 2.0;
+				WATCHOS_DEPLOYMENT_TARGET = 3.0;
 			};
 			name = Release;
 		};
@@ -912,14 +970,20 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -961,14 +1025,20 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
