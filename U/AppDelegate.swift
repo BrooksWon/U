@@ -16,11 +16,13 @@ import SwiftyJSON
 import iRate
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate,UNUserNotificationCenterDelegate,iRateDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate,UNUserNotificationCenterDelegate,iRateDelegate{
     
     var window: UIWindow?
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+        
+        UIApplication.shared.applicationIconBadgeNumber = 0
         
         // idfa
         _ = ASIdentifierManager.shared().advertisingIdentifier.uuidString
@@ -46,7 +48,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate,UNUserNotificationCenterDe
             
             iRate.sharedInstance().firstUsed = startDate
         #endif
-        iRate.sharedInstance().previewMode = true
         iRate.sharedInstance().useAllAvailableLanguages = true;
         iRate.sharedInstance().promptForNewVersionIfUserRated = true
         
@@ -111,7 +112,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,UNUserNotificationCenterDe
         
         if (launchOptions != nil) {
             if let notification = launchOptions![UIApplicationLaunchOptionsKey.remoteNotification] as? [AnyHashable: Any] {
-                let msg:String = (notification as NSObject).value(forKeyPath: "aps.alert") as! String
+                let msg = handlePushMessage(message: notification as NSDictionary)
                 UserDefaults.standard.set(msg, forKey: "PUSH_MSG_KEY")
                 UserDefaults.standard.synchronize()
             }
@@ -160,6 +161,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,UNUserNotificationCenterDe
             handleUMPushMessage(message: userInfo as NSDictionary)
             // 代表从后台接受消息后进入app
             UIApplication.shared.applicationIconBadgeNumber = 0
+
         } else{
             //应用处于后台时的本地推送接受
         }
@@ -242,19 +244,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate,UNUserNotificationCenterDe
     
     func iRateShouldPromptForRating() -> Bool {
         return true
-    }
-    
-    // 处理Apple watch 传递过过来的消息
-    func application(_ application: UIApplication, handleWatchKitExtensionRequest userInfo: [AnyHashable : Any]?, reply: @escaping ([AnyHashable : Any]?) -> Void) {
-        print(userInfo ?? "Apple Watch 没有传递任何消息")
-        
-        let rootNav = window?.rootViewController as! UINavigationController
-        rootNav.show(MyVoiceViewController.init(), sender: nil)
-        
-        MobClick.event("Apple Watch open app")
-        
-        let replyDictionary = NSDictionary.init(object: "replyContent", forKey: "replyKey" as NSCopying)
-        reply(replyDictionary as? [AnyHashable : Any])
     }
 }
 

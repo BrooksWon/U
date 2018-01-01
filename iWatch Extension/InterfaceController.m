@@ -65,7 +65,7 @@
     if (content.length <= 0) {
         content = kAppleWatchPushNitificationContent;
     }
-    [self.contentLabel setText:content ?: @""];
+    [self.contentLabel setText:content];
 }
 
 - (void)didDeactivate {

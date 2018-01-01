@@ -49,18 +49,18 @@
     
     //取出自定义的通知的内容并展示到界面的各个组件上
     UNNotificationContent *content = notification.request.content;
-    NSString *contentString = (NSString *)[content.userInfo objectForKey:kAppleWatchPushNitificationContentKey];
+    NSString *contentString = (NSString *)[content.userInfo valueForKeyPath:@"alert.body"];
     if (contentString.length > 0) {
         [self.pushMessageLabel setText:contentString];
         [[NSUserDefaults standardUserDefaults] setObject:contentString forKey:kAppleWatchPushNitificationContentKey];
     } else {
-        [self.pushMessageLabel setText:@""];
-        [[NSUserDefaults standardUserDefaults] setObject:@"" forKey:kAppleWatchPushNitificationContentKey];
+        [self.pushMessageLabel setText:kAppleWatchPushNitificationContent];
+        [[NSUserDefaults standardUserDefaults] setObject:kAppleWatchPushNitificationContent forKey:kAppleWatchPushNitificationContentKey];
     }
 
     [[NSUserDefaults standardUserDefaults] synchronize];
     
-    completionHandler(WKUserNotificationInterfaceTypeCustom);
+    completionHandler(WKUserNotificationInterfaceTypeDefault);
 }
 
 

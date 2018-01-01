@@ -4,7 +4,6 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="watchOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="13507"/>
     </dependencies>
@@ -48,7 +47,7 @@
             <objects>
                 <notificationController id="YCC-NB-fut">
                     <items>
-                        <label width="1" alignment="left" verticalAlignment="center" text="——Good night,Daisy.\n\n——Good night,Benjamin." numberOfLines="10" id="IdU-wH-bcW"/>
+                        <label width="1" alignment="left" verticalAlignment="center" text="Good night,Daisy.\nGood night,Benjamin." numberOfLines="10" id="IdU-wH-bcW"/>
                     </items>
                     <notificationCategory key="notificationCategory" identifier="myCategory" id="JfB-70-Muf"/>
                     <connections>

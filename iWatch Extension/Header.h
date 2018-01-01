@@ -9,7 +9,7 @@
 #ifndef Header_h
 #define Header_h
 
-#define kAppleWatchPushNitificationContentKey @"kAppleWatchPushNitificationContentKey"
-#define kAppleWatchPushNitificationContent  @"——Good night,Daisy.\n\n——Good night,Benjamin."
+#define kAppleWatchPushNitificationContentKey @"PUSH_MSG_KEY"
+#define kAppleWatchPushNitificationContent  @"Good night,Daisy.\nGood night,Benjamin."
 
 #endif /* Header_h */
