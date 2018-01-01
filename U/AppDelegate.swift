@@ -10,19 +10,57 @@ import UIKit
 import AdSupport
 import SCLAlertView
 import LTMorphingLabel
-
+import UserNotifications
+import UserNotificationsUI
+import SwiftyJSON
+import iRate
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
-
+class AppDelegate: UIResponder, UIApplicationDelegate,UNUserNotificationCenterDelegate,iRateDelegate{
+    
     var window: UIWindow?
-
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-
+        
+        UIApplication.shared.applicationIconBadgeNumber = 0
+        
+        // idfa
+        _ = ASIdentifierManager.shared().advertisingIdentifier.uuidString
+        
+        //定制光标
+        UITextField.appearance().tintColor = UIColor.white
+        UITextView.appearance().tintColor = UIColor.white
+        
+        // 版本更新
+        DispatchQueue.global().async {
+            (ATAppUpdater.sharedUpdater() as AnyObject).forceOpenNewAppVersion(true)
+        }
+        
+        //configure iRate
+        #if DEBUG
+            iRate.sharedInstance().daysUntilPrompt = 1
+            iRate.sharedInstance().usesCount = 1
+            iRate.sharedInstance().eventsUntilPrompt = 1;
+        #else
+            let dateFormatter = DateFormatter.init()
+            dateFormatter.setLocalizedDateFormatFromTemplate("yyyy-MM-dd HH-mm-sss")
+            let startDate = dateFormatter.date(from: "2018-01-06 12-00-00")
+            
+            iRate.sharedInstance().firstUsed = startDate
+        #endif
+        iRate.sharedInstance().useAllAvailableLanguages = true;
+        iRate.sharedInstance().promptForNewVersionIfUserRated = true
+        
+        if (iRate.sharedInstance().shouldPromptForRating() && !iRate.sharedInstance().ratedThisVersion) {
+            DispatchQueue.main.asyncAfter(deadline:  DispatchTime.now() + 5, execute: {
+                iRate.sharedInstance().promptForRating()
+            })
+        }
+        
         // Bugtags 反馈
         let options = BugtagsOptions()
         options.enableUserSignIn = false
-        Bugtags.start(withAppKey: "83dffd20bb1e073e3582ad26893e334f", invocationEvent: BTGInvocationEventNone, options: options)
+        Bugtags.start(withAppKey: "45c9e14c6f339bde162201c7c56a0423", invocationEvent: BTGInvocationEventNone, options: options)
         
         //UM 统计
         let obj = UMAnalyticsConfig.sharedInstance();
@@ -35,8 +73,30 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // UM push
         UMessage.start(withAppkey: "572a0d0fe0f55a9dc1001e9d", launchOptions: launchOptions, httpsEnable: true)
         UMessage.registerForRemoteNotifications()
-        UMessage.openDebugMode(true);
-
+        
+        if #available(iOS 10.0, *) {
+            let center = UNUserNotificationCenter.current()
+            center.delegate = self
+            center.requestAuthorization(options: [UNAuthorizationOptions.badge, UNAuthorizationOptions.alert, UNAuthorizationOptions.sound], completionHandler: { (flag, error) in
+                if flag {
+                    // 用户允许注册push消息
+                } else {
+                    // 用户不允许注册push消息
+                }
+            })
+            
+        } else {
+            // Fallback on earlier versions
+        }
+        
+        
+        
+        #if DEBUG
+            UMessage.openDebugMode(true)
+        #else
+            UMessage.openDebugMode(false);
+        #endif
+        
         
         //3Dtouch
         if #available(iOS 9.0, *) {
@@ -52,25 +112,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         if (launchOptions != nil) {
             if let notification = launchOptions![UIApplicationLaunchOptionsKey.remoteNotification] as? [AnyHashable: Any] {
-                let msg:String = (notification as NSObject).value(forKeyPath: "aps.alert") as! String
+                let msg = handlePushMessage(message: notification as NSDictionary)
                 UserDefaults.standard.set(msg, forKey: "PUSH_MSG_KEY")
                 UserDefaults.standard.synchronize()
             }
         }
         
-        
-        // idfa
-        _ = ASIdentifierManager.shared().advertisingIdentifier.uuidString
-        
-        //定制光标
-        UITextField.appearance().tintColor = UIColor.white
-        UITextView.appearance().tintColor = UIColor.white
-        
-        // 版本更新
-        DispatchQueue.global().async {
-            (ATAppUpdater.sharedUpdater() as AnyObject).forceOpenNewAppVersion(true)
-        }
-
         return true
     }
     
@@ -86,32 +133,63 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
         UMessage.registerDeviceToken(deviceToken)
         MobClick.event("Register_success")
+        
+        let device_ns = NSData.init(data: deviceToken)
+        
+        var deviceTokenString:String = device_ns.description.trimmingCharacters(in:CharacterSet(charactersIn: "<>" ))
+        deviceTokenString = deviceTokenString.replacingOccurrences(of: " ", with: "")
+        
+        print(deviceTokenString)
     }
     
     func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
-        //如果注册不成功，打印错误信息，可以在网上找到对应的解决方案
-        //如果注册成功，可以删掉这个方法
+        //如果注册不成功
         MobClick.event("Register_Fail")
-
     }
     
     func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable: Any]) {
-        //关闭友盟自带的弹出框
-        UMessage.setAutoAlert(false)
-        
-        UMessage.didReceiveRemoteNotification(userInfo)
-        
-        showPushMsg(userInfo as NSObject)
-        
-        MobClick.event("didReceiveRemoteNotification")
+        handleUMPushMessage(message: userInfo as NSDictionary)
     }
     
-    func showPushMsg(_ userInfo: NSObject) {
+    //iOS10新增：处理后台点击通知的代理方法
+    @available(iOS 10.0, *)
+    func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
+        let userInfo = response.notification.request.content.userInfo
+        if (response.notification.request.trigger?.isKind(of: UNPushNotificationTrigger.classForCoder()))! {
+            //应用处于后台时的远程推送接受
+            //必须加这句代码
+            handleUMPushMessage(message: userInfo as NSDictionary)
+            // 代表从后台接受消息后进入app
+            UIApplication.shared.applicationIconBadgeNumber = 0
+
+        } else{
+            //应用处于后台时的本地推送接受
+        }
+        
+        completionHandler()
+    }
+    
+    //iOS10新增：处理前台收到通知的代理方法
+    @available(iOS 10.0, *)
+    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+        let userInfo = notification.request.content.userInfo
+        if (notification.request.trigger?.isKind(of: UNPushNotificationTrigger.classForCoder()))! {
+            handleUMPushMessage(message: userInfo as NSDictionary)
+        } else {
+            //应用处于前台时的本地推送接受
+        }
+        
+        completionHandler([UNNotificationPresentationOptions.alert, UNNotificationPresentationOptions.sound])
+    }
+    
+    func showPushMsg(userInfo: NSDictionary) {
         
         MobClick.event("showPushMsg")
         
-        let msg:String = (userInfo as NSObject).value(forKeyPath: "aps.alert") as! String
-        
+        let msg = handlePushMessage(message: userInfo)
+        if (!msg.isKind(of: NSString.classForCoder()) && msg.length <= 0) {
+            return
+        }
         
         UserDefaults.standard.set(msg, forKey: "PUSH_MSG_KEY")
         UserDefaults.standard.synchronize()
@@ -132,9 +210,40 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 MobClick.event("dian_ji_hao_chan_kan_push")
                 
             }
-            alert.showNotice(NSLocalizedString("NotificationKey", comment: ""), subTitle: msg as String)
+            alert.showWarning(NSLocalizedString("NotificationKey", comment: ""), subTitle: msg as String)
         }
     }
     
+    func handleUMPushMessage(message:NSDictionary) -> Void {
+        //关闭友盟自带的弹出框
+        UMessage.setAutoAlert(false)
+        
+        UMessage.didReceiveRemoteNotification(message as? [AnyHashable : Any])
+        
+        showPushMsg(userInfo: message)
+        
+        MobClick.event("didReceiveRemoteNotification")
+    }
+    
+    func handlePushMessage(message: NSDictionary) -> NSString {
+        let jsonData = try? JSONSerialization.data(withJSONObject: message, options: [])
+        
+        let json = try? JSON(data: jsonData!)
+        let bodyContent = json!["aps"]["alert"]["body"].string
+        if (bodyContent != nil) {
+            return bodyContent! as NSString;
+        } else {
+            print("解析push消息失败")
+            return "" as NSString;
+        }
+    }
+    
+    func iRateShouldOpenAppStore() -> Bool {
+        return true
+    }
+    
+    func iRateShouldPromptForRating() -> Bool {
+        return true
+    }
 }
 

@@ -30,10 +30,6 @@ CFBundleDisplayName ="U.";
 
 "NotificationKey"   = "提示";
 
-
-"FriendKey"         = "朋友圈";
-"WechatKey"         = "微信好友";
-
 "VoiceKey"          = "呐喊";
 
 "UpdateKey"         = "更新";

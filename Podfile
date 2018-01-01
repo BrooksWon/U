@@ -14,5 +14,7 @@ target 'U' do
   pod 'GlitchLabel', :git => 'https://github.com/BrooksWon/GlitchLabel.git'#暂时写自己的库，等待master合并我的PR后再替换成master
 
   pod 'LTMorphingLabel'
+  pod 'SwiftyJSON', '~>4.0.0'
+  pod 'iRate', '~>1.12.1'
 
 end

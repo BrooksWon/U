@@ -29,13 +29,10 @@ CFBundleDisplayName ="U.";
 "Push_Ok_Key"       = "OK";
 "NotificationKey"   = "Notification";
 
-"FriendKey"         = "Friend";
-"WechatKey"         = "WeChat";
 "VoiceKey"          = "Shout";
 
 "UpdateKey"         = "Update";
 
 "NewVersionKey"     = "New Version";
-
 
 

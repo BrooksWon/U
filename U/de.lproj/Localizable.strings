@@ -29,8 +29,6 @@ CFBundleDisplayName ="U.";
 "Push_Ok_Key"       = "OK";
 "NotificationKey"   = "Benachrichtigung";
 
-"FriendKey"         = "Freund";
-"WechatKey"         = "WeChat";
 "VoiceKey"          = "Schreien";
 
 "UpdateKey"         = "Aktualisieren";

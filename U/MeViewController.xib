@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -34,7 +35,7 @@
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="U." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KuD-aN-AE8">
                             <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                             <color key="backgroundColor" red="0.081446088850498199" green="0.081328548491001129" blue="0.084216199815273285" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            <fontDescription key="fontDescription" type="system" weight="black" pointSize="24"/>
+                            <fontDescription key="fontDescription" type="system" weight="black" pointSize="25"/>
                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
@@ -49,11 +50,11 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3TO-ZN-Ve9">
-                            <rect key="frame" x="10" y="29" width="26" height="26"/>
+                            <rect key="frame" x="10" y="35" width="20" height="20"/>
                             <color key="backgroundColor" red="0.081446088850498199" green="0.081328548491001129" blue="0.084216199815273285" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <constraints>
-                                <constraint firstAttribute="height" constant="26" id="DqW-D2-p7J"/>
-                                <constraint firstAttribute="width" constant="26" id="cWb-Ib-VNW"/>
+                                <constraint firstAttribute="height" constant="20" id="DqW-D2-p7J"/>
+                                <constraint firstAttribute="width" constant="20" id="cWb-Ib-VNW"/>
                             </constraints>
                             <state key="normal" image="back">
                                 <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -75,7 +76,7 @@
                         <constraint firstItem="TkW-lg-Rn4" firstAttribute="top" secondItem="iuK-nQ-h2e" secondAttribute="top" id="PEy-1V-isc"/>
                         <constraint firstItem="KuD-aN-AE8" firstAttribute="leading" secondItem="iuK-nQ-h2e" secondAttribute="leading" id="Rqn-9A-Ps2"/>
                         <constraint firstAttribute="trailing" secondItem="Ggb-Ge-Aqt" secondAttribute="trailing" id="UYI-nF-TDU"/>
-                        <constraint firstItem="3TO-ZN-Ve9" firstAttribute="top" secondItem="TkW-lg-Rn4" secondAttribute="bottom" constant="9" id="ZVY-9e-V2E"/>
+                        <constraint firstItem="3TO-ZN-Ve9" firstAttribute="top" secondItem="TkW-lg-Rn4" secondAttribute="bottom" constant="15" id="ZVY-9e-V2E"/>
                         <constraint firstItem="Ggb-Ge-Aqt" firstAttribute="leading" secondItem="iuK-nQ-h2e" secondAttribute="leading" id="w3H-H9-VKh"/>
                         <constraint firstAttribute="bottom" secondItem="Ggb-Ge-Aqt" secondAttribute="bottom" id="yyd-JX-LyO"/>
                     </constraints>
@@ -85,7 +86,7 @@
                     <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                     <color key="sectionIndexBackgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                     <label key="tableFooterView" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="当前版本 1.0.0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="s26-rH-QOU">
-                        <rect key="frame" x="0.0" y="559" width="375" height="44"/>
+                        <rect key="frame" x="0.0" y="828" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" red="0.081446088850498199" green="0.081328548491001129" blue="0.084216199815273285" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
@@ -108,15 +109,11 @@
                 <constraint firstItem="iuK-nQ-h2e" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="vsx-bL-agx"/>
                 <constraint firstItem="MhE-Mz-CuQ" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="wL5-yA-4mH"/>
             </constraints>
+            <viewLayoutGuide key="safeArea" id="3wb-Oh-cMW"/>
             <point key="canvasLocation" x="154" y="329"/>
         </view>
     </objects>
     <resources>
-        <image name="back" width="32" height="32"/>
+        <image name="back" width="26" height="26"/>
     </resources>
-    <simulatedMetricsContainer key="defaultSimulatedMetrics">
-        <simulatedStatusBarMetrics key="statusBar"/>
-        <simulatedOrientationMetrics key="orientation"/>
-        <simulatedScreenMetrics key="destination" type="retina4_7.fullscreen"/>
-    </simulatedMetricsContainer>
 </document>
