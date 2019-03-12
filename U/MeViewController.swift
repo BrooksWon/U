@@ -85,7 +85,7 @@ extension MeViewController: UITableViewDataSource {
                 }
                 
                 cell?.addSubview(self.setupLLSwitch())
-                llSwitch.frame = CGRect(x: cell!.frame.size.width-60/2.0, y: (cell!.frame.size.height-30)/2.0, width: 60, height: 30)
+                llSwitch.frame = CGRect(x: cell!.frame.size.width-30/2.0, y: (cell!.frame.size.height-30)/2.0, width: 60, height: 30)
             }
             
             

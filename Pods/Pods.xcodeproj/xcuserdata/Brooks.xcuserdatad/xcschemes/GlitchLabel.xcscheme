@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0700"
+   LastUpgradeVersion = "0930"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -13,11 +13,11 @@
             buildForProfiling = "YES"
             buildForArchiving = "YES">
             <BuildableReference
-               BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '687FB79904C0D0497C3222D8C17B9CAD'
-               BlueprintName = 'GlitchLabel'
-               ReferencedContainer = 'container:Pods.xcodeproj'
-               BuildableName = 'GlitchLabel.framework'>
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "97D7B0F38D67C32C1766CEADE5F16A36"
+               BlueprintName = "GlitchLabel"
+               ReferencedContainer = "container:Pods.xcodeproj"
+               BuildableName = "GlitchLabel.framework">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
