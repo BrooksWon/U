@@ -1,7 +1,4 @@
 PODS:
-  - Bugtags (2.4.0):
-    - Bugtags/Core (= 2.4.0)
-  - Bugtags/Core (2.4.0)
   - GlitchLabel (2.0.0)
   - iRate (1.12.1)
   - LLSwitch (1.0.4)
@@ -12,7 +9,6 @@ PODS:
   - UMengAnalytics (4.2.4)
 
 DEPENDENCIES:
-  - Bugtags (= 2.4.0)
   - GlitchLabel (from `https://github.com/BrooksWon/GlitchLabel.git`)
   - iRate (~> 1.12.1)
   - LLSwitch (= 1.0.4)
@@ -24,7 +20,6 @@ DEPENDENCIES:
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
-    - Bugtags
     - iRate
     - LLSwitch
     - LTMorphingLabel
@@ -51,7 +46,6 @@ CHECKOUT OPTIONS:
     :git: https://github.com/vikmeup/SCLAlertView-Swift.git
 
 SPEC CHECKSUMS:
-  Bugtags: 916b3dcbc4e495f96206ac35546aa196c9ed2132
   GlitchLabel: 65773d1df358ef66c8daa40428eb79bd04e7a976
   iRate: 59c63a290d4988f365d4338e58eca192ae92b552
   LLSwitch: b5f0e574b4c53f46806df015cd21285464d4b440
@@ -61,6 +55,6 @@ SPEC CHECKSUMS:
   SwiftyJSON: 070dabdcb1beb81b247c65ffa3a79dbbfb3b48aa
   UMengAnalytics: ef8d45f94c0e5771dc364cf6a5731d9d3b101da2
 
-PODFILE CHECKSUM: ba40a13c988dcc232d059eb87a0c5761949f7162
+PODFILE CHECKSUM: 517243bd89b6fa2d2a38a76d8f8ec0e8171f822c
 
 COCOAPODS: 1.5.3

@@ -3,7 +3,6 @@
 target 'U' do
   use_frameworks!
   
-  pod 'Bugtags', '2.4.0'
   pod 'UMengAnalytics', '4.2.4'
   pod 'LLSwitch', '1.0.4'
   pod 'PathMenu', :git => 'https://github.com/BrooksWon/PathMenu.git'#暂时写自己的库，等待master合并我的PR后再替换成master

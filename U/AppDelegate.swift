@@ -57,14 +57,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate,UNUserNotificationCenterDe
             })
         }
         
-        // Bugtags 反馈
-        let options = BugtagsOptions()
-        options.enableUserSignIn = false
-        Bugtags.start(withAppKey: "45c9e14c6f339bde162201c7c56a0423", invocationEvent: BTGInvocationEventNone, options: options)
-        
         //UM 统计
-        let obj = UMAnalyticsConfig.sharedInstance();
-        obj?.appKey = "572a0d0fe0f55a9dc1001e9d";
+        let obj = UMAnalyticsConfig.sharedInstance()
+        obj?.appKey = "572a0d0fe0f55a9dc1001e9d"
+        obj?.ePolicy = REALTIME
         MobClick.start(withConfigure:obj);
         MobClick.setLogEnabled(true);
         MobClick.setCrashReportEnabled(false)

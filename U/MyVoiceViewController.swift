@@ -57,9 +57,8 @@ class MyVoiceViewController: UIViewController {
         
         showSuccess(sender)
         
-        // 利用Bugtags反馈作为数据提交的api
-        Bugtags.setUserData(nameTextField.text, forKey: "用户姓名")
-        Bugtags.sendFeedback(voiceTextView.text)
+        // 利用UM功能统计作为数据提交的api
+        MobClick.event("Feedback", attributes: ["who:":nameTextField.text!,"words:":voiceTextView.text!])
         
         // 毛玻璃
         let visualEffectView = UIVisualEffectView(effect: UIBlurEffect(style: .extraLight)) as UIVisualEffectView
